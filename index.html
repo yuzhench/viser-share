@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glove capture viser</title>
+<style>
+  :root { --bg: #ffffff; --text: #1d2125; --dim: #5d6670; --line: #e3e6ea; --link: #1f6feb; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #0f1216; --text: #e6e9ed; --dim: #9aa4ae; --line: #262c33; --link: #6ea8ff; } }
+  :root[data-theme="dark"] { --bg: #0f1216; --text: #e6e9ed; --dim: #9aa4ae; --line: #262c33; --link: #6ea8ff; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 32px 16px 48px; }
+  h1 { font-size: 22px; margin: 0 0 4px; }
+  .sub { color: var(--dim); margin: 0 0 24px; }
+  a { color: var(--link); }
+  .card { border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; margin: 12px 0; }
+  .card a { font-weight: 600; font-size: 16px; }
+  .card p { margin: 4px 0 0; color: var(--dim); }
+  h2 { font-size: 16px; margin: 28px 0 8px; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  td { border-top: 1px solid var(--line); padding: 6px 8px 6px 0; vertical-align: top; }
+  code { font-size: 13px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Glove capture: hands, trackers and depth in station coordinates</h1>
+  <p class="sub">Session 2026-10-16 14:50, key frame 14:50:36.979. SteamVR tracking space, metres, Y up.</p>
+
+  <div class="card">
+    <a href="viser-client/?playbackPath=../recordings/keyframe_pm3s.viser">Key frame ± 3 s (playback)</a>
+    <p>61 frames at 10 fps; depth every 3rd pixel. 44 MB, takes a moment to load.</p>
+  </div>
+  <div class="card">
+    <a href="viser-client/?playbackPath=../recordings/keyframe_full.viser">Key frame only (full resolution)</a>
+    <p>One frame, every depth pixel. 5 MB.</p>
+  </div>
+
+  <h2>Layers</h2>
+  <p>Open the scene tree (top right; in the playback view, bottom right next to the speed control) and click the eye icons. Switches stay as set while the recording plays.</p>
+  <table>
+    <tr><td><code>/cameras/&lt;camera&gt;/points</code></td><td>depth from that camera as coloured points (head, left_wrist, right_wrist)</td></tr>
+    <tr><td><code>/cameras/&lt;camera&gt;/frustum</code></td><td>camera pose and field of view, with its colour image</td></tr>
+    <tr><td><code>/hands/&lt;side&gt;/mesh</code></td><td>hand mesh driven by the glove keypoints</td></tr>
+    <tr><td><code>/hands/&lt;side&gt;/skeleton</code></td><td>glove keypoints and bones, coloured per finger</td></tr>
+    <tr><td><code>/hands/&lt;side&gt;/emf</code></td><td>glove EMF coils</td></tr>
+    <tr><td><code>/trackers</code></td><td>Vive trackers</td></tr>
+  </table>
+
+  <h2>Known issue</h2>
+  <p>The two wrist-camera extrinsics in this recording are poor (single-axis calibration sets), so their point clouds sit 4–6 cm off the hands. The head camera lines up with the left hand to about 1 cm.</p>
+</main>
+</body>
+</html>
