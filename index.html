@@ -32,6 +32,11 @@
   ul { margin: 0; padding-left: 18px; }
   li { margin: 4px 0; }
   code { background: var(--chip); border-radius: 4px; padding: 1px 5px; font-size: 13px; }
+  .photos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 10px; max-width: 960px; }
+  @media (max-width: 700px) { .photos { grid-template-columns: 1fr; } }
+  .photos figure { margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+  .photos img { display: block; width: 100%; height: auto; }
+  .photos figcaption { padding: 8px 12px; color: var(--dim); font-size: 13px; }
 </style>
 </head>
 <body>
@@ -83,6 +88,13 @@
       <li>Drag to rotate, right-drag to pan, scroll to zoom. In the video, what you hide stays hidden while it plays.</li>
     </ul>
   </section>
+
+  <h2 class="group">Wearable setup</h2>
+  <p class="note" style="margin-top:0">Helmet with the head camera and a Vive tracker; tactile gloves with a Vive tracker and a camera on each wrist; the vest carries the USB hubs, cables and power.</p>
+  <div class="photos">
+    <figure><img src="images/setup_front.jpg" alt="Wearable setup, front" loading="lazy"><figcaption>Front</figcaption></figure>
+    <figure><img src="images/setup_back.jpg" alt="Wearable setup, back" loading="lazy"><figcaption>Back</figcaption></figure>
+  </div>
 </main>
 </body>
 </html>
