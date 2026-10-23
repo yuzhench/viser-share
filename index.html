@@ -17,7 +17,8 @@
   h1 { font-size: 18px; margin: 0; }
   header span { color: var(--dim); font-size: 13px; }
   .views { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  @media (max-width: 900px) { .views { grid-template-columns: 1fr; } }
+  .views.three { grid-template-columns: 1fr 1fr 1fr; }
+  @media (max-width: 900px) { .views, .views.three { grid-template-columns: 1fr; } }
   .view { background: var(--card); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
   .bar { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 12px; border-bottom: 1px solid var(--line); }
   .bar b { font-size: 14px; }
@@ -43,37 +44,43 @@
 <main>
   <header>
     <h1>Glove capture · hands, trackers and depth in station coordinates</h1>
-    <span>session 2026-10-16 14:50</span>
+    <span>session 2026-10-22 21:18 · picking up apples · 11 min take</span>
   </header>
 
+  <h2 class="group" style="margin-top:0">Videos</h2>
   <div class="view">
-    <div class="bar"><div><b>Video</b> <span>14:50:34.0 – 14:50:40.0 · 10 fps</span></div>
-      <a href="viser-client/?playbackPath=../recordings/keyframe_pm3s.viser" target="_blank" rel="noopener">open full screen ↗</a></div>
-    <iframe class="tall" src="viser-client/?playbackPath=../recordings/keyframe_pm3s.viser" title="Video" loading="lazy" allowfullscreen></iframe>
+    <div class="bar"><div><b>Clip 1</b> <span>107.6 – 117.6 s · 21:20:30.9 – 21:20:40.9 · 10 fps</span></div>
+      <a href="viser-client/?playbackPath=../recordings/2026-10-22_clip_113s.viser" target="_blank" rel="noopener">open full screen ↗</a></div>
+    <iframe class="tall" src="viser-client/?playbackPath=../recordings/2026-10-22_clip_113s.viser" title="Clip 1" loading="lazy" allowfullscreen></iframe>
   </div>
-  <p class="note">The video keeps every 3rd depth pixel to stay within the hosting size limit. The key frames below keep every depth pixel at full precision.</p>
+  <div class="view" style="margin-top:14px">
+    <div class="bar"><div><b>Clip 2</b> <span>332.8 – 342.8 s · 21:24:16.1 – 21:24:26.1 · 10 fps</span></div>
+      <a href="viser-client/?playbackPath=../recordings/2026-10-22_clip_338s.viser" target="_blank" rel="noopener">open full screen ↗</a></div>
+    <iframe class="tall" src="viser-client/?playbackPath=../recordings/2026-10-22_clip_338s.viser" title="Clip 2" loading="lazy" allowfullscreen></iframe>
+  </div>
+  <div class="view" style="margin-top:14px">
+    <div class="bar"><div><b>Clip 3</b> <span>558.5 – 567.7 s · 21:28:01.8 – 21:28:11.0 · 10 fps</span></div>
+      <a href="viser-client/?playbackPath=../recordings/2026-10-22_clip_563s.viser" target="_blank" rel="noopener">open full screen ↗</a></div>
+    <iframe class="tall" src="viser-client/?playbackPath=../recordings/2026-10-22_clip_563s.viser" title="Clip 3" loading="lazy" allowfullscreen></iframe>
+  </div>
+  <p class="note">The videos keep every 3rd depth pixel to stay within the hosting size limit (clip 3 is 9.2 s for the same reason). The key frames below keep every depth pixel at full precision.</p>
 
   <h2 class="group">Key frames</h2>
-  <div class="views">
+  <div class="views three">
     <div class="view">
-      <div class="bar"><div><b>4.7 s</b> <span>14:50:36.979</span></div>
-        <a href="viser-client/?playbackPath=../recordings/keyframe_full.viser" target="_blank" rel="noopener">open full screen ↗</a></div>
-      <iframe src="viser-client/?playbackPath=../recordings/keyframe_full.viser" title="Key frame 4.7 s" loading="lazy" allowfullscreen></iframe>
+      <div class="bar"><div><b>112.6 s</b> <span>21:20:35.9 · middle of clip 1</span></div>
+        <a href="viser-client/?playbackPath=../recordings/2026-10-22_key_113s.viser" target="_blank" rel="noopener">open full screen ↗</a></div>
+      <iframe src="viser-client/?playbackPath=../recordings/2026-10-22_key_113s.viser" title="Key frame 112.6 s" loading="lazy" allowfullscreen></iframe>
     </div>
     <div class="view">
-      <div class="bar"><div><b>18.0 s</b> <span>14:50:50.256</span></div>
-        <a href="viser-client/?playbackPath=../recordings/keyframe_18s.viser" target="_blank" rel="noopener">open full screen ↗</a></div>
-      <iframe src="viser-client/?playbackPath=../recordings/keyframe_18s.viser" title="Key frame 18.0 s" loading="lazy" allowfullscreen></iframe>
+      <div class="bar"><div><b>337.8 s</b> <span>21:24:21.1 · middle of clip 2</span></div>
+        <a href="viser-client/?playbackPath=../recordings/2026-10-22_key_338s.viser" target="_blank" rel="noopener">open full screen ↗</a></div>
+      <iframe src="viser-client/?playbackPath=../recordings/2026-10-22_key_338s.viser" title="Key frame 337.8 s" loading="lazy" allowfullscreen></iframe>
     </div>
     <div class="view">
-      <div class="bar"><div><b>32.0 s</b> <span>14:51:04.266</span></div>
-        <a href="viser-client/?playbackPath=../recordings/keyframe_32s.viser" target="_blank" rel="noopener">open full screen ↗</a></div>
-      <iframe src="viser-client/?playbackPath=../recordings/keyframe_32s.viser" title="Key frame 32.0 s" loading="lazy" allowfullscreen></iframe>
-    </div>
-    <div class="view">
-      <div class="bar"><div><b>46.0 s</b> <span>14:51:18.276</span></div>
-        <a href="viser-client/?playbackPath=../recordings/keyframe_46s.viser" target="_blank" rel="noopener">open full screen ↗</a></div>
-      <iframe src="viser-client/?playbackPath=../recordings/keyframe_46s.viser" title="Key frame 46.0 s" loading="lazy" allowfullscreen></iframe>
+      <div class="bar"><div><b>563.1 s</b> <span>21:28:06.4 · middle of clip 3</span></div>
+        <a href="viser-client/?playbackPath=../recordings/2026-10-22_key_563s.viser" target="_blank" rel="noopener">open full screen ↗</a></div>
+      <iframe src="viser-client/?playbackPath=../recordings/2026-10-22_key_563s.viser" title="Key frame 563.1 s" loading="lazy" allowfullscreen></iframe>
     </div>
   </div>
 
@@ -83,7 +90,7 @@
       <li>Open the <b>scene tree</b>: the tree icon at the top right of a key frame, or at the bottom right of the video (next to the speed control).</li>
       <li>Click an <b>eye icon</b> to hide or show that part; click <b>▸</b> to open the parts inside it.</li>
       <li><code>cameras</code> → <code>head</code>, <code>left_wrist</code>, <code>right_wrist</code> → <code>points</code> (depth) and <code>frustum</code> (camera pose with its image)</li>
-      <li><code>hands</code> → <code>left</code>, <code>right</code> → <code>mesh</code>, <code>skeleton</code>, <code>emf</code> (glove coils)</li>
+      <li><code>hands</code> → <code>left</code>, <code>right</code> → <code>mesh</code>, <code>skeleton</code>, <code>emf</code> (fingertip coils), <code>emf_box</code> (EMF transmitter on the back of the hand), <code>mount</code> (printed bracket that holds the tracker)</li>
       <li><code>trackers</code> → the Vive trackers</li>
       <li>Drag to rotate, right-drag to pan, scroll to zoom. In the video, what you hide stays hidden while it plays.</li>
     </ul>
