@@ -1,0 +1,302 @@
+[
+ {
+  "move": 2,
+  "sheet": "judge/sheets/move_002.jpg",
+  "action": "Move the right hand toward the orange stick and orange H-shaped piece.",
+  "rewrites": [
+   "Move the right hand toward the orange bar and the H-shaped frame.",
+   "Move the right hand toward the orange rod and the leg piece.",
+   "Move the right hand toward the long orange stick and the orange H frame.",
+   "Move the right hand toward the thin orange bar and the pair of table legs.",
+   "Move the right hand toward the connecting bar and the orange plastic H piece."
+  ]
+ },
+ {
+  "move": 3,
+  "sheet": "judge/sheets/move_003.jpg",
+  "action": "Pick up the orange stick and bring it toward the orange H-shaped piece to insert it.",
+  "rewrites": [
+   "Grab the orange rod and move it toward the H-shaped frame to insert it.",
+   "Take the long orange stick and bring it to the leg piece to insert it.",
+   "Seize the thin orange bar and carry it toward the orange H frame to insert it.",
+   "Lift the connecting bar and move it to the pair of table legs to insert it.",
+   "Grab the plastic bar and bring it toward the orange plastic H piece to insert it."
+  ]
+ },
+ {
+  "move": 4,
+  "sheet": "judge/sheets/move_004.jpg",
+  "action": "Pick the orange stick.",
+  "rewrites": [
+   "Grab the orange plastic stick.",
+   "Pick the orange bar.",
+   "Select the plastic bar.",
+   "Pick the orange rod.",
+   "Grab the long orange stick."
+  ]
+ },
+ {
+  "move": 5,
+  "sheet": "judge/sheets/move_005.jpg",
+  "action": "Place the orange stick on the desk.",
+  "rewrites": [
+   "Put the orange plastic stick on the work surface.",
+   "Place the orange bar on the desk.",
+   "Set the plastic bar on the work surface.",
+   "Put the orange rod on the desk.",
+   "Place the long orange stick on the work surface."
+  ]
+ },
+ {
+  "move": 6,
+  "sheet": "judge/sheets/move_006.jpg",
+  "action": "Place the orange stick on the desk.",
+  "rewrites": [
+   "Put the orange plastic stick on the work surface.",
+   "Place the orange bar on the desk.",
+   "Set the plastic bar on the work surface.",
+   "Position the orange rod on the desk.",
+   "Put the long orange stick on the work surface."
+  ]
+ },
+ {
+  "move": 7,
+  "sheet": "judge/sheets/move_007.jpg",
+  "action": "Insert the orange stick into the orange H-shaped piece.",
+  "rewrites": [
+   "Insert the orange rod into the orange H frame.",
+   "Place the orange bar into the H-shaped frame.",
+   "Put the long orange stick into the leg piece.",
+   "Insert the thin orange bar into the orange plastic H piece.",
+   "Insert the crossbar into the pair of table legs."
+  ]
+ },
+ {
+  "move": 8,
+  "sheet": "judge/sheets/move_008.jpg",
+  "action": "Pick up the orange H-shaped piece.",
+  "rewrites": [
+   "Grab the H-shaped piece.",
+   "Lift the orange plastic H piece.",
+   "Pick up the orange H frame.",
+   "Grab the H-shaped frame.",
+   "Lift the orange frame."
+  ]
+ },
+ {
+  "move": 9,
+  "sheet": "judge/sheets/move_009.jpg",
+  "action": "Pick up the orange H-shaped piece and attempt to insert it into the stick assembly.",
+  "rewrites": [
+   "Grab the H-shaped frame and try to insert it into the stick assembly.",
+   "Pick up the orange plastic H piece and attempt to place it into the stick assembly.",
+   "Grasp the leg piece and try to insert it into the stick assembly.",
+   "Pick up the orange H frame and attempt to fit it into the stick assembly.",
+   "Grab the pair of table legs and try to insert them into the stick assembly."
+  ]
+ },
+ {
+  "move": 10,
+  "sheet": "judge/sheets/move_010.jpg",
+  "action": "Pull the orange stick out of the orange H-shaped piece and place it on the desk.",
+  "rewrites": [
+   "Remove the orange rod from the H-shaped frame and set it on the work surface.",
+   "Take the long orange stick out of the orange plastic H piece and put it on the desk.",
+   "Extract the thin orange bar from the leg piece and place it on the work surface.",
+   "Pull the connecting bar from the orange H frame and set it on the desk.",
+   "Remove the orange plastic stick from the pair of table legs and put it on the work surface."
+  ]
+ },
+ {
+  "move": 12,
+  "sheet": "judge/sheets/move_012.jpg",
+  "action": "Hold the orange H-shaped piece.",
+  "rewrites": [
+   "Grip the H-shaped piece.",
+   "Grasp the orange plastic H piece.",
+   "Hold the orange H frame.",
+   "Grip the leg frame.",
+   "Grasp the pair of table legs."
+  ]
+ },
+ {
+  "move": 14,
+  "sheet": "judge/sheets/move_014.jpg",
+  "action": "Place the orange H-shaped piece on the desk.",
+  "rewrites": [
+   "Put the H-shaped piece on the desk.",
+   "Set the orange plastic H piece on the work surface.",
+   "Place the orange H frame on the desk.",
+   "Put the leg piece on the work surface.",
+   "Set the pair of table legs on the desk."
+  ]
+ },
+ {
+  "move": 15,
+  "sheet": "judge/sheets/move_015.jpg",
+  "action": "Move the right hand toward the orange plate.",
+  "rewrites": [
+   "Move the right hand toward the orange plastic plate.",
+   "Move the right hand toward the flat orange plate.",
+   "Move the right hand toward the rectangular orange plate.",
+   "Move the right hand toward the orange board.",
+   "Move the right hand toward the tabletop."
+  ]
+ },
+ {
+  "move": 17,
+  "sheet": "judge/sheets/move_017.jpg",
+  "action": "Place the orange plate onto the orange H-shaped piece.",
+  "rewrites": [
+   "Put the orange plastic plate onto the orange H frame.",
+   "Set the flat orange plate on the leg piece.",
+   "Position the rectangular orange plate onto the orange H-shaped piece.",
+   "Place the top plate onto the pair of table legs.",
+   "Put the orange board onto the H-shaped frame."
+  ]
+ },
+ {
+  "move": 18,
+  "sheet": "judge/sheets/move_018.jpg",
+  "action": "Pick up the orange H-shaped piece and rotate it vertically.",
+  "rewrites": [
+   "Grab the H-shaped frame and turn it vertically.",
+   "Pick up the orange plastic H piece and rotate it vertically.",
+   "Grasp the leg piece and turn it vertically.",
+   "Pick up the orange H frame and rotate it vertically.",
+   "Grab the pair of table legs and turn it vertically."
+  ]
+ },
+ {
+  "move": 19,
+  "sheet": "judge/sheets/move_019.jpg",
+  "action": "Place the orange H-shaped piece on the desk.",
+  "rewrites": [
+   "Put the H-shaped piece on the work surface.",
+   "Place the orange plastic H piece on the desk.",
+   "Set the orange H frame on the work surface.",
+   "Put the leg piece on the desk.",
+   "Place the pair of table legs on the work surface."
+  ]
+ },
+ {
+  "move": 20,
+  "sheet": "judge/sheets/move_020.jpg",
+  "action": "Hold the orange toy table.",
+  "rewrites": [
+   "Grip the toy table.",
+   "Grasp the small orange table.",
+   "Hold the orange plastic table.",
+   "Grip the partly built table.",
+   "Grasp the table assembly."
+  ]
+ },
+ {
+  "move": 22,
+  "sheet": "judge/sheets/move_022.jpg",
+  "action": "Pick up the orange H-shaped piece and press it into the other orange H-shaped piece held by the left hand.",
+  "rewrites": [
+   "Grab the orange H frame and press it into the other orange H frame held by the left hand.",
+   "Pick up the leg piece and press it into the other leg piece held by the left hand.",
+   "Grasp the orange plastic H piece and press it into the other orange plastic H piece held by the left hand.",
+   "Pick up the H-shaped frame and press it into the other H-shaped frame held by the left hand.",
+   "Grab the pair of table legs and press it into the other pair of table legs held by the left hand."
+  ]
+ },
+ {
+  "move": 26,
+  "sheet": "judge/sheets/move_026.jpg",
+  "action": "Pull the orange stick from the orange H-shaped piece.",
+  "rewrites": [
+   "Pull the orange rod from the orange H-shaped piece.",
+   "Extract the orange bar from the H-shaped frame.",
+   "Pull the long orange stick from the orange plastic H piece.",
+   "Remove the crossbar from the leg frame.",
+   "Pull the thin orange bar from the pair of table legs."
+  ]
+ },
+ {
+  "move": 27,
+  "sheet": "judge/sheets/move_027.jpg",
+  "action": "Insert the orange stick into the orange H-shaped piece.",
+  "rewrites": [
+   "Insert the orange rod into the orange H frame.",
+   "Place the orange bar into the H-shaped frame.",
+   "Put the long orange stick into the leg frame.",
+   "Insert the thin orange bar into the orange plastic H piece.",
+   "Insert the crossbar into the pair of table legs."
+  ]
+ },
+ {
+  "move": 29,
+  "sheet": "judge/sheets/move_029.jpg",
+  "action": "Pick up the orange stick.",
+  "rewrites": [
+   "Grab the orange plastic stick.",
+   "Pick up the orange bar.",
+   "Grasp the plastic bar.",
+   "Pick up the orange rod.",
+   "Grab the long orange stick."
+  ]
+ },
+ {
+  "move": 32,
+  "sheet": "judge/sheets/move_032.jpg",
+  "action": "Place the orange stick on the desk.",
+  "rewrites": [
+   "Put the orange plastic stick on the work surface.",
+   "Place the orange bar on the desk.",
+   "Set the plastic bar on the work surface.",
+   "Position the orange rod on the desk.",
+   "Put the long orange stick on the work surface."
+  ]
+ },
+ {
+  "move": 33,
+  "sheet": "judge/sheets/move_033.jpg",
+  "action": "Pick up the orange stick.",
+  "rewrites": [
+   "Grab the orange plastic stick.",
+   "Pick up the orange bar.",
+   "Grasp the plastic bar.",
+   "Pick up the orange rod.",
+   "Grab the long orange stick."
+  ]
+ },
+ {
+  "move": 34,
+  "sheet": "judge/sheets/move_034.jpg",
+  "action": "Pick up the orange stick.",
+  "rewrites": [
+   "Grab the orange plastic stick.",
+   "Pick up the orange bar.",
+   "Grasp the plastic bar.",
+   "Pick up the orange rod.",
+   "Grab the long orange stick."
+  ]
+ },
+ {
+  "move": 35,
+  "sheet": "judge/sheets/move_035.jpg",
+  "action": "Pick up the orange stick and bring it toward the orange H-shaped piece.",
+  "rewrites": [
+   "Grab the orange rod and bring it toward the orange H frame.",
+   "Take the long orange stick and move it toward the leg piece.",
+   "Seize the thin orange bar and bring it toward the H-shaped frame.",
+   "Pick up the connecting bar and bring it toward the orange plastic H piece.",
+   "Grasp the crossbar and bring it toward the pair of table legs."
+  ]
+ },
+ {
+  "move": 36,
+  "sheet": "judge/sheets/move_036.jpg",
+  "action": "Move the right hand toward the orange plate.",
+  "rewrites": [
+   "Move the right hand toward the orange plastic plate.",
+   "Move the right hand toward the flat orange plate.",
+   "Move the right hand toward the rectangular orange plate.",
+   "Move the right hand toward the orange board.",
+   "Move the right hand toward the tabletop."
+  ]
+ }
+]

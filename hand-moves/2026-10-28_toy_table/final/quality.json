@@ -1,0 +1,203 @@
+{
+ "take": "2026-10-28/20-14-31",
+ "t_start_us": 1793232872412725,
+ "duration_s": 251.584,
+ "min_bad_s": 0.5,
+ "hands": {
+  "left": {
+   "streams_used": [
+    "camera/ego",
+    "tracker/head",
+    "camera/left_wrist",
+    "tracker/left",
+    "glove_pose/left",
+    "glove_tactile/left"
+   ],
+   "usable": [
+    {
+     "start_s": 0.0,
+     "end_s": 251.584
+    }
+   ],
+   "problems": [],
+   "usable_s": 251.584
+  },
+  "right": {
+   "streams_used": [
+    "camera/ego",
+    "tracker/head",
+    "camera/right_wrist",
+    "tracker/right",
+    "glove_pose/right",
+    "glove_tactile/right"
+   ],
+   "usable": [
+    {
+     "start_s": 0.0,
+     "end_s": 227.635
+    },
+    {
+     "start_s": 229.652,
+     "end_s": 251.584
+    }
+   ],
+   "problems": [
+    {
+     "start_s": 227.635,
+     "end_s": 229.652,
+     "streams": [
+      "glove_pose/right",
+      "glove_tactile/right"
+     ]
+    }
+   ],
+   "usable_s": 249.567
+  }
+ },
+ "streams": {
+  "camera/ego": {
+   "samples": 7523,
+   "problems": [],
+   "events": {
+    "short_gaps": 4,
+    "duplicate_timestamps": 0
+   }
+  },
+  "camera/left_wrist": {
+   "samples": 7546,
+   "problems": [],
+   "events": {
+    "short_gaps": 0,
+    "duplicate_timestamps": 0
+   }
+  },
+  "camera/right_wrist": {
+   "samples": 7530,
+   "problems": [],
+   "events": {
+    "short_gaps": 1,
+    "duplicate_timestamps": 5
+   }
+  },
+  "tracker/left": {
+   "samples": 29656,
+   "problems": [],
+   "events": {
+    "short_gaps": 0,
+    "duplicate_timestamps": 0,
+    "invalid_samples": 0,
+    "jumps": []
+   }
+  },
+  "tracker/right": {
+   "samples": 29656,
+   "problems": [],
+   "events": {
+    "short_gaps": 0,
+    "duplicate_timestamps": 0,
+    "invalid_samples": 0,
+    "jumps": []
+   }
+  },
+  "tracker/head": {
+   "samples": 29656,
+   "problems": [],
+   "events": {
+    "short_gaps": 0,
+    "duplicate_timestamps": 0,
+    "invalid_samples": 0,
+    "jumps": []
+   }
+  },
+  "glove_pose/left": {
+   "samples": 30189,
+   "problems": [],
+   "events": {
+    "skeleton": {
+     "short_gaps": 0,
+     "duplicate_timestamps": 0
+    },
+    "joint_angles": {
+     "short_gaps": 0,
+     "duplicate_timestamps": 0
+    },
+    "tip_poses": {
+     "short_gaps": 0,
+     "duplicate_timestamps": 0
+    }
+   }
+  },
+  "glove_tactile/left": {
+   "samples": 30189,
+   "problems": [],
+   "events": {
+    "short_gaps": 0,
+    "duplicate_timestamps": 0
+   }
+  },
+  "glove_pose/right": {
+   "samples": 29949,
+   "problems": [
+    {
+     "start_s": 227.635,
+     "end_s": 229.652,
+     "reason": "gap (joint_angles)"
+    },
+    {
+     "start_s": 227.635,
+     "end_s": 229.652,
+     "reason": "gap (skeleton)"
+    },
+    {
+     "start_s": 227.635,
+     "end_s": 229.652,
+     "reason": "gap (tip_poses)"
+    }
+   ],
+   "events": {
+    "skeleton": {
+     "short_gaps": 0,
+     "duplicate_timestamps": 0
+    },
+    "joint_angles": {
+     "short_gaps": 0,
+     "duplicate_timestamps": 0
+    },
+    "tip_poses": {
+     "short_gaps": 0,
+     "duplicate_timestamps": 0
+    }
+   }
+  },
+  "glove_tactile/right": {
+   "samples": 29949,
+   "problems": [
+    {
+     "start_s": 227.635,
+     "end_s": 229.652,
+     "reason": "gap"
+    }
+   ],
+   "events": {
+    "short_gaps": 0,
+    "duplicate_timestamps": 0
+   }
+  }
+ },
+ "meta_alarms": [
+  {
+   "stream": "right glove pose",
+   "kind": "rate",
+   "t_start_s": 252.32,
+   "duration_s": 12.91,
+   "min_hz": 0.0
+  },
+  {
+   "stream": "right glove tactile",
+   "kind": "rate",
+   "t_start_s": 252.32,
+   "duration_s": 12.91,
+   "min_hz": 0.0
+  }
+ ]
+}

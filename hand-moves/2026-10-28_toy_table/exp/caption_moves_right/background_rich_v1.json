@@ -1,0 +1,18 @@
+{
+ "task": "The person repeatedly assembles and takes apart a small orange plastic toy table made of five parts. To assemble it, the parts are picked up from the desk one at a time and fitted together, usually with one hand holding the partial assembly and the other bringing and pressing in a part; to take it apart, the parts are pulled off and put back down on the desk.",
+ "objects": [
+  {"names": ["orange stick", "orange bar", "orange rod", "long orange stick", "thin orange bar", "straight plastic bar",
+             "stretcher", "crossbar", "table brace", "connecting bar", "side rail"],
+   "description": "one of two long, thin, straight orange plastic sticks; each connects the two H-shaped leg pieces"},
+  {"names": ["orange H-shaped piece", "H-shaped piece", "orange H frame", "H-shaped frame", "orange frame",
+             "leg frame", "leg piece", "pair of table legs", "leg assembly", "end frame", "trestle"],
+   "description": "one of two orange pieces shaped like the letter H: a pair of table legs joined by a short bar"},
+  {"names": ["orange plate", "orange plate with three holes", "flat orange plate", "rectangular orange plate",
+             "orange board", "flat rectangular piece", "tabletop", "table top", "top panel", "top plate", "table surface"],
+   "description": "the flat orange rectangular plate with a row of three round holes; the top of the toy table"},
+  {"names": ["orange toy table", "toy table", "small orange table", "miniature table", "orange plastic table",
+             "partly built table", "table assembly", "assembled table", "orange assembly", "plastic structure"],
+   "description": "the orange parts when fully or partly fitted together"}
+ ],
+ "source": "written by Claude from the 16 take frames; the names gather colour/shape, everyday and technical (furniture) terms, plus the correct ones the plain VITRA prompt used on its own (stick, rod, bar, leg piece, frame, rectangular plate, assembly, structure)"
+}

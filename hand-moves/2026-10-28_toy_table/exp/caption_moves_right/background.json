@@ -1,0 +1,11 @@
+{
+ "task": "The person repeatedly assembles and takes apart a small orange plastic toy table made of five parts. To assemble it, the parts are picked up from the desk one at a time and fitted together, usually with one hand holding the partial assembly and the other bringing and pressing in a part; to take it apart, the parts are pulled off and put back down on the desk.",
+ "objects": [
+  {"name": "orange plate", "description": "the flat orange rectangular plate with a row of three round holes; it is the top of the toy table"},
+  {"name": "orange H-shaped piece", "description": "one of two orange pieces shaped like the letter H; each is a pair of table legs joined by a short bar"},
+  {"name": "orange stick", "description": "one of two long, thin, straight orange sticks; they connect the two H-shaped pieces"},
+  {"name": "orange toy table", "description": "the orange parts when fully or partly fitted together"}
+ ],
+ "naming": "plain colour + shape names, as a person would say them (v1 used furniture terms: tabletop / leg frame / stretcher)",
+ "source": "written by Claude from the 16 frames evenly sampled over the take (take_frames/)"
+}

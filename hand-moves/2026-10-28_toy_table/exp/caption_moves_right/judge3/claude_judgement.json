@@ -1,0 +1,535 @@
+{
+ "task1": [
+  {
+   "move": 2,
+   "action_A": 0,
+   "action_B": 2,
+   "action_C": 2,
+   "object_A": 0,
+   "object_B": 2,
+   "object_C": 1,
+   "best": "B",
+   "unsure": false,
+   "reason": "F5-8 right palm path ends at the two sticks right of the H pieces, not between the H pieces; 'bars' ambiguous with H crossbars"
+  },
+  {
+   "move": 3,
+   "action_A": 1,
+   "action_B": 0,
+   "action_C": 0,
+   "object_A": 2,
+   "object_B": 0,
+   "object_C": 0,
+   "best": "A",
+   "unsure": false,
+   "reason": "F2-5 right hand lifts a stick (not an H piece) and F6-8 brings it to the H piece held by left hand; insertion only begins at F8"
+  },
+  {
+   "move": 4,
+   "action_A": 2,
+   "action_B": 0,
+   "action_C": 2,
+   "object_A": 2,
+   "object_B": 2,
+   "object_C": 1,
+   "best": "A",
+   "unsure": false,
+   "reason": "F1-4 hands hold stick, F5 stick lies on desk beside opened right hand; B reverses direction; C 'table' ambiguous"
+  },
+  {
+   "move": 5,
+   "action_A": 1,
+   "action_B": 2,
+   "action_C": 2,
+   "object_A": 2,
+   "object_B": 2,
+   "object_C": 2,
+   "best": "tie",
+   "unsure": false,
+   "reason": "F1-4 right hand holds stick, F5 stick lies on desk near plate; B and C both correct, A 'table' ambiguous with the toy table"
+  },
+  {
+   "move": 6,
+   "action_A": 2,
+   "action_B": 2,
+   "action_C": 2,
+   "object_A": 2,
+   "object_B": 2,
+   "object_C": 1,
+   "best": "B",
+   "unsure": false,
+   "reason": "F1-7 right hand pulls the stick out of the H piece held by left hand; B names both parts"
+  },
+  {
+   "move": 7,
+   "action_A": 2,
+   "action_B": 2,
+   "action_C": 2,
+   "object_A": 2,
+   "object_B": 1,
+   "object_C": 1,
+   "best": "A",
+   "unsure": false,
+   "reason": "F1-8 right hand pushes stick into the H piece in left hand's assembly; B/C 'plastic structure' vague"
+  },
+  {
+   "move": 8,
+   "action_A": 1,
+   "action_B": 1,
+   "action_C": 1,
+   "object_A": 1,
+   "object_B": 2,
+   "object_C": 2,
+   "best": "tie",
+   "unsure": false,
+   "reason": "F3-8 right hand travels to the H piece on desk and closes on it at F7-8; lift not shown; B=C identical and specific"
+  },
+  {
+   "move": 9,
+   "action_A": 2,
+   "action_B": 2,
+   "action_C": 2,
+   "object_A": 2,
+   "object_B": 1,
+   "object_C": 2,
+   "best": "tie",
+   "unsure": false,
+   "reason": "F1-4 right hand lifts an H piece and F5-6 brings it to left-hand assembly; A=C identical and specific"
+  },
+  {
+   "move": 10,
+   "action_A": 0,
+   "action_B": 0,
+   "action_C": 1,
+   "object_A": 1,
+   "object_B": 1,
+   "object_C": 1,
+   "best": "C",
+   "unsure": true,
+   "reason": "F1-3 plate and H frame are being joined and stood upright, F4-8 right hand holds the joined structure; nothing is lifted off the plate"
+  },
+  {
+   "move": 12,
+   "action_A": 2,
+   "action_B": 2,
+   "action_C": 2,
+   "object_A": 1,
+   "object_B": 1,
+   "object_C": 2,
+   "best": "C",
+   "unsure": false,
+   "reason": "F1-8 right hand holds the joined H/stick assembly (multi-part = toy table); 'H-shaped piece' names only part of it"
+  },
+  {
+   "move": 14,
+   "action_A": 2,
+   "action_B": 2,
+   "action_C": 1,
+   "object_A": 1,
+   "object_B": 1,
+   "object_C": 1,
+   "best": "tie",
+   "unsure": false,
+   "reason": "F1-4 right hand sets the assembled H+stick frame on desk, F5-8 releases; A/B both partial names, C 'table' ambiguous destination"
+  },
+  {
+   "move": 15,
+   "action_A": 1,
+   "action_B": 1,
+   "action_C": 1,
+   "object_A": 2,
+   "object_B": 1,
+   "object_C": 2,
+   "best": "tie",
+   "unsure": false,
+   "reason": "F1-8 right palm travels left to the plate and reaches it at F8; lift not shown; A and C name the plate"
+  },
+  {
+   "move": 17,
+   "action_A": 2,
+   "action_B": 2,
+   "action_C": 2,
+   "object_A": 2,
+   "object_B": 2,
+   "object_C": 1,
+   "best": "tie",
+   "unsure": false,
+   "reason": "F1-4 right hand holds/rotates plate, F5-8 sets it onto the H end of the assembled frame; A and B both specific"
+  },
+  {
+   "move": 18,
+   "action_A": 1,
+   "action_B": 2,
+   "action_C": 0,
+   "object_A": 1,
+   "object_B": 2,
+   "object_C": 0,
+   "best": "B",
+   "unsure": false,
+   "reason": "F1-5 joined table on its side, F6-8 it stands upright with plate on top; C invents placing/picking the plate"
+  },
+  {
+   "move": 19,
+   "action_A": 1,
+   "action_B": 1,
+   "action_C": 0,
+   "object_A": 1,
+   "object_B": 1,
+   "object_C": 0,
+   "best": "tie",
+   "unsure": true,
+   "reason": "F1-8 right hand rests/pushes on the plate face of the joined table lying on its side; little motion, push vs press unclear; no H piece placed"
+  },
+  {
+   "move": 20,
+   "action_A": 2,
+   "action_B": 0,
+   "action_C": 2,
+   "object_A": 1,
+   "object_B": 2,
+   "object_C": 2,
+   "best": "C",
+   "unsure": false,
+   "reason": "F1-2 right hand reaches the toy table, F6-7 grips it while it is lifted/rotated; nothing is placed"
+  },
+  {
+   "move": 22,
+   "action_A": 1,
+   "action_B": 2,
+   "action_C": 2,
+   "object_A": 0,
+   "object_B": 2,
+   "object_C": 1,
+   "best": "B",
+   "unsure": false,
+   "reason": "F1-3 right hand takes an H piece from desk, F4-8 presses it onto the plate assembly held by left hand; no stick inserted"
+  },
+  {
+   "move": 25,
+   "action_A": 1,
+   "action_B": 1,
+   "action_C": 1,
+   "object_A": 1,
+   "object_B": 1,
+   "object_C": 1,
+   "best": "tie",
+   "unsure": true,
+   "reason": "F1-2 right hand holds an orange piece at desk edge, F3-8 hand moves down to bottom of frame; dark/occluded, part identity and pick-vs-place unclear"
+  },
+  {
+   "move": 26,
+   "action_A": 2,
+   "action_B": 2,
+   "action_C": 2,
+   "object_A": 2,
+   "object_B": 1,
+   "object_C": 2,
+   "best": "A",
+   "unsure": false,
+   "reason": "F1-4 right hand slides the stick outward from the H piece held by left hand; A names both parts"
+  },
+  {
+   "move": 27,
+   "action_A": 2,
+   "action_B": 2,
+   "action_C": 2,
+   "object_A": 2,
+   "object_B": 0,
+   "object_C": 2,
+   "best": "A",
+   "unsure": false,
+   "reason": "F1-3 right hand picks stick from desk, F4-8 inserts it into H piece in left hand; no T-shaped piece"
+  },
+  {
+   "move": 28,
+   "action_A": 1,
+   "action_B": 2,
+   "action_C": 2,
+   "object_A": 2,
+   "object_B": 2,
+   "object_C": 2,
+   "best": "tie",
+   "unsure": false,
+   "reason": "F1-2 right hand takes stick from left-hand assembly, F3-8 sets it on desk; B and C correct, A 'table' ambiguous"
+  },
+  {
+   "move": 29,
+   "action_A": 2,
+   "action_B": 2,
+   "action_C": 2,
+   "object_A": 2,
+   "object_B": 2,
+   "object_C": 1,
+   "best": "tie",
+   "unsure": false,
+   "reason": "F1-5 right hand grasps stick on desk, F6-8 holds it upright; A=B identical"
+  },
+  {
+   "move": 32,
+   "action_A": 2,
+   "action_B": 1,
+   "action_C": 2,
+   "object_A": 2,
+   "object_B": 1,
+   "object_C": 2,
+   "best": "tie",
+   "unsure": false,
+   "reason": "F1-2 right hand carries stick, F3-8 stick lies on desk; A and C correct, B 'table' ambiguous"
+  },
+  {
+   "move": 33,
+   "action_A": 2,
+   "action_B": 2,
+   "action_C": 2,
+   "object_A": 2,
+   "object_B": 2,
+   "object_C": 2,
+   "best": "tie",
+   "unsure": false,
+   "reason": "F5-8 right hand grasps and lifts stick from desk; all three identical"
+  },
+  {
+   "move": 34,
+   "action_A": 2,
+   "action_B": 2,
+   "action_C": 2,
+   "object_A": 1,
+   "object_B": 2,
+   "object_C": 2,
+   "best": "tie",
+   "unsure": false,
+   "reason": "F1-6 right hand moves to stick on desk and grasps it; B and C specific"
+  },
+  {
+   "move": 35,
+   "action_A": 2,
+   "action_B": 2,
+   "action_C": 2,
+   "object_A": 2,
+   "object_B": 2,
+   "object_C": 1,
+   "best": "tie",
+   "unsure": false,
+   "reason": "F1-4 right hand picks stick, F5-8 carries it to left hand holding the H piece; A and B both correct"
+  },
+  {
+   "move": 36,
+   "action_A": 1,
+   "action_B": 1,
+   "action_C": 2,
+   "object_A": 1,
+   "object_B": 1,
+   "object_C": 2,
+   "best": "C",
+   "unsure": false,
+   "reason": "F1-8 right palm path runs from the right side leftward to the plate, reached at F8; no placing by right hand visible (H piece at F3 not in right hand)"
+  }
+ ],
+ "task2": [
+  {
+   "move": 2,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {}
+  },
+  {
+   "move": 3,
+   "unnatural": 0,
+   "meaning_changed": 1,
+   "offenders": {
+    "meaning_changed": [
+     "Grasp the leg piece."
+    ]
+   }
+  },
+  {
+   "move": 4,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {}
+  },
+  {
+   "move": 5,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {}
+  },
+  {
+   "move": 6,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {}
+  },
+  {
+   "move": 7,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {}
+  },
+  {
+   "move": 8,
+   "unnatural": 0,
+   "meaning_changed": 1,
+   "offenders": {
+    "meaning_changed": [
+     "Grasp the leg frame."
+    ]
+   }
+  },
+  {
+   "move": 9,
+   "unnatural": 0,
+   "meaning_changed": 2,
+   "offenders": {
+    "meaning_changed": [
+     "Grasp the H-shaped piece.",
+     "Grasp the leg piece."
+    ]
+   }
+  },
+  {
+   "move": 10,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {}
+  },
+  {
+   "move": 12,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {}
+  },
+  {
+   "move": 14,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {}
+  },
+  {
+   "move": 15,
+   "unnatural": 0,
+   "meaning_changed": 1,
+   "offenders": {
+    "meaning_changed": [
+     "Grasp the top plate."
+    ]
+   }
+  },
+  {
+   "move": 17,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {}
+  },
+  {
+   "move": 18,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {}
+  },
+  {
+   "move": 19,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {}
+  },
+  {
+   "move": 20,
+   "unnatural": 0,
+   "meaning_changed": 2,
+   "offenders": {
+    "meaning_changed": [
+     "Hold the small orange table.",
+     "Hold the partly built table."
+    ]
+   }
+  },
+  {
+   "move": 22,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {}
+  },
+  {
+   "move": 25,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {}
+  },
+  {
+   "move": 26,
+   "unnatural": 1,
+   "meaning_changed": 3,
+   "offenders": {
+    "meaning_changed": [
+     "Pull apart the orange plastic stick.",
+     "Take apart the orange bar.",
+     "Pull apart the plastic bar."
+    ],
+    "unnatural": [
+     "Disconnect the connecting bar."
+    ]
+   }
+  },
+  {
+   "move": 27,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {}
+  },
+  {
+   "move": 28,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {}
+  },
+  {
+   "move": 29,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {}
+  },
+  {
+   "move": 32,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {}
+  },
+  {
+   "move": 33,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {}
+  },
+  {
+   "move": 34,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {}
+  },
+  {
+   "move": 35,
+   "unnatural": 5,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [
+     "Pick the orange plastic stick and move it towards the left hand.",
+     "Pick the orange bar and move it towards the left hand.",
+     "Pick the orange rod and move it towards the left hand.",
+     "Pick the long orange stick and move it towards the left hand.",
+     "Pick the thin orange bar and move it towards the left hand."
+    ]
+   }
+  },
+  {
+   "move": 36,
+   "unnatural": 1,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [
+     "Place the H-shaped frame and pick up the top plate."
+    ]
+   }
+  }
+ ]
+}

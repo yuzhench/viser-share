@@ -1,0 +1,958 @@
+{
+ "task1": [
+  {
+   "move": 2,
+   "action_A": 2,
+   "action_B": 1,
+   "action_C": 2,
+   "object_A": 2,
+   "object_B": 0,
+   "object_C": 2,
+   "best": "tie",
+   "unsure": false,
+   "reason": "A=C identical: right hand travels from bottom-right to the two sticks (F5-F7 palm at the right stick); B wrong target, hand never goes between the H pieces."
+  },
+  {
+   "move": 3,
+   "action_A": 1,
+   "action_B": 2,
+   "action_C": 2,
+   "object_A": 2,
+   "object_B": 0,
+   "object_C": 0,
+   "best": "A",
+   "unsure": false,
+   "reason": "Right hand grasps and lifts a stick (F3-F5) and holds it toward the left hand's parts (F6-F8); insertion not clearly shown; B/C name wrong part (leg/H)."
+  },
+  {
+   "move": 4,
+   "action_A": 2,
+   "action_B": 0,
+   "action_C": 1,
+   "object_A": 1,
+   "object_B": 2,
+   "object_C": 1,
+   "best": "A",
+   "unsure": false,
+   "reason": "F4-F5 right hand releases the stick onto the desk and opens; B has the direction reversed; C 'table' is ambiguous with the toy table."
+  },
+  {
+   "move": 5,
+   "action_A": 2,
+   "action_B": 2,
+   "action_C": 1,
+   "object_A": 2,
+   "object_B": 2,
+   "object_C": 2,
+   "best": "tie",
+   "unsure": false,
+   "reason": "F1-F4 right hand carries a stick and lays it on the desk right of the plate (F5); A and B both correct, C 'table' ambiguous."
+  },
+  {
+   "move": 6,
+   "action_A": 2,
+   "action_B": 2,
+   "action_C": 2,
+   "object_A": 1,
+   "object_B": 0,
+   "object_C": 2,
+   "best": "C",
+   "unsure": false,
+   "reason": "F1-F5 right hand pulls the stick out of the H piece held by the left hand; B names the H piece as the removed part."
+  },
+  {
+   "move": 7,
+   "action_A": 2,
+   "action_B": 2,
+   "action_C": 2,
+   "object_A": 1,
+   "object_B": 2,
+   "object_C": 1,
+   "best": "B",
+   "unsure": false,
+   "reason": "F1-F4 right hand pushes the stick end into the H piece held by the left; B names both parts, A/C target vague."
+  },
+  {
+   "move": 8,
+   "action_A": 2,
+   "action_B": 1,
+   "action_C": 2,
+   "object_A": 2,
+   "object_B": 1,
+   "object_C": 2,
+   "best": "tie",
+   "unsure": false,
+   "reason": "Right hand leaves the left's stick assembly and grasps the H piece lying on the desk (F5-F8); A=C, B 'stand' vague."
+  },
+  {
+   "move": 9,
+   "action_A": 2,
+   "action_B": 2,
+   "action_C": 2,
+   "object_A": 1,
+   "object_B": 2,
+   "object_C": 2,
+   "best": "tie",
+   "unsure": false,
+   "reason": "F1-F4 right hand picks up an H piece from beside the plate and brings it to the left's sticks; B and C equally specific."
+  },
+  {
+   "move": 10,
+   "action_A": 1,
+   "action_B": 1,
+   "action_C": 1,
+   "object_A": 2,
+   "object_B": 1,
+   "object_C": 1,
+   "best": "tie",
+   "unsure": true,
+   "reason": "Right hand grips the right side of the H+stick frame while it is turned/stood up with the plate on top (F3-F8); none of 'lift frame from plate' / 'pick up H piece' clearly matches."
+  },
+  {
+   "move": 12,
+   "action_A": 2,
+   "action_B": 2,
+   "action_C": 2,
+   "object_A": 1,
+   "object_B": 2,
+   "object_C": 1,
+   "best": "B",
+   "unsure": false,
+   "reason": "F2-F8 right hand holds the joined H+stick frame (two+ parts = toy table) and draws it toward the body; A names a single part, C vague."
+  },
+  {
+   "move": 14,
+   "action_A": 2,
+   "action_B": 2,
+   "action_C": 1,
+   "object_A": 1,
+   "object_B": 2,
+   "object_C": 2,
+   "best": "B",
+   "unsure": false,
+   "reason": "F1-F4 right hand sets the H+stick frame down on the desk and releases (F5-F8); A names only the H part, C 'table' ambiguous."
+  },
+  {
+   "move": 15,
+   "action_A": 2,
+   "action_B": 2,
+   "action_C": 2,
+   "object_A": 2,
+   "object_B": 2,
+   "object_C": 1,
+   "best": "tie",
+   "unsure": false,
+   "reason": "Right hand travels left to the plate and grasps its right end (F6-F8); A/B correct, C vague object."
+  },
+  {
+   "move": 17,
+   "action_A": 2,
+   "action_B": 2,
+   "action_C": 2,
+   "object_A": 2,
+   "object_B": 1,
+   "object_C": 1,
+   "best": "A",
+   "unsure": false,
+   "reason": "F2-F4 right hand holds the plate, F5-F8 lays it on the H+stick frame; A names both parts specifically."
+  },
+  {
+   "move": 18,
+   "action_A": 2,
+   "action_B": 2,
+   "action_C": 0,
+   "object_A": 1,
+   "object_B": 2,
+   "object_C": 0,
+   "best": "B",
+   "unsure": false,
+   "reason": "Right hand rotates the assembled toy table from its side to standing upright (F1-F8); A mislabels it a stool; C invents placing and lifting the plate."
+  },
+  {
+   "move": 19,
+   "action_A": 1,
+   "action_B": 0,
+   "action_C": 2,
+   "object_A": 0,
+   "object_B": 0,
+   "object_C": 1,
+   "best": "C",
+   "unsure": false,
+   "reason": "Right hand rests on the assembled toy table and pushes it slightly across the desk (F1-F8); no stick or loose H is handled; 'block' is vague but not wrong."
+  },
+  {
+   "move": 20,
+   "action_A": 2,
+   "action_B": 0,
+   "action_C": 2,
+   "object_A": 2,
+   "object_B": 2,
+   "object_C": 1,
+   "best": "A",
+   "unsure": false,
+   "reason": "F1-F2 right hand reaches the toy table, F3-F8 it is lifted and turned in the air; B has the direction reversed (not placed)."
+  },
+  {
+   "move": 22,
+   "action_A": 1,
+   "action_B": 1,
+   "action_C": 1,
+   "object_A": 0,
+   "object_B": 1,
+   "object_C": 1,
+   "best": "tie",
+   "unsure": false,
+   "reason": "Right hand picks a loose orange piece off the desk (F2-F3) and presses it onto the plate held by the left (F4-F8); A names the wrong target (H instead of plate); B/C omit the pick and are vague."
+  },
+  {
+   "move": 25,
+   "action_A": 1,
+   "action_B": 2,
+   "action_C": 2,
+   "object_A": 2,
+   "object_B": 1,
+   "object_C": 2,
+   "best": "C",
+   "unsure": true,
+   "reason": "F1-F2 right hand grasps a long piece (looks like a stick) on the desk and brings it toward the body (F5-F8); putting it back is not visible; part identity not fully certain."
+  },
+  {
+   "move": 26,
+   "action_A": 0,
+   "action_B": 0,
+   "action_C": 0,
+   "object_A": 2,
+   "object_B": 0,
+   "object_C": 1,
+   "best": "A",
+   "unsure": false,
+   "reason": "Stick stays seated in the H in the left hand in all frames; right hand only lets go and moves down-right (F2-F8); no removal or separation. A best only on object."
+  },
+  {
+   "move": 27,
+   "action_A": 2,
+   "action_B": 1,
+   "action_C": 1,
+   "object_A": 2,
+   "object_B": 0,
+   "object_C": 0,
+   "best": "A",
+   "unsure": false,
+   "reason": "Right hand holds a stick (F1-F3) and inserts it into the H piece in the left hand (F4-F8); B/C name the wrong part in the right hand."
+  },
+  {
+   "move": 28,
+   "action_A": 1,
+   "action_B": 2,
+   "action_C": 1,
+   "object_A": 2,
+   "object_B": 2,
+   "object_C": 2,
+   "best": "B",
+   "unsure": false,
+   "reason": "F1 right hand already holds the stick; F2-F5 it lays it on the desk; the pick-up step in A/C is not clearly shown and A's 'table' is ambiguous."
+  },
+  {
+   "move": 29,
+   "action_A": 2,
+   "action_B": 2,
+   "action_C": 2,
+   "object_A": 0,
+   "object_B": 2,
+   "object_C": 1,
+   "best": "B",
+   "unsure": false,
+   "reason": "F6-F8 right hand picks up a long thin stick from the desk; the left hand holds the H piece, so A names the wrong part."
+  },
+  {
+   "move": 32,
+   "action_A": 2,
+   "action_B": 2,
+   "action_C": 1,
+   "object_A": 1,
+   "object_B": 2,
+   "object_C": 1,
+   "best": "B",
+   "unsure": false,
+   "reason": "F1-F2 right hand pulls the stick away from the left's parts, F3-F8 lays it on the desk to the right; B specific."
+  },
+  {
+   "move": 33,
+   "action_A": 2,
+   "action_B": 2,
+   "action_C": 2,
+   "object_A": 2,
+   "object_B": 2,
+   "object_C": 2,
+   "best": "tie",
+   "unsure": false,
+   "reason": "Right hand moves right to the loose stick and grasps it (F6-F8); all three captions identical."
+  },
+  {
+   "move": 34,
+   "action_A": 2,
+   "action_B": 2,
+   "action_C": 2,
+   "object_A": 1,
+   "object_B": 2,
+   "object_C": 0,
+   "best": "B",
+   "unsure": false,
+   "reason": "End of the palm path sits on the loose stick at bottom-left (F1-F4); the hand grasps it (F4-F6); not the H piece."
+  },
+  {
+   "move": 35,
+   "action_A": 2,
+   "action_B": 2,
+   "action_C": 2,
+   "object_A": 1,
+   "object_B": 0,
+   "object_C": 2,
+   "best": "C",
+   "unsure": false,
+   "reason": "Right hand picks up a stick (F3-F5) and brings it to the H+stick part held by the left (F6-F8); B names the wrong part."
+  },
+  {
+   "move": 36,
+   "action_A": 2,
+   "action_B": 1,
+   "action_C": 1,
+   "object_A": 2,
+   "object_B": 1,
+   "object_C": 1,
+   "best": "A",
+   "unsure": true,
+   "reason": "F1-F2 right hand releases at the left's sticks, then travels to the loose H/plate area and ends at the plate edge (F8); no clear pick or place; target uncertain."
+  }
+ ],
+ "task2": [
+  {
+   "item": 3,
+   "move": 3,
+   "unnatural": 0,
+   "meaning_changed": 1,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": [
+     "Fit the crossbar into the orange H frame."
+    ]
+   }
+  },
+  {
+   "item": 44,
+   "move": 32,
+   "unnatural": 0,
+   "meaning_changed": 3,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": [
+     "Place the orange H-shaped piece on the desk.",
+     "Place the leg piece on the desk.",
+     "Place the orange plastic H piece on the desk."
+    ]
+   }
+  },
+  {
+   "item": 28,
+   "move": 19,
+   "unnatural": 0,
+   "meaning_changed": 1,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": [
+     "Push the crossbar."
+    ]
+   }
+  },
+  {
+   "item": 19,
+   "move": 12,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 34,
+   "move": 25,
+   "unnatural": 1,
+   "meaning_changed": 1,
+   "offenders": {
+    "unnatural": [
+     "Select the orange bar."
+    ],
+    "meaning_changed": [
+     "Select the orange bar."
+    ]
+   }
+  },
+  {
+   "item": 4,
+   "move": 4,
+   "unnatural": 0,
+   "meaning_changed": 3,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": [
+     "Place the orange H-shaped piece on the desk.",
+     "Place the leg piece on the desk.",
+     "Place the orange plastic H piece on the desk."
+    ]
+   }
+  },
+  {
+   "item": 9,
+   "move": 6,
+   "unnatural": 0,
+   "meaning_changed": 1,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": [
+     "Take off the crossbar from the orange H frame."
+    ]
+   }
+  },
+  {
+   "item": 48,
+   "move": 34,
+   "unnatural": 1,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [
+     "Seize the orange plastic H piece."
+    ],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 21,
+   "move": 14,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 5,
+   "move": 4,
+   "unnatural": 5,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [
+     "Pick the orange plastic stick.",
+     "Pick the orange bar.",
+     "Pick the plastic bar.",
+     "Pick the orange rod.",
+     "Pick the long orange stick."
+    ],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 17,
+   "move": 10,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 10,
+   "move": 7,
+   "unnatural": 0,
+   "meaning_changed": 1,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": [
+     "Insert the crossbar into the partly built table."
+    ]
+   }
+  },
+  {
+   "item": 6,
+   "move": 5,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 16,
+   "move": 10,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 38,
+   "move": 27,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 35,
+   "move": 25,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 45,
+   "move": 32,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 2,
+   "move": 3,
+   "unnatural": 5,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [
+     "Pick the leg piece.",
+     "Pick the H-shaped frame.",
+     "Pick the orange plastic H piece.",
+     "Pick the leg frame.",
+     "Pick the orange H frame."
+    ],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 11,
+   "move": 7,
+   "unnatural": 0,
+   "meaning_changed": 1,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": [
+     "Fit the crossbar into the orange H frame."
+    ]
+   }
+  },
+  {
+   "item": 43,
+   "move": 29,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 40,
+   "move": 28,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 31,
+   "move": 20,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 47,
+   "move": 33,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 39,
+   "move": 27,
+   "unnatural": 0,
+   "meaning_changed": 1,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": [
+     "Pick up the crossbar and fit it into the orange H frame."
+    ]
+   }
+  },
+  {
+   "item": 15,
+   "move": 9,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 50,
+   "move": 35,
+   "unnatural": 3,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [
+     "Pick the leg piece and move it towards the left hand.",
+     "Pick the H-shaped frame and move it towards the left hand.",
+     "Pick the orange H frame and move it towards the left hand."
+    ],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 53,
+   "move": 36,
+   "unnatural": 5,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [
+     "Move toward and reach for the orange plastic plate.",
+     "Move toward and reach for the flat orange plate.",
+     "Move toward and reach for the rectangular orange plate.",
+     "Move toward and reach for the orange board.",
+     "Move toward and reach for the top plate."
+    ],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 14,
+   "move": 9,
+   "unnatural": 1,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [
+     "Seize the orange plastic H piece."
+    ],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 8,
+   "move": 6,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 0,
+   "move": 2,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 33,
+   "move": 22,
+   "unnatural": 0,
+   "meaning_changed": 1,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": [
+     "Fit the crossbar into the orange H frame."
+    ]
+   }
+  },
+  {
+   "item": 46,
+   "move": 33,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 12,
+   "move": 8,
+   "unnatural": 4,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [
+     "Pick the leg piece.",
+     "Pick the orange plastic H piece.",
+     "Pick the H-shaped frame.",
+     "Pick the leg frame."
+    ],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 27,
+   "move": 18,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 23,
+   "move": 15,
+   "unnatural": 5,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [
+     "Pick the orange plastic plate.",
+     "Pick the flat orange plate.",
+     "Pick the rectangular orange plate.",
+     "Pick the orange board.",
+     "Pick the top plate."
+    ],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 1,
+   "move": 2,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 18,
+   "move": 12,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 41,
+   "move": 28,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 13,
+   "move": 8,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 49,
+   "move": 34,
+   "unnatural": 5,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [
+     "Pick the orange plastic stick.",
+     "Pick the orange bar.",
+     "Pick the plastic bar.",
+     "Pick the orange rod.",
+     "Pick the long orange stick."
+    ],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 36,
+   "move": 26,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 24,
+   "move": 17,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 32,
+   "move": 22,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 20,
+   "move": 14,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 7,
+   "move": 5,
+   "unnatural": 0,
+   "meaning_changed": 1,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": [
+     "Place the crossbar on the work surface near the flat orange plate."
+    ]
+   }
+  },
+  {
+   "item": 26,
+   "move": 18,
+   "unnatural": 1,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [
+     "Arrange the toy table upright."
+    ],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 22,
+   "move": 15,
+   "unnatural": 4,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [
+     "Pick the flat orange plate.",
+     "Pick the orange board.",
+     "Pick the top plate.",
+     "Pick the orange plastic plate."
+    ],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 37,
+   "move": 26,
+   "unnatural": 0,
+   "meaning_changed": 1,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": [
+     "Pull the crossbar from the leg piece."
+    ]
+   }
+  },
+  {
+   "item": 30,
+   "move": 20,
+   "unnatural": 1,
+   "meaning_changed": 1,
+   "offenders": {
+    "unnatural": [
+     "Seize the orange plastic table."
+    ],
+    "meaning_changed": [
+     "Grab the partly built table."
+    ]
+   }
+  },
+  {
+   "item": 42,
+   "move": 29,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 29,
+   "move": 19,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 52,
+   "move": 36,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": []
+   }
+  },
+  {
+   "item": 51,
+   "move": 35,
+   "unnatural": 1,
+   "meaning_changed": 1,
+   "offenders": {
+    "unnatural": [
+     "Seize the thin orange bar and carry it toward the leg piece."
+    ],
+    "meaning_changed": [
+     "Grasp the crossbar and move it toward the orange plastic H piece."
+    ]
+   }
+  },
+  {
+   "item": 25,
+   "move": 17,
+   "unnatural": 0,
+   "meaning_changed": 0,
+   "offenders": {
+    "unnatural": [],
+    "meaning_changed": []
+   }
+  }
+ ]
+}

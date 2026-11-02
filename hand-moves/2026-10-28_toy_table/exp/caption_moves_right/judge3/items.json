@@ -1,0 +1,191 @@
+[
+ {
+  "move": 2,
+  "sheet": "judge/sheets/move_002.jpg",
+  "A": "Move the right hand toward the space between the orange H-shaped pieces.",
+  "B": "Move the right hand toward the orange sticks.",
+  "C": "Move the right hand toward the orange bars."
+ },
+ {
+  "move": 3,
+  "sheet": "judge/sheets/move_003.jpg",
+  "A": "Insert the orange stick into the orange H-shaped piece.",
+  "B": "Pick up the orange H-shaped piece.",
+  "C": "Pick the orange plastic leg piece."
+ },
+ {
+  "move": 4,
+  "sheet": "judge/sheets/move_004.jpg",
+  "A": "Place the orange stick on the desk.",
+  "B": "Pick the orange stick.",
+  "C": "Place the orange plastic piece on the table."
+ },
+ {
+  "move": 5,
+  "sheet": "judge/sheets/move_005.jpg",
+  "A": "Place the orange stick on the table.",
+  "B": "Place the orange stick on the desk.",
+  "C": "Place the orange stick on the desk near the orange plate."
+ },
+ {
+  "move": 6,
+  "sheet": "judge/sheets/move_006.jpg",
+  "A": "Remove the orange stick.",
+  "B": "Remove the orange stick from the orange H-shaped piece.",
+  "C": "Remove the orange plastic piece."
+ },
+ {
+  "move": 7,
+  "sheet": "judge/sheets/move_007.jpg",
+  "A": "Insert the orange stick into the orange H-shaped piece.",
+  "B": "Insert the orange rod into the plastic structure.",
+  "C": "Insert the orange rod into the plastic structure."
+ },
+ {
+  "move": 8,
+  "sheet": "judge/sheets/move_008.jpg",
+  "A": "Pick the orange plastic stand.",
+  "B": "Pick up the orange H-shaped piece.",
+  "C": "Pick up the orange H-shaped piece."
+ },
+ {
+  "move": 9,
+  "sheet": "judge/sheets/move_009.jpg",
+  "A": "Pick up the orange H-shaped piece.",
+  "B": "Pick up the orange plastic piece.",
+  "C": "Pick up the orange H-shaped piece."
+ },
+ {
+  "move": 10,
+  "sheet": "judge/sheets/move_010.jpg",
+  "A": "Lift the orange frame from the orange plate.",
+  "B": "Lift the orange H frame from the orange plate.",
+  "C": "Pick up the orange H-shaped piece."
+ },
+ {
+  "move": 12,
+  "sheet": "judge/sheets/move_012.jpg",
+  "A": "Hold the orange plastic structure.",
+  "B": "Hold the orange H-shaped piece.",
+  "C": "Hold the orange toy table."
+ },
+ {
+  "move": 14,
+  "sheet": "judge/sheets/move_014.jpg",
+  "A": "Place the orange H frame on the desk.",
+  "B": "Place the orange H-shaped piece on the desk.",
+  "C": "Place the orange frame on the table."
+ },
+ {
+  "move": 15,
+  "sheet": "judge/sheets/move_015.jpg",
+  "A": "Pick the orange plate.",
+  "B": "Pick the orange rectangular object.",
+  "C": "Pick up the rectangular orange plate."
+ },
+ {
+  "move": 17,
+  "sheet": "judge/sheets/move_017.jpg",
+  "A": "Place the orange plate onto the orange H-shaped piece.",
+  "B": "Place the rectangular orange plate onto the orange H frame.",
+  "C": "Place the orange rectangular piece onto the orange frame."
+ },
+ {
+  "move": 18,
+  "sheet": "judge/sheets/move_018.jpg",
+  "A": "Place the orange stool upright.",
+  "B": "Place the orange toy table upright.",
+  "C": "Place the orange plate on the desk, then pick it up."
+ },
+ {
+  "move": 19,
+  "sheet": "judge/sheets/move_019.jpg",
+  "A": "Push the orange block.",
+  "B": "Push the orange plate.",
+  "C": "Place the orange H-shaped piece on the desk."
+ },
+ {
+  "move": 20,
+  "sheet": "judge/sheets/move_020.jpg",
+  "A": "Grasp the orange stool.",
+  "B": "Place the orange toy table on the desk.",
+  "C": "Grasp the orange toy table."
+ },
+ {
+  "move": 22,
+  "sheet": "judge/sheets/move_022.jpg",
+  "A": "Insert the orange stick into the orange H-shaped piece.",
+  "B": "Press the orange H-shaped piece into the assembly.",
+  "C": "Press the orange plastic piece into the assembly."
+ },
+ {
+  "move": 25,
+  "sheet": "judge/sheets/move_025.jpg",
+  "A": "Pick up the orange stick, move it slightly, and place it back on the desk.",
+  "B": "Pick up the orange stick.",
+  "C": "Pick the orange object."
+ },
+ {
+  "move": 26,
+  "sheet": "judge/sheets/move_026.jpg",
+  "A": "Remove the orange stick from the orange H-shaped piece.",
+  "B": "Separate the orange plastic piece.",
+  "C": "Separate the orange stick."
+ },
+ {
+  "move": 27,
+  "sheet": "judge/sheets/move_027.jpg",
+  "A": "Pick up the orange stick and insert it into the orange H-shaped piece.",
+  "B": "Insert the orange T-shaped piece into the orange component.",
+  "C": "Insert the orange stick into the orange H-shaped piece."
+ },
+ {
+  "move": 28,
+  "sheet": "judge/sheets/move_028.jpg",
+  "A": "Pick up the orange stick and place it on the table.",
+  "B": "Pick up the orange stick and place it on the desk.",
+  "C": "Place the orange stick on the desk."
+ },
+ {
+  "move": 29,
+  "sheet": "judge/sheets/move_029.jpg",
+  "A": "Pick up the orange stick.",
+  "B": "Pick up the orange stick.",
+  "C": "Pick up the orange plastic piece."
+ },
+ {
+  "move": 32,
+  "sheet": "judge/sheets/move_032.jpg",
+  "A": "Place the orange stick on the desk.",
+  "B": "Place the orange plastic piece on the table.",
+  "C": "Place the orange plastic stick on the desk."
+ },
+ {
+  "move": 33,
+  "sheet": "judge/sheets/move_033.jpg",
+  "A": "Pick up the orange stick.",
+  "B": "Pick up the orange stick.",
+  "C": "Pick up the orange stick."
+ },
+ {
+  "move": 34,
+  "sheet": "judge/sheets/move_034.jpg",
+  "A": "Pick the orange plastic piece.",
+  "B": "Pick up the orange stick.",
+  "C": "Pick the orange stick."
+ },
+ {
+  "move": 35,
+  "sheet": "judge/sheets/move_035.jpg",
+  "A": "Pick the orange stick and move it towards the left hand.",
+  "B": "Pick up the orange stick and move it toward the orange H-shaped piece.",
+  "C": "Pick the orange plastic piece and move it towards the left hand."
+ },
+ {
+  "move": 36,
+  "sheet": "judge/sheets/move_036.jpg",
+  "A": "Place the orange plastic piece and pick the orange rectangular plate.",
+  "B": "Place the orange H-shaped piece and pick the rectangular orange plate.",
+  "C": "Move toward and reach for the orange plate."
+ }
+]

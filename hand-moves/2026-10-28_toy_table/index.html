@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hand moves and captions</title>
+<style>
+  :root { --bg: #f6f7f9; --card: #ffffff; --text: #1d2125; --dim: #616a74; --line: #e2e5e9; --link: #1f6feb; --chip: #eef1f4; --good: #1a7f37; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --bg: #0e1115; --card: #161a20; --text: #e6e9ed; --dim: #9aa4ae; --line: #262c34; --link: #6ea8ff; --chip: #1f252d; --good: #3fb950; }
+  }
+  :root[data-theme="dark"] { --bg: #0e1115; --card: #161a20; --text: #e6e9ed; --dim: #9aa4ae; --line: #262c34; --link: #6ea8ff; --chip: #1f252d; --good: #3fb950; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 1100px; margin: 0 auto; padding: 22px 16px 48px; }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  .sub { color: var(--dim); font-size: 13px; margin: 0 0 18px; }
+  section { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 14px 18px; margin-top: 16px; }
+  h2 { font-size: 16px; margin: 0 0 8px; }
+  h3 { font-size: 14px; margin: 14px 0 6px; }
+  a { color: var(--link); text-decoration: none; }
+  ol, ul { margin: 4px 0; padding-left: 20px; }
+  li { margin: 3px 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 13.5px; margin: 6px 0; }
+  th, td { text-align: left; padding: 5px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--dim); font-weight: 600; }
+  td.n { text-align: right; font-variant-numeric: tabular-nums; }
+  .best { color: var(--good); font-weight: 600; }
+  .note { color: var(--dim); font-size: 13px; }
+  code { background: var(--chip); border-radius: 4px; padding: 1px 5px; font-size: 12.5px; }
+  .links a { display: inline-block; margin: 2px 10px 2px 0; }
+  .table-wrap { overflow-x: auto; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Cutting a take into hand moves, and captioning each move</h1>
+  <p class="sub">Take 2026-10-28 20:14 · assembling and taking apart a small orange toy table · 251.6 s · both gloves, head camera, 3 trackers</p>
+
+  <section>
+    <h2>Final pipeline</h2>
+    <ol>
+      <li><b>Sensor check.</b> A stream gap, an invalid tracker or a frozen sensor lasting ≥ 0.5 s marks that time unusable for the hand that needs it.</li>
+      <li><b>Moves.</b> Each hand's palm (midpoint of the wrist and middle-finger root) is tracked in 3D. A 2-state HMM separates "staying" from "travelling". Each movement starts at the foot of its speed rise and ends where the speed falls below 10 % of the peak. Sub-movements are joined only when they go the same way with a pause of ≤ 0.5 s. A slower one <i>before</i> a faster one is not joined (that rule is new). A move must end ≥ 10 cm from where it began.</li>
+      <li><b>Length.</b> Moves shorter than 1 s are not captioned.</li>
+      <li><b>Hand in view.</b> The palm is projected into the head camera for every frame of the move. The move is dropped if more than 20 % of its frames fall outside the image plus a 20 % margin. The margin absorbs the current head-camera calibration error.</li>
+      <li><b>Caption, call A</b> (Qwen3.5-122B, from images). The VITRA / VLA-HAND prompt gets 8 frames with the palm's future trajectory, plus three rules learned from judged errors:
+        <ul>
+          <li>describe only the named hand;</li>
+          <li>describe only what is completed in the frames;</li>
+          <li>among similar objects, name one only by a clearly visible feature.</li>
+        </ul>
+        No background is given, so the action is decided from the frames alone.</li>
+      <li><b>Caption, call B</b> (same model, same 8 frames). B gets the background:
+        <ul>
+          <li>the rig (the desk, gloves and trackers are not objects);</li>
+          <li>the task;</li>
+          <li>each object with a list of names (colour/shape, everyday, technical) and its physical properties.</li>
+        </ul>
+        B looks at the frames only to map A's nouns onto the list. It then writes up to 5 phrasings with the VLA-HAND round-2 rules: an object may take any name from its own list, and verbs change only to true synonyms. B never changes the action.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Final results</h2>
+    <div class="table-wrap"><table>
+      <tr><th>hand</th><th class="n">moves</th><th class="n">≥ 1 s</th><th class="n">dropped: hand out of view</th><th class="n">captioned</th><th>pages</th></tr>
+      <tr><td>left</td><td class="n">33</td><td class="n">17</td><td class="n">4</td><td class="n">13</td>
+        <td class="links"><a href="final/caption_left/compare.html">captions + 5 phrasings</a><a href="final/clips_left.html">whole timeline (moves and the gaps between)</a></td></tr>
+      <tr><td>right</td><td class="n">37</td><td class="n">27</td><td class="n">6</td><td class="n">21</td>
+        <td class="links"><a href="final/caption_right/compare.html">captions + 5 phrasings</a><a href="final/clips_right.html">whole timeline (moves and the gaps between)</a></td></tr>
+    </table></div>
+    <p class="note">In each clip, the red border marks the move; it is padded by 0.5 s on each side. "VLM wrote" shows A's sentence when B renamed its objects.</p>
+  </section>
+
+  <section>
+    <h2>What else was tried (right hand) and why the final choices</h2>
+
+    <h3>Cutting</h3>
+    <div class="table-wrap"><table>
+      <tr><th>version</th><th>rule</th><th class="n">moves</th><th class="n">mean length</th><th class="n">≥ 1 s</th><th>outcome</th></tr>
+      <tr><td>v1</td><td>join same-direction sub-movements after a pause of ≤ 0.5 s</td><td class="n">38</td><td class="n">1.51 s</td><td class="n">27</td>
+        <td>Move #4 started with ~1.4 s of slowly pressing a stick into a part, which was then counted as part of "place it on the desk". <a href="exp/diag_onset/index.html">diagnosis</a></td></tr>
+      <tr><td>v2</td><td>+ join only if the slower peak ≥ 0.5 of the faster (either side); start at the foot of the rise</td><td class="n">37</td><td class="n">1.20 s</td><td class="n">22</td>
+        <td>Fixed #4, but also cut off the slow tail at the end of 7 reaches (too fragmented). <a href="exp/merge_view/index.html">merge decisions</a> · <a href="exp/side_effects/index.html">the 8 shortened moves</a></td></tr>
+      <tr><td>B</td><td>as v2 with the threshold 0.3</td><td class="n">37</td><td class="n">1.34 s</td><td class="n">24</td><td>still cut 5 tails</td></tr>
+      <tr class="best"><td>A (final)</td><td>the peak ratio applies only to a slower movement <i>before</i> a faster one; tails still join</td><td class="n">37</td><td class="n">1.45 s</td><td class="n">27</td>
+        <td>Only #4, #29 and #36 change (later starts). <a href="exp/merge_view_A/index.html">merge decisions</a></td></tr>
+    </table></div>
+    <p class="note">The trimmed slow parts are not lost: they become part of the neighbouring "staying" stretch, which will be captioned separately (pressing, holding). <a href="exp/clips_moves_hmm_right_all.html">v1 moves with every gap between them</a>.</p>
+
+    <h3>Captioning</h3>
+    <p>All methods ran on the same 27 v1 moves and the same 8 frames. <a href="exp/caption_moves_right/compare.html">All methods side by side</a></p>
+    <div class="table-wrap"><table>
+      <tr><th>method</th><th>what the model gets</th><th>result</th></tr>
+      <tr><td>base</td><td>VITRA prompt only</td><td>Actions were the most reliable, but objects were vague or wrong ("orange plastic piece", "T-shaped piece", "stool").</td></tr>
+      <tr><td>ctx</td><td>+ rig and task description, one name per object</td><td>Objects were specific. Furniture terms ("stretcher") were rejected as unnatural, so names became plain colour and shape names.</td></tr>
+      <tr><td>rich</td><td>+ name lists and properties in the caption call, then a text-only rewrite</td><td>Objects improved further, but the task text biased the action: 5 wrong, against 1 for base.</td></tr>
+      <tr><td>甲 (late)</td><td>base caption, then a <i>text-only</i> call with the background that renames nouns and rewrites</td><td>Without the frames it guessed which part a vague noun meant. Objects were wrong 8 times.</td></tr>
+      <tr><td>乙 (split)</td><td>objects (not the task) in the caption call; the task only in the rewrite</td><td>Objects were best, but actions were still wrong 5 times. The object list alone also biases the action.</td></tr>
+      <tr class="best"><td>A→B (final)</td><td>base caption, then a call with the same frames + background that renames nouns and rewrites</td><td>The action stays as base (wrong 2); objects were the best (wrong 1).</td></tr>
+    </table></div>
+
+    <h3>Blind evaluations</h3>
+    <p class="note">A separate Claude agent scored each caption against the 8 frames, with the methods shuffled and unnamed. Scores are 2 = right, 1 = partly or vague, 0 = wrong. There are 27 moves, so each total is out of 54.</p>
+    <div class="table-wrap"><table>
+      <tr><th>round</th><th>method</th><th class="n">action</th><th class="n">action wrong</th><th class="n">object</th><th class="n">object wrong</th><th class="n">object specific</th></tr>
+      <tr><td rowspan="2">1</td><td>base</td><td class="n">41</td><td class="n">1</td><td class="n">32</td><td class="n">2</td><td class="n">—</td></tr>
+      <tr><td>rich</td><td class="n">39</td><td class="n">5</td><td class="n">38</td><td class="n">5</td><td class="n">—</td></tr>
+      <tr><td rowspan="3">2</td><td>base</td><td class="n">42</td><td class="n">1</td><td class="n">30</td><td class="n">2</td><td class="n">5</td></tr>
+      <tr><td>甲 (late)</td><td class="n">46*</td><td class="n">1</td><td class="n">33</td><td class="n">8</td><td class="n">14</td></tr>
+      <tr><td>乙 (split)</td><td class="n">39</td><td class="n">5</td><td class="n">42</td><td class="n">4</td><td class="n">19</td></tr>
+      <tr><td rowspan="3">3</td><td>base</td><td class="n">40</td><td class="n">2</td><td class="n">28</td><td class="n">2</td><td class="n">3</td></tr>
+      <tr><td>乙 (split)</td><td class="n">38</td><td class="n">5</td><td class="n">42</td><td class="n">4</td><td class="n">19</td></tr>
+      <tr class="best"><td>A→B</td><td class="n">45*</td><td class="n">2</td><td class="n">46</td><td class="n">1</td><td class="n">20</td></tr>
+    </table></div>
+    <p class="note">* 甲 and A→B keep base's action. Their higher action score comes from renaming "on the table" to "on the desk": the judge scored "table" 1, because it is ambiguous with the toy table.</p>
+    <p class="note">The judge's own files are in <code>exp/caption_moves_right/judge*/</code>. The keys that say which caption is which method are not published; the tables above are already unblinded.</p>
+
+    <h3>Pilot on five other tasks (A→B, both hands, 116 moves)</h3>
+    <p>The tasks were apples into a bag, tissues, folding T-shirts, dealing bread slices, and bottle caps.</p>
+    <ul>
+      <li><b>Hand not visible:</b> in 23 % of the moves the moving hand was mostly out of the picture. The "hand in view" step above was added because of this.</li>
+      <li><b>Visible moves:</b> the action was right in 60 % and wrong in 9 %. B improved the object names a little; everyday objects were already named well.</li>
+      <li><b>Errors found:</b>
+        <ul>
+          <li>describing the other hand (an idle left hand);</li>
+          <li>"pick up" when the clip ends at the grasp;</li>
+          <li>the wrong one among identical plates.</li>
+        </ul>
+        These led to the three extra rules in call A.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Known limits</h2>
+    <ul>
+      <li>One take for the cutting choices, and one judge model with 27 moves per comparison. Differences of one or two moves are not meaningful.</li>
+      <li>The head-camera calibration of the earlier sessions is being redone. Until then the "hand in view" test needs its margin.</li>
+      <li>Only the moves are captioned so far. The stretches where the hand stays in place come next.</li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

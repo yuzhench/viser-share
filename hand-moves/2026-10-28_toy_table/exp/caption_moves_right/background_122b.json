@@ -1,0 +1,19 @@
+{
+ "task": "The person is assembling and disassembling a small orange plastic stool-like structure. The repeated steps involve picking up individual orange plastic pieces, connecting them to form the stool, then taking it apart again, and repeating the cycle.",
+ "objects": [
+  {
+   "name": "Orange plastic stool frame",
+   "description": "A small, bright orange plastic structure made of interconnected bars, resembling a miniature stool or stand. It has a rectangular base with three circular holes and four leg-like supports."
+  },
+  {
+   "name": "Orange plastic leg pieces",
+   "description": "Individual orange plastic bars that serve as legs or supports for the stool frame. They are straight, rectangular, and have notches or connectors at the ends to attach to the base or other pieces."
+  },
+  {
+   "name": "Orange plastic base plate",
+   "description": "A flat, rectangular orange plastic piece with three circular holes in a row. It serves as the foundation or seat of the stool structure."
+  }
+ ],
+ "raw": "{\n  \"task\": \"The person is assembling and disassembling a small orange plastic stool-like structure. The repeated steps involve picking up individual orange plastic pieces, connecting them to form the stool, then taking it apart again, and repeating the cycle.\",\n  \"objects\": [\n    {\n      \"name\": \"Orange plastic stool frame\",\n      \"description\": \"A small, bright orange plastic structure made of interconnected bars, resembling a miniature stool or stand. It has a rectangular base with three circular holes and four leg-like supports.\"\n    },\n    {\n      \"name\": \"Orange plastic leg pieces\",\n      \"description\": \"Individual orange plastic bars that serve as legs or supports for the stool frame. They are straight, rectangular, and have notches or connectors at the ends to attach to the base or other pieces.\"\n    },\n    {\n      \"name\": \"Orange plastic base plate\",\n      \"description\": \"A flat, rectangular orange plastic piece with three circular holes in a row. It serves as the foundation or seat of the stool structure.\"\n    }\n  ]\n}",
+ "source": "qwen122b from 16 take frames; edit task/objects by hand before captioning"
+}

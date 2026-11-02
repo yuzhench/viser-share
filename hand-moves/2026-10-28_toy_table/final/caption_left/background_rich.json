@@ -1,0 +1,61 @@
+{
+ "task": "The person repeatedly assembles and takes apart a small orange plastic toy table made of five parts. To assemble it, the parts are picked up from the desk one at a time and fitted together, usually with one hand holding the partial assembly and the other bringing and pressing in a part; to take it apart, the parts are pulled off and put back down on the desk.",
+ "objects": [
+  {
+   "names": [
+    "orange stick",
+    "orange plastic stick",
+    "orange bar",
+    "plastic bar",
+    "orange rod",
+    "long orange stick",
+    "thin orange bar",
+    "connecting bar"
+   ],
+   "description": "one of two long, thin, straight sticks; each connects the two H-shaped pieces",
+   "properties": "hard, light orange plastic; rigid, does not bend; held between the fingers; its ends push into the H-shaped pieces"
+  },
+  {
+   "names": [
+    "orange H-shaped piece",
+    "H-shaped piece",
+    "orange plastic H piece",
+    "orange H frame",
+    "H-shaped frame",
+    "leg frame",
+    "leg piece"
+   ],
+   "description": "one of two pieces shaped like the letter H: a pair of table legs joined by a short bar",
+   "properties": "hard, light orange plastic; rigid; about a hand long; has holes and pegs where the sticks and the plate fit"
+  },
+  {
+   "names": [
+    "orange plate",
+    "orange plastic plate",
+    "orange plate with three holes",
+    "flat orange plate",
+    "rectangular orange plate",
+    "orange board",
+    "top plate"
+   ],
+   "description": "the flat rectangular plate with a row of three round holes; the top of the toy table",
+   "properties": "hard, light orange plastic; rigid and flat, a few millimetres thick; presses onto the tops of the H-shaped pieces"
+  },
+  {
+   "names": [
+    "orange toy table",
+    "toy table",
+    "small orange table",
+    "orange plastic table",
+    "partly built table",
+    "table assembly",
+    "assembled table",
+    "orange assembly",
+    "plastic structure"
+   ],
+   "description": "the orange parts when two or more of them are fitted together (fully or partly built); call it the toy table, never by the name of one of its parts",
+   "properties": "hard, light plastic; the press-fitted joints hold, but can be pulled apart by hand"
+  }
+ ],
+ "source": "written by Claude from the 16 take frames. Names: colour/shape, everyday and technical terms, plus the correct ones the plain VITRA prompt used on its own. v2 removed names that are not what people say (stretcher, trestle, end frame, side rail, table brace, top panel, table surface, miniature table) and added physical properties (material, rigidity, how the parts join). v3 removed 'tabletop', 'table top' (read as the desk), 'orange frame' (read as the whole frame), 'pair of table legs' (plural vs 'it'); the toy table entry says joined parts are the toy table. v4 removed crossbar (reads as the bar of an H piece)."
+}
