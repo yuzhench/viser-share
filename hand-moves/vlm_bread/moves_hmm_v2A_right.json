@@ -36,6 +36,8 @@
  "n_turn_back_splits": 0,
  "n_same_direction_joins": 3,
  "n_overlapping_moves": 0,
+ "n_truncated": 2,
+ "edge_s": 0.3,
  "move_dur_s": {
   "p10": 0.71,
   "p50": 1.1,
@@ -68,7 +70,8 @@
    ],
    "peak_cm_s": 35.4,
    "body_from_cm": 19.0,
-   "body_to_cm": 19.8
+   "body_to_cm": 19.8,
+   "truncated": true
   },
   {
    "start_s": 1.637,
@@ -90,7 +93,8 @@
    ],
    "peak_cm_s": 33.4,
    "body_from_cm": 22.1,
-   "body_to_cm": 17.8
+   "body_to_cm": 17.8,
+   "truncated": false
   },
   {
    "start_s": 2.237,
@@ -112,7 +116,8 @@
    ],
    "peak_cm_s": 42.1,
    "body_from_cm": 17.2,
-   "body_to_cm": 14.0
+   "body_to_cm": 14.0,
+   "truncated": false
   },
   {
    "start_s": 3.237,
@@ -134,7 +139,8 @@
    ],
    "peak_cm_s": 29.9,
    "body_from_cm": 15.5,
-   "body_to_cm": 14.8
+   "body_to_cm": 14.8,
+   "truncated": false
   },
   {
    "start_s": 4.104,
@@ -156,7 +162,8 @@
    ],
    "peak_cm_s": 30.3,
    "body_from_cm": 14.9,
-   "body_to_cm": 13.1
+   "body_to_cm": 13.1,
+   "truncated": false
   },
   {
    "start_s": 5.07,
@@ -178,7 +185,8 @@
    ],
    "peak_cm_s": 44.1,
    "body_from_cm": 14.9,
-   "body_to_cm": 21.9
+   "body_to_cm": 21.9,
+   "truncated": false
   },
   {
    "start_s": 6.97,
@@ -212,7 +220,8 @@
    ],
    "peak_cm_s": 24.7,
    "body_from_cm": 14.0,
-   "body_to_cm": 20.8
+   "body_to_cm": 20.8,
+   "truncated": false
   },
   {
    "start_s": 11.204,
@@ -234,7 +243,8 @@
    ],
    "peak_cm_s": 22.9,
    "body_from_cm": 17.3,
-   "body_to_cm": 23.9
+   "body_to_cm": 23.9,
+   "truncated": false
   },
   {
    "start_s": 12.737,
@@ -256,7 +266,8 @@
    ],
    "peak_cm_s": 25.2,
    "body_from_cm": 31.2,
-   "body_to_cm": 23.7
+   "body_to_cm": 23.7,
+   "truncated": false
   },
   {
    "start_s": 13.937,
@@ -278,7 +289,8 @@
    ],
    "peak_cm_s": 48.2,
    "body_from_cm": 23.3,
-   "body_to_cm": 26.1
+   "body_to_cm": 26.1,
+   "truncated": false
   },
   {
    "start_s": 18.037,
@@ -300,7 +312,8 @@
    ],
    "peak_cm_s": 26.7,
    "body_from_cm": 15.1,
-   "body_to_cm": 16.4
+   "body_to_cm": 16.4,
+   "truncated": false
   },
   {
    "start_s": 23.604,
@@ -322,7 +335,8 @@
    ],
    "peak_cm_s": 44.3,
    "body_from_cm": 13.9,
-   "body_to_cm": 27.9
+   "body_to_cm": 27.9,
+   "truncated": false
   },
   {
    "start_s": 26.404,
@@ -344,7 +358,8 @@
    ],
    "peak_cm_s": 42.0,
    "body_from_cm": 27.8,
-   "body_to_cm": 22.3
+   "body_to_cm": 22.3,
+   "truncated": false
   },
   {
    "start_s": 29.704,
@@ -366,7 +381,8 @@
    ],
    "peak_cm_s": 37.7,
    "body_from_cm": 17.6,
-   "body_to_cm": 27.3
+   "body_to_cm": 27.3,
+   "truncated": false
   },
   {
    "start_s": 30.737,
@@ -388,7 +404,8 @@
    ],
    "peak_cm_s": 72.6,
    "body_from_cm": 27.7,
-   "body_to_cm": 21.4
+   "body_to_cm": 21.4,
+   "truncated": false
   },
   {
    "start_s": 31.77,
@@ -422,7 +439,8 @@
    ],
    "peak_cm_s": 46.4,
    "body_from_cm": 21.5,
-   "body_to_cm": 22.1
+   "body_to_cm": 22.1,
+   "truncated": false
   },
   {
    "start_s": 41.604,
@@ -444,7 +462,8 @@
    ],
    "peak_cm_s": 60.8,
    "body_from_cm": 38.8,
-   "body_to_cm": 23.7
+   "body_to_cm": 23.7,
+   "truncated": false
   },
   {
    "start_s": 42.804,
@@ -466,7 +485,8 @@
    ],
    "peak_cm_s": 39.2,
    "body_from_cm": 23.5,
-   "body_to_cm": 31.6
+   "body_to_cm": 31.6,
+   "truncated": false
   },
   {
    "start_s": 43.87,
@@ -488,7 +508,8 @@
    ],
    "peak_cm_s": 36.9,
    "body_from_cm": 31.7,
-   "body_to_cm": 22.6
+   "body_to_cm": 22.6,
+   "truncated": false
   },
   {
    "start_s": 45.037,
@@ -510,7 +531,8 @@
    ],
    "peak_cm_s": 50.6,
    "body_from_cm": 22.8,
-   "body_to_cm": 36.4
+   "body_to_cm": 36.4,
+   "truncated": false
   },
   {
    "start_s": 46.804,
@@ -532,7 +554,8 @@
    ],
    "peak_cm_s": 37.5,
    "body_from_cm": 34.8,
-   "body_to_cm": 21.2
+   "body_to_cm": 21.2,
+   "truncated": false
   },
   {
    "start_s": 48.104,
@@ -554,7 +577,8 @@
    ],
    "peak_cm_s": 76.4,
    "body_from_cm": 20.5,
-   "body_to_cm": 28.8
+   "body_to_cm": 28.8,
+   "truncated": false
   },
   {
    "start_s": 49.204,
@@ -576,7 +600,8 @@
    ],
    "peak_cm_s": 62.2,
    "body_from_cm": 28.7,
-   "body_to_cm": 21.0
+   "body_to_cm": 21.0,
+   "truncated": false
   },
   {
    "start_s": 50.67,
@@ -598,7 +623,8 @@
    ],
    "peak_cm_s": 61.4,
    "body_from_cm": 17.4,
-   "body_to_cm": 27.1
+   "body_to_cm": 27.1,
+   "truncated": false
   },
   {
    "start_s": 51.737,
@@ -620,7 +646,8 @@
    ],
    "peak_cm_s": 57.0,
    "body_from_cm": 29.0,
-   "body_to_cm": 22.2
+   "body_to_cm": 22.2,
+   "truncated": false
   },
   {
    "start_s": 52.67,
@@ -642,7 +669,8 @@
    ],
    "peak_cm_s": 46.4,
    "body_from_cm": 21.5,
-   "body_to_cm": 28.1
+   "body_to_cm": 28.1,
+   "truncated": false
   },
   {
    "start_s": 53.604,
@@ -664,7 +692,8 @@
    ],
    "peak_cm_s": 38.8,
    "body_from_cm": 28.9,
-   "body_to_cm": 22.5
+   "body_to_cm": 22.5,
+   "truncated": false
   },
   {
    "start_s": 55.237,
@@ -698,7 +727,8 @@
    ],
    "peak_cm_s": 46.7,
    "body_from_cm": 22.6,
-   "body_to_cm": 13.8
+   "body_to_cm": 13.8,
+   "truncated": false
   },
   {
    "start_s": 58.97,
@@ -720,7 +750,8 @@
    ],
    "peak_cm_s": 19.4,
    "body_from_cm": 16.0,
-   "body_to_cm": 22.4
+   "body_to_cm": 22.4,
+   "truncated": true
   }
  ],
  "merge_log": [

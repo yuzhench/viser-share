@@ -36,6 +36,8 @@
  "n_turn_back_splits": 1,
  "n_same_direction_joins": 9,
  "n_overlapping_moves": 0,
+ "n_truncated": 1,
+ "edge_s": 0.3,
  "move_dur_s": {
   "p10": 0.63,
   "p50": 1.17,
@@ -68,7 +70,8 @@
    ],
    "peak_cm_s": 31.5,
    "body_from_cm": 26.9,
-   "body_to_cm": 19.4
+   "body_to_cm": 19.4,
+   "truncated": false
   },
   {
    "start_s": 2.904,
@@ -90,7 +93,8 @@
    ],
    "peak_cm_s": 20.4,
    "body_from_cm": 26.6,
-   "body_to_cm": 16.0
+   "body_to_cm": 16.0,
+   "truncated": false
   },
   {
    "start_s": 3.97,
@@ -112,7 +116,8 @@
    ],
    "peak_cm_s": 35.0,
    "body_from_cm": 16.1,
-   "body_to_cm": 27.7
+   "body_to_cm": 27.7,
+   "truncated": false
   },
   {
    "start_s": 5.47,
@@ -134,7 +139,8 @@
    ],
    "peak_cm_s": 45.5,
    "body_from_cm": 19.4,
-   "body_to_cm": 29.8
+   "body_to_cm": 29.8,
+   "truncated": false
   },
   {
    "start_s": 7.604,
@@ -156,7 +162,8 @@
    ],
    "peak_cm_s": 65.4,
    "body_from_cm": 34.5,
-   "body_to_cm": 9.7
+   "body_to_cm": 9.7,
+   "truncated": false
   },
   {
    "start_s": 8.97,
@@ -178,7 +185,8 @@
    ],
    "peak_cm_s": 71.1,
    "body_from_cm": 9.7,
-   "body_to_cm": 30.1
+   "body_to_cm": 30.1,
+   "truncated": false
   },
   {
    "start_s": 10.037,
@@ -200,7 +208,8 @@
    ],
    "peak_cm_s": 49.1,
    "body_from_cm": 25.8,
-   "body_to_cm": 16.6
+   "body_to_cm": 16.6,
+   "truncated": false
   },
   {
    "start_s": 11.204,
@@ -245,7 +254,8 @@
    ],
    "peak_cm_s": 55.9,
    "body_from_cm": 16.6,
-   "body_to_cm": 22.4
+   "body_to_cm": 22.4,
+   "truncated": false
   },
   {
    "start_s": 15.204,
@@ -267,7 +277,8 @@
    ],
    "peak_cm_s": 44.4,
    "body_from_cm": 19.6,
-   "body_to_cm": 38.4
+   "body_to_cm": 38.4,
+   "truncated": false
   },
   {
    "start_s": 16.737,
@@ -301,7 +312,8 @@
    ],
    "peak_cm_s": 34.6,
    "body_from_cm": 38.1,
-   "body_to_cm": 21.3
+   "body_to_cm": 21.3,
+   "truncated": false
   },
   {
    "start_s": 18.404,
@@ -323,7 +335,8 @@
    ],
    "peak_cm_s": 39.9,
    "body_from_cm": 21.4,
-   "body_to_cm": 28.4
+   "body_to_cm": 28.4,
+   "truncated": false
   },
   {
    "start_s": 19.17,
@@ -345,7 +358,8 @@
    ],
    "peak_cm_s": 49.0,
    "body_from_cm": 28.4,
-   "body_to_cm": 36.0
+   "body_to_cm": 36.0,
+   "truncated": false
   },
   {
    "start_s": 22.737,
@@ -367,7 +381,8 @@
    ],
    "peak_cm_s": 51.2,
    "body_from_cm": 31.9,
-   "body_to_cm": 31.0
+   "body_to_cm": 31.0,
+   "truncated": false
   },
   {
    "start_s": 29.437,
@@ -389,7 +404,8 @@
    ],
    "peak_cm_s": 53.3,
    "body_from_cm": 28.8,
-   "body_to_cm": 15.1
+   "body_to_cm": 15.1,
+   "truncated": false
   },
   {
    "start_s": 30.737,
@@ -411,7 +427,8 @@
    ],
    "peak_cm_s": 68.0,
    "body_from_cm": 14.6,
-   "body_to_cm": 18.0
+   "body_to_cm": 18.0,
+   "truncated": false
   },
   {
    "start_s": 31.737,
@@ -433,7 +450,8 @@
    ],
    "peak_cm_s": 38.0,
    "body_from_cm": 17.4,
-   "body_to_cm": 22.9
+   "body_to_cm": 22.9,
+   "truncated": false
   },
   {
    "start_s": 33.937,
@@ -467,7 +485,8 @@
    ],
    "peak_cm_s": 38.9,
    "body_from_cm": 23.4,
-   "body_to_cm": 34.2
+   "body_to_cm": 34.2,
+   "truncated": false
   },
   {
    "start_s": 35.704,
@@ -489,7 +508,8 @@
    ],
    "peak_cm_s": 36.7,
    "body_from_cm": 34.2,
-   "body_to_cm": 23.9
+   "body_to_cm": 23.9,
+   "truncated": false
   },
   {
    "start_s": 36.304,
@@ -511,7 +531,8 @@
    ],
    "peak_cm_s": 47.0,
    "body_from_cm": 23.9,
-   "body_to_cm": 41.4
+   "body_to_cm": 41.4,
+   "truncated": false
   },
   {
    "start_s": 37.104,
@@ -545,7 +566,8 @@
    ],
    "peak_cm_s": 38.7,
    "body_from_cm": 41.0,
-   "body_to_cm": 29.2
+   "body_to_cm": 29.2,
+   "truncated": false
   },
   {
    "start_s": 39.47,
@@ -590,7 +612,8 @@
    ],
    "peak_cm_s": 50.0,
    "body_from_cm": 28.1,
-   "body_to_cm": 10.8
+   "body_to_cm": 10.8,
+   "truncated": false
   },
   {
    "start_s": 48.304,
@@ -612,7 +635,8 @@
    ],
    "peak_cm_s": 13.8,
    "body_from_cm": 18.4,
-   "body_to_cm": 24.4
+   "body_to_cm": 24.4,
+   "truncated": false
   },
   {
    "start_s": 54.937,
@@ -634,7 +658,8 @@
    ],
    "peak_cm_s": 34.3,
    "body_from_cm": 16.3,
-   "body_to_cm": 28.7
+   "body_to_cm": 28.7,
+   "truncated": false
   },
   {
    "start_s": 56.737,
@@ -668,7 +693,8 @@
    ],
    "peak_cm_s": 66.6,
    "body_from_cm": 35.5,
-   "body_to_cm": 22.5
+   "body_to_cm": 22.5,
+   "truncated": false
   },
   {
    "start_s": 58.637,
@@ -690,7 +716,8 @@
    ],
    "peak_cm_s": 78.3,
    "body_from_cm": 22.5,
-   "body_to_cm": 37.2
+   "body_to_cm": 37.2,
+   "truncated": true
   }
  ],
  "merge_log": [
