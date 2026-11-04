@@ -1,0 +1,15 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Skeleton alignment check</title><style>
+:root{--bg:#f6f7f9;--card:#fff;--fg:#1d2125;--dim:#616a74;--line:#e2e5e9;--link:#1f6feb}
+@media (prefers-color-scheme: dark){:root:not([data-theme=light]){--bg:#0e1115;--card:#161a20;--fg:#e6e9ed;--dim:#9aa4ae;--line:#262c34;--link:#6ea8ff}}
+:root[data-theme=dark]{--bg:#0e1115;--card:#161a20;--fg:#e6e9ed;--dim:#9aa4ae;--line:#262c34;--link:#6ea8ff}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:1000px;margin:0 auto;padding:22px 16px 40px}h1{font-size:19px;margin:0 0 4px}.dim{color:var(--dim);font-size:13px}
+video{display:block;width:100%;height:auto;border-radius:8px;background:#000;margin-top:12px}a{color:var(--link)}
+</style></head><body><main>
+<h1>Do the hand skeletons line up with the gloves?</h1>
+<p class="dim">Clip 2026-10-27 20:04 (dealing bread slices onto plates), 60 s, head camera. Both gloves' 21-joint skeletons drawn on every frame — green = left hand, red = right hand; hollow joints = glove confidence &lt; 0.5.</p>
+<p><b>Top:</b> the calibration as recorded. <b>Bottom:</b> the refined calibration (<code>refined_calibration.json</code>: tracker→wrist and tracker→camera replaced, everything else as recorded). Each frame uses its own capture time; trackers and skeleton are interpolated there, as in the viewer.</p>
+<video src="2026-10-27_20-04-16.mp4" controls muted playsinline preload="metadata"></video>
+<p class="dim">If the bottom skeletons sit on the glove fingers throughout, the same calibration is applied to all 37 checked clips (and their full takes) for cutting and captioning.</p>
+</main></body></html>
