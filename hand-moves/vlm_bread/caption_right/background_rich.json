@@ -1,0 +1,47 @@
+{
+ "task_name": "Take bread slices from a bag, deal them onto paper plates and stack",
+ "task": "The person takes slices of brown bread out of a plastic bread bag, deals them one by one onto several white paper plates, and moves slices between plates to stack them.",
+ "objects": [
+  {
+   "names": [
+    "slice of bread",
+    "bread slice",
+    "piece of bread",
+    "slice of brown bread",
+    "wheat bread slice"
+   ],
+   "description": "a single slice of brown (whole-wheat) sandwich bread",
+   "properties": "soft, light and floppy; it bends when lifted by an edge"
+  },
+  {
+   "names": [
+    "paper plate",
+    "white paper plate",
+    "white plate",
+    "disposable plate"
+   ],
+   "description": "one of several round white paper plates on the desk",
+   "properties": "light, thin and stiff, with a raised rim"
+  },
+  {
+   "names": [
+    "bread bag",
+    "plastic bread bag",
+    "bag of bread",
+    "loaf bag"
+   ],
+   "description": "the clear plastic bag the bread comes in, with a printed label",
+   "properties": "thin, crinkly plastic"
+  },
+  {
+   "names": [
+    "stack of bread",
+    "pile of bread slices",
+    "bread stack"
+   ],
+   "description": "several slices lying on top of each other on a plate",
+   "properties": "soft slices that slide on each other"
+  }
+ ],
+ "source": "written by Claude from 16 frames evenly sampled over the take"
+}
