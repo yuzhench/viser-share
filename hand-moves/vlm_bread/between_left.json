@@ -1,0 +1,190 @@
+[
+ {
+  "after_move": null,
+  "before_move": 1,
+  "start_s": 0.0,
+  "end_s": 2.904,
+  "i": 0,
+  "parts": [
+   {
+    "move": 0,
+    "start_s": 1.704,
+    "end_s": 2.237,
+    "why": "shorter than 1 s"
+   }
+  ]
+ },
+ {
+  "after_move": 1,
+  "before_move": 4,
+  "start_s": 3.904,
+  "end_s": 7.604,
+  "i": 1,
+  "parts": [
+   {
+    "move": 2,
+    "start_s": 3.97,
+    "end_s": 4.637,
+    "why": "shorter than 1 s"
+   },
+   {
+    "move": 3,
+    "start_s": 5.47,
+    "end_s": 6.304,
+    "why": "shorter than 1 s"
+   }
+  ]
+ },
+ {
+  "after_move": 4,
+  "before_move": 6,
+  "start_s": 8.904,
+  "end_s": 10.037,
+  "i": 2,
+  "parts": [
+   {
+    "move": 5,
+    "start_s": 8.97,
+    "end_s": 9.537,
+    "why": "shorter than 1 s"
+   }
+  ]
+ },
+ {
+  "after_move": 7,
+  "before_move": 8,
+  "start_s": 14.37,
+  "end_s": 15.204,
+  "i": 3,
+  "parts": []
+ },
+ {
+  "after_move": 8,
+  "before_move": 9,
+  "start_s": 16.67,
+  "end_s": 16.737,
+  "i": 4,
+  "parts": []
+ },
+ {
+  "after_move": 9,
+  "before_move": 11,
+  "start_s": 18.337,
+  "end_s": 19.17,
+  "i": 5,
+  "parts": [
+   {
+    "move": 10,
+    "start_s": 18.404,
+    "end_s": 19.17,
+    "why": "shorter than 1 s"
+   }
+  ]
+ },
+ {
+  "after_move": 11,
+  "before_move": 12,
+  "start_s": 20.237,
+  "end_s": 22.737,
+  "i": 6,
+  "parts": []
+ },
+ {
+  "after_move": 12,
+  "before_move": 13,
+  "start_s": 23.737,
+  "end_s": 29.437,
+  "i": 7,
+  "parts": []
+ },
+ {
+  "after_move": 13,
+  "before_move": 15,
+  "start_s": 30.67,
+  "end_s": 31.737,
+  "i": 8,
+  "parts": [
+   {
+    "move": 14,
+    "start_s": 30.737,
+    "end_s": 31.637,
+    "why": "shorter than 1 s"
+   }
+  ]
+ },
+ {
+  "after_move": 15,
+  "before_move": 16,
+  "start_s": 33.27,
+  "end_s": 33.937,
+  "i": 9,
+  "parts": []
+ },
+ {
+  "after_move": 16,
+  "before_move": 19,
+  "start_s": 35.704,
+  "end_s": 37.104,
+  "i": 10,
+  "parts": [
+   {
+    "move": 17,
+    "start_s": 35.704,
+    "end_s": 36.304,
+    "why": "shorter than 1 s"
+   },
+   {
+    "move": 18,
+    "start_s": 36.304,
+    "end_s": 37.037,
+    "why": "shorter than 1 s"
+   }
+  ]
+ },
+ {
+  "after_move": 19,
+  "before_move": 20,
+  "start_s": 38.637,
+  "end_s": 39.47,
+  "i": 11,
+  "parts": []
+ },
+ {
+  "after_move": 20,
+  "before_move": 21,
+  "start_s": 43.27,
+  "end_s": 48.304,
+  "i": 12,
+  "parts": []
+ },
+ {
+  "after_move": 21,
+  "before_move": 23,
+  "start_s": 49.57,
+  "end_s": 56.737,
+  "i": 13,
+  "parts": [
+   {
+    "move": 22,
+    "start_s": 54.937,
+    "end_s": 55.904,
+    "why": "shorter than 1 s"
+   }
+  ]
+ },
+ {
+  "after_move": 23,
+  "before_move": null,
+  "start_s": 58.57,
+  "end_s": 59.992,
+  "i": 14,
+  "parts": [
+   {
+    "move": 24,
+    "start_s": 58.637,
+    "end_s": 59.87,
+    "why": "cut off by the edge of the data"
+   }
+  ]
+ }
+]
