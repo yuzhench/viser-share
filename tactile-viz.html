@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tactile visualisation variants</title>
+<style>
+  :root { --bg: #f6f7f9; --card: #ffffff; --text: #1d2125; --dim: #616a74; --line: #e2e5e9; --link: #1f6feb; --chip: #eef1f4; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --bg: #0e1115; --card: #161a20; --text: #e6e9ed; --dim: #9aa4ae; --line: #262c34; --link: #6ea8ff; --chip: #1f252d; }
+  }
+  :root[data-theme="dark"] { --bg: #0e1115; --card: #161a20; --text: #e6e9ed; --dim: #9aa4ae; --line: #262c34; --link: #6ea8ff; --chip: #1f252d; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 1800px; margin: 0 auto; padding: 20px 16px 40px; }
+  header { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+  h1 { font-size: 18px; margin: 0; }
+  header span { color: var(--dim); font-size: 13px; }
+  header a { color: var(--link); font-size: 13px; text-decoration: none; margin-left: auto; }
+  .grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2.4fr) minmax(0, 1fr); gap: 14px; align-items: start; }
+  @media (max-width: 1000px) { .grid { grid-template-columns: 1fr; } }
+  .view { background: var(--card); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 12px; border-bottom: 1px solid var(--line); min-height: 40px; }
+  .bar b { font-size: 14px; }
+  .bar span { color: var(--dim); font-size: 12px; }
+  .bar a { color: var(--link); font-size: 13px; text-decoration: none; white-space: nowrap; }
+  video { display: block; width: 100%; height: auto; background: #000; }
+  iframe { display: block; width: 100%; height: min(84vh, 980px); border: 0; background: #fff; }
+  #clock { font-variant-numeric: tabular-nums; }
+  .note { color: var(--dim); font-size: 13px; margin: 10px 2px 0; }
+  section { margin-top: 18px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 14px 18px; }
+  h2 { font-size: 15px; margin: 0 0 8px; }
+  ul { margin: 0; padding-left: 18px; }
+  li { margin: 4px 0; }
+  code { background: var(--chip); border-radius: 4px; padding: 1px 5px; font-size: 13px; }
+
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 1000px) { .two { grid-template-columns: 1fr; } }
+  img.fig { display: block; width: 100%; height: auto; border-radius: 6px; }
+  table { border-collapse: collapse; font-size: 13.5px; }
+  td, th { border-bottom: 1px solid var(--line); padding: 4px 10px 4px 0; text-align: left; vertical-align: top; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Tactile residual · how to draw it</h1>
+    <span>seven ways of showing the same glove data, side by side · 2026-11-05</span>
+    <a href="./">← other recordings</a>
+  </header>
+
+  <div class="view">
+    <div class="bar"><div><b>Seven variants on one minute</b> <span>take 2026-11-05 20-06-26 (scooping beans), 380 – 440 s · each row one hand: head camera, then the variants; a colour bar under every panel</span></div>
+      <a href="media/tactile-viz/compare_2026-11-05_20-06-26_380-440s.mp4" target="_blank" rel="noopener">open video ↗</a></div>
+    <video src="media/tactile-viz/compare_2026-11-05_20-06-26_380-440s.mp4" controls muted playsinline preload="metadata"></video>
+  </div>
+  <p class="note">The glove's <b>tactile residual</b> is measured pressure minus the contact model's predicted no-contact baseline, per taxel (744 slots, 24 × 31; about 526 carry a sensor). Exactly −1 means no reading (no sensor in that slot, or a dead one). Negative values mean below the baseline.</p>
+
+  <section>
+    <h2>The variants</h2>
+    <table>
+      <tr><th>panel</th><th>what it draws</th></tr>
+      <tr><td><code>grid ±0.3 (viewer)</code></td><td>One cell per taxel, the colour scale of the recording page in the viewer: 0 dark, +0.15 red, +0.3 yellow, negative blue, grey = no reading. Faithful, but 0.05 already looks red, so noise fills the hand.</td></tr>
+      <tr><td><code>grid 0–0.8</code></td><td>Same grid, 0 → 0.8 linear (red at 0.4, yellow at 0.8). Noise fades; ordinary contacts (0.25 – 0.5 at the strongest taxel) are dark red.</td></tr>
+      <tr><td><code>grid 0–0.8, mute&lt;0.2</code></td><td>As above, but any residual below 0.2 is drawn as 0 (the blue tick on the colour bar). Only firm presses remain; a light grasp, which sits at 0.1 – 0.2 on most of its taxels, disappears.</td></tr>
+      <tr><td><code>heat: blur σ=1</code></td><td>What the preview videos drew on 2026-11-05: a Gaussian (σ = one taxel) over the working taxels, normalised so missing taxels do not pull values down, then bicubic up-sampling, cut to the glove's footprint. Every taxel is averaged with its neighbours, so an isolated 0.5 becomes about 0.12 – hence the dim look.</td></tr>
+      <tr><td><code>heat: inpaint + bicubic</code></td><td>Working taxels keep their exact value; only the missing ones inside the footprint are filled from their neighbours (iterated 3 × 3 mean over valid cells). Then bicubic up-sampling. Peaks survive.</td></tr>
+      <tr><td><code>heat: inpaint, mute&lt;0.2</code></td><td>The inpainted map with residual below 0.2 set to 0.</td></tr>
+      <tr><td><code>heat: inpaint, inferno</code></td><td>The inpainted map on a perceptually uniform colour map (inferno), still 0 → 0.8. 0.3 is already a clear orange here.</td></tr>
+    </table>
+    <p class="note">How a missing taxel is filled: the footprint of each glove (by serial number) is the union of slots that ever reported a value in any take, so a slot that is silent in one take but not in others is a dead sensor there and gets a value from its neighbours; slots that never report anywhere are gaps in the hardware and stay grey. The "blur" variant fills by weighting the Gaussian only over working cells (normalised convolution); the "inpaint" variants fill only the missing cells and leave the rest untouched.</p>
+  </section>
+
+  <section>
+    <h2>Whole preview, two colour scales</h2>
+    <div class="two">
+      <div class="view"><div class="bar"><div><b>0 → 0.3</b> <span>take 2026-11-04 22-36-29 (52 s test), grid + blurred heat-map</span></div></div>
+        <video src="media/tactile-viz/preview_2026-11-04_22-36-29_scale0-0.3.mp4" controls muted playsinline preload="metadata"></video></div>
+      <div class="view"><div class="bar"><div><b>0 → 0.8</b> <span>same take, same panels</span></div></div>
+        <video src="media/tactile-viz/preview_2026-11-04_22-36-29_scale0-0.8.mp4" controls muted playsinline preload="metadata"></video></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>What the numbers say</h2>
+    <ul>
+      <li>Strongest taxel per frame: median 0.25 – 0.5 depending on take and glove, 90th percentile 0.3 – 0.6, saturation at 1.0 is rare. The five strongest taxels average 0.2 – 0.4.</li>
+      <li>Noise (quietest 10 % of frames): per-taxel σ median 0.02, 90th percentile 0.04 – 0.06, worst taxels 0.13 – 0.15. Heavy-tailed: the per-taxel 99th percentile of noise reaches 0.10 – 0.16 on a tenth of the taxels.</li>
+      <li>There is <b>no clean split</b> between noise and contact in the value distribution, nor after per-taxel z-scoring, nor after 3 × 3 spatial averaging (figure below). The ratio of overall to noise density first exceeds 10 somewhere between 0.15 and 0.5, never below 0.1. In 98 – 100 % of frames at least one taxel is above 0.15.</li>
+      <li>The SDK's binary contact output is 0 for the whole take on both hands, so it cannot serve as the threshold.</li>
+      <li>Left gloves spend most of the time below the baseline (blue), i.e. the baseline trained on 2026-10-31 has drifted; some rows light up together (a row-level artefact of that glove).</li>
+    </ul>
+    <img class="fig" src="media/tactile-viz/residual_distributions.png" alt="residual distributions per take and hand">
+    <p class="note">Left column: residual density (log), all frames in black, the quietest 10 % of frames in blue, after 3 × 3 averaging in green; dashed lines at 0.08 and 0.15. Middle: per-taxel z-score. Right: density of all frames divided by density of the quiet frames; above 10 the value is mostly contact.</p>
+  </section>
+
+  <section>
+    <h2>One frame, all variants</h2>
+    <img class="fig" src="media/tactile-viz/compare_frame_400s.png" alt="frame 400 s, all variants">
+  </section>
+</main>
+</body>
+</html>
