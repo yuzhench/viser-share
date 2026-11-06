@@ -45,7 +45,7 @@
 <main>
   <header>
     <h1>Tactile residual · how to draw it</h1>
-    <span>seven ways of showing the same glove data, side by side · 2026-11-05</span>
+    <span>seven ways of showing the same glove data, side by side · 2026-11-05 · mute thresholds added 2026-11-06</span>
     <a href="./">← other recordings</a>
   </header>
 
@@ -54,6 +54,13 @@
       <a href="media/tactile-viz/compare_2026-11-05_20-06-26_380-440s.mp4" target="_blank" rel="noopener">open video ↗</a></div>
     <video src="media/tactile-viz/compare_2026-11-05_20-06-26_380-440s.mp4" controls muted playsinline preload="metadata"></video>
   </div>
+  <div class="view">
+    <div class="bar"><div><b>Mute thresholds side by side: none · 0.1 · 0.15 · 0.2 · 0.3</b> <span>same take and minute · per hand: top row the grid, bottom row the in-painted heat-map, all 0 → 0.8 linear; "mute &lt; m" draws every residual below m as 0 (blue tick on the bar)</span></div>
+      <a href="media/tactile-viz/mute_2026-11-05_20-06-26_380-440s.mp4" target="_blank" rel="noopener">open video ↗</a></div>
+    <video src="media/tactile-viz/mute_2026-11-05_20-06-26_380-440s.mp4" controls muted playsinline preload="metadata"></video>
+  </div>
+  <img class="fig" src="media/tactile-viz/mute_frame_400s.png" alt="frame 400 s, mute thresholds none, 0.1, 0.15, 0.2, 0.3">
+
   <p class="note">The glove's <b>tactile residual</b> is measured pressure minus the contact model's predicted no-contact baseline, per taxel (744 slots, 24 × 31; about 526 carry a sensor). Exactly −1 means no reading (no sensor in that slot, or a dead one). Negative values mean below the baseline.</p>
 
   <section>
