@@ -48,7 +48,7 @@
     <video src="media/wuji-sdk-refit/2026-10-25_17-42-45_sdk_vs_refit.mp4" controls muted playsinline preload="metadata"></video>
   </div>
   <p class="note">Both sides use the same tracker poses and the same (refined) tracker and camera calibration; only the hand model differs.
-    The mesh is MANO, its shape fitted once to each version's own bone lengths and posed per frame from that version's 21 keypoints, so each mesh follows its own skeleton.
+    The mesh is MANO, its shape fitted once to each version's own bone lengths, posed per frame from that version's 21 keypoints and stretched segment by segment to that skeleton, so each mesh lies on its own skeleton (where a finger looks oddly proportioned, that is the skeleton's segment split, which is not well determined yet).
     The glove's fingertip is not measured directly: the coil (on the nail) is, and the model places the fingertip at the coil plus an offset.</p>
 
   <section>
