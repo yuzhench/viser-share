@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wuji SDK re-fit</title>
+<style>
+  :root { --bg: #f6f7f9; --card: #ffffff; --text: #1d2125; --dim: #616a74; --line: #e2e5e9; --link: #1f6feb; --chip: #eef1f4; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --bg: #0e1115; --card: #161a20; --text: #e6e9ed; --dim: #9aa4ae; --line: #262c34; --link: #6ea8ff; --chip: #1f252d; }
+  }
+  :root[data-theme="dark"] { --bg: #0e1115; --card: #161a20; --text: #e6e9ed; --dim: #9aa4ae; --line: #262c34; --link: #6ea8ff; --chip: #1f252d; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 1500px; margin: 0 auto; padding: 20px 16px 40px; }
+  header { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+  h1 { font-size: 20px; margin: 0; }
+  header span { color: var(--dim); font-size: 13px; }
+  header a { color: var(--link); font-size: 13px; text-decoration: none; margin-left: auto; }
+  .view { background: var(--card); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 12px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+  .bar b { font-size: 14px; }
+  .bar span { color: var(--dim); font-size: 12.5px; }
+  .bar a { color: var(--link); font-size: 13px; text-decoration: none; white-space: nowrap; }
+  video { display: block; width: 100%; height: auto; background: #000; }
+  .note { color: var(--dim); font-size: 13px; margin: 10px 2px 0; }
+  section { margin-top: 18px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 14px 18px; }
+  h2 { font-size: 15px; margin: 0 0 8px; }
+  .tw { overflow-x: auto; }
+  table { border-collapse: collapse; font-size: 13.5px; }
+  td, th { border-bottom: 1px solid var(--line); padding: 5px 14px 5px 0; text-align: left; vertical-align: top; }
+  td.n { text-align: right; font-variant-numeric: tabular-nums; }
+  code { background: var(--chip); border-radius: 4px; padding: 1px 5px; font-size: 13px; }
+  .sdk { color: #d64545; font-weight: 600; } .fit { color: #2e9e4f; font-weight: 600; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>修改 Wuji SDK 的效果</h1>
+    <span>Wuji SDK hand model vs our re-fitted hand model · take 2026-10-25 17-42-45 (twisting bottle caps), one minute, head camera · 2026-11-07</span>
+    <a href="./">← other recordings</a>
+  </header>
+
+  <div class="view">
+    <div class="bar"><div><b><span class="sdk">Left: Wuji SDK</span> (Studio hand model) · <span class="fit">Right: re-fit</span></b> <span>skeleton + MANO mesh on the head camera; yellow dots = the five EMF coils as measured (identical on both sides)</span></div>
+      <a href="media/wuji-sdk-refit/2026-10-25_17-42-45_sdk_vs_refit.mp4" target="_blank" rel="noopener">open video ↗</a></div>
+    <video src="media/wuji-sdk-refit/2026-10-25_17-42-45_sdk_vs_refit.mp4" controls muted playsinline preload="metadata"></video>
+  </div>
+  <p class="note">Both sides use the same tracker poses and the same (refined) tracker and camera calibration; only the hand model differs.
+    The mesh is MANO, its shape fitted once to each version's own bone lengths and posed per frame from that version's 21 keypoints, so each mesh follows its own skeleton.
+    The glove's fingertip is not measured directly: the coil (on the nail) is, and the model places the fingertip at the coil plus an offset.</p>
+
+  <section>
+    <h2>What the re-fit changes</h2>
+    <div class="tw"><table>
+      <tr><th>part of the hand model</th><th>Wuji SDK</th><th>re-fit</th></tr>
+      <tr><td>finger length, knuckle (MCP) → tip</td><td>Studio calibration</td><td>ruler measurement of the operator's hand: thumb 62.3 · index 81.8 · middle 97.8 · ring 82.5 · little 70.1 mm (same for both hands)</td></tr>
+      <tr><td>split over the three segments, thumb metacarpal</td><td>Studio calibration</td><td>fitted to this take's coil poses (total fixed to the measurement)</td></tr>
+      <tr><td>coil position on the fingertip</td><td>Studio calibration (the thumb's sits on the optimiser's bound in every calibration we have)</td><td>fitted, constrained to the nail: on its mid-line, 5–22 mm behind the tip, 3–14 mm above the finger's axis</td></tr>
+      <tr><td>transmitter housing pose on the back of the hand</td><td>Studio calibration</td><td>fitted, one pose for the take: right hand moved 11.7 mm / 4.8°, left 6.0 mm / 1.6°</td></tr>
+      <tr><td>joint angles</td><td>Wuji SDK, per frame</td><td>re-solved per frame from the raw coil poses with the numbers above (no Wuji SDK involved)</td></tr>
+    </table></div>
+    <p class="note">The fit is a non-linear least-squares problem over 400 frames: for every frame and finger, the coil pose predicted by the hand model (housing → wrist → palm → joints → fingertip → coil offset) is matched to the measured coil pose; the take-wide numbers above and the per-frame joint angles are solved together.</p>
+  </section>
+
+  <section>
+    <h2>How well each model explains the coil measurements</h2>
+    <div class="tw"><table>
+      <tr><th></th><th>coil position error (median)</th><th>coil orientation error (median)</th></tr>
+      <tr><td><span class="sdk">Wuji SDK</span> · right hand</td><td class="n">0.06 mm</td><td class="n">10.9°</td></tr>
+      <tr><td><span class="fit">re-fit</span> · right hand</td><td class="n">0.04 mm</td><td class="n">4.2°</td></tr>
+      <tr><td><span class="sdk">Wuji SDK</span> · left hand</td><td class="n">2.39 mm</td><td class="n">19.0°</td></tr>
+      <tr><td><span class="fit">re-fit</span> · left hand</td><td class="n">0.13 mm</td><td class="n">3.9°</td></tr>
+    </table></div>
+    <p class="note">Measured on held-out time (the minute cut into 5 s blocks; the same model as in the video re-fitted on every other block, tested on the rest). The left hand's Studio calibration was made on 2026-10-22, the right hand's on the day of this take.
+      These numbers show that the re-fitted model agrees with the coil data; they do not by themselves prove the skeleton sits better on the hand — that is what the video is for.
+      Still open: the split over the three segments is not well determined by the coil data (several values end on their bounds); per-segment ruler measurements will fix it.</p>
+  </section>
+</main>
+</body>
+</html>
