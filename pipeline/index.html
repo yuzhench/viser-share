@@ -10,13 +10,13 @@
 <main>
   <h1>HiLoTaH pipeline: from a recording to a calibrated point cloud</h1>
 
+  <div class="hint">👆 Click any block in the diagram to open that step: its own diagrams and numbers</div>
   <div class="card" id="diagram">
     <div class="legend">
       <span><span class="sw" style="background:var(--raw)"></span>recorded data</span>
       <span><span class="sw" style="background:var(--cam)"></span>camera calibration</span>
       <span><span class="sw" style="background:var(--hand)"></span>hand calibration</span>
       <span><span class="sw" style="background:var(--out)"></span>result</span>
-      <span>🔍 click a block to open its page</span>
     </div>
 <svg viewBox="0 0 1180 460" width="100%" role="img" aria-label="pipeline overview" xmlns="http://www.w3.org/2000/svg">
   <defs>
@@ -41,36 +41,6 @@
     <p class="viewer-link"><a href="https://yuzhench.github.io/viser-share/2026-10-25_1min.html">▶ See the result in the viewer: opening a bottle (2026-10-25), the calibrated point cloud from the three cameras with the fitted MANO hand, and the camera views below it →</a></p>
   </div>
 
-  <div class="card">
-    <h2>The blocks</h2>
-    <table>
-      <tr><th>Block</th><th>What it solves</th><th>Writes</th><th>Status</th></tr>
-      <tr><td><a href="raw-recording.html">raw recording</a></td>
-          <td>Synchronised capture, with the calibration known at recording time</td>
-          <td>take folder → HF + NAS</td>
-          <td>58 takes to 11-06 (49 usable); 10 takes on 11-07 uploading</td></tr>
-      <tr><td><a href="head-camera.html">head camera auto cali</a></td>
-          <td>The head camera's mount on its tracker; the hand-eye calibration leaves it loose</td>
-          <td><code>T_tracker_cam.ego</code></td>
-          <td><span class="tag auto">auto</span> error 4.1 → 1.6 mm (54 takes)</td></tr>
-      <tr><td><a href="wrist-camera.html">wrist camera auto cali</a></td>
-          <td>Each wrist camera's mount, which shifts between hand-eye calibrations</td>
-          <td><code>T_tracker_cam.left_wrist / right_wrist</code></td>
-          <td><span class="tag auto">auto</span> error 14.3 → 5.5 mm (both wrist cameras, 49 takes)</td></tr>
-      <tr><td><a href="hand-mount.html">tracker → hand mount cali</a></td>
-          <td>Where each glove's wrist hangs from its tracker: bracket geometry + the tracker's angle on it</td>
-          <td><code>tracker_to_wrist</code>, <code>turn_deg</code></td>
-          <td><span class="tag partial">keyed mount next</span> θ fixed by design; earlier takes calibrated afterwards</td></tr>
-      <tr><td><a href="hand-pose.html">hand pose auto cali</a></td>
-          <td>Finger skeleton and hand mesh from the raw coil poses, replacing the glove software's</td>
-          <td><code>skeleton_mano.npz</code>, <code>mano_&lt;side&gt;.npz</code></td>
-          <td><span class="tag partial">auto, 1 take</span> 2026-10-25/17-42-45</td></tr>
-      <tr><td><a href="point-cloud.html">calibrated point cloud</a></td>
-          <td>Everything above combined: three depth clouds and both hands in one frame</td>
-          <td>viewer playback, viser export</td>
-          <td>49 takes with a refined calibration; MANO hands on 1 take</td></tr>
-    </table>
-  </div>
 </main>
 </body>
 </html>

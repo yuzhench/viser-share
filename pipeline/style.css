@@ -35,3 +35,6 @@ li { margin: 3px 0; }
 .viewer-link { margin: 12px 2px 2px; font-size: 15px; font-weight: 600; }
 .viewer-link a { text-decoration: none; }
 .viewer-link a:hover { text-decoration: underline; }
+.hint { display: inline-block; margin: 4px 0 2px; padding: 8px 14px; border-radius: 8px; font-size: 15px; font-weight: 600;
+        background: #fff3bf; color: #5c4400; border: 1px solid #f0c94a; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .hint { background: #3d3205; color: #ffe8a3; border-color: #8a6d0a; } }
