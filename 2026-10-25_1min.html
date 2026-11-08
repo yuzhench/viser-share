@@ -66,8 +66,15 @@
       <a id="full" href="#" target="_blank" rel="noopener">open full screen ↗</a></div>
     <iframe id="viser" class="tall" title="Point cloud" allowfullscreen></iframe>
   </div>
+  <div class="view" style="margin-top:14px">
+    <div class="bar"><div><b>Camera views with the fitted hand</b> <span>head camera (left) · left and right wrist cameras (right) · 30 fps</span></div>
+      <span id="sync">follows the 3D view's timeline</span></div>
+    <div id="m3v" style="padding:8px 10px 2px"></div>
+  </div>
   <p class="note">Each piece is about 60 MB and loads before it plays (5 frames a second, to stay within the hosting size limit) (seconds are of the one-minute excerpt). Between part 4 and
-    part 5, 42.7 – 54.6 s were cut in the clip editor; the hand model is fitted on the kept parts only.</p>
+    part 5, 42.7 – 54.6 s were cut in the clip editor; the hand model is fitted on the kept parts only.
+    The camera views below the 3D view follow its timeline: play, pause or drag the bar at the bottom of the 3D view, and the
+    videos move with it (the 3D view has 5 frames a second, the videos all 30).</p>
 
   <section>
     <h2>What is shown</h2>
@@ -80,10 +87,14 @@
         wrist cameras fitted to the head camera's point cloud, and each wrist tracker's turn on its bracket.</li>
       <li><b>Point cloud</b>: depth from the head camera and both wrist cameras, every 3rd pixel in each direction (to stay within
         the hosting size limit), coloured by the camera's colour image; camera frusta show each picture.</li>
+      <li><b>Camera views</b>: the same seconds seen by the head camera and the two wrist cameras, at the cameras' full 30 frames
+        a second, with the same fitted hand drawn on them (green skeleton, translucent MANO mesh); <i>Skeleton</i> and <i>Mesh</i>
+        under the videos switch each on or off. The mesh is the hand inside the glove, so it looks a little smaller than the glove.</li>
       <li>Each layer (cameras, hands, trackers, brackets) can be switched off in the scene tree, top right of the view.</li>
     </ul>
   </section>
 </main>
+<script src="media/2026-10-25_1min/mano3view/mano3view.js"></script>
 <script>
   const SUB = { part1: '0.6 – 11.1 s of the excerpt · 5 fps', part2: '11.1 – 21.7 s of the excerpt · 5 fps', part3: '21.7 – 32.2 s of the excerpt · 5 fps', part4: '32.2 – 42.7 s of the excerpt · 5 fps', part5: '54.6 – 60.5 s of the excerpt · 5 fps' };
   const frame = document.getElementById('viser'), full = document.getElementById('full');
@@ -93,7 +104,53 @@
     document.querySelectorAll('.parts button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.part === k)));
     document.getElementById('ttl').textContent = 'Part ' + k.slice(4);
     document.getElementById('sub').textContent = SUB[k];
+    mountCam(k);
   }
+  // camera views: one player per part; it follows the 3D view's playback bar (same-origin iframe: the bar's slider gives the
+  // time in seconds from the part's start, its play / pause icon the state). If no bar is found, the player shows its own controls.
+  let cam = null, camGen = 0, lastT = null, lastMove = 0, seenBar = 0, ownControls = false;
+  async function mountCam(k) {
+    const my = ++camGen; cam = null; lastT = null; seenBar = performance.now(); ownControls = false;
+    const p = await Mano3V.mount(document.getElementById('m3v'), 'media/2026-10-25_1min/mano3view/', k, { key: 'best', controls: false });
+    if (my === camGen) cam = p;
+  }
+  function bar() {
+    try {
+      const d = frame.contentDocument; if (!d) return null;
+      let best = null;
+      d.querySelectorAll('[role="slider"]').forEach((el) => { const mx = parseFloat(el.getAttribute('aria-valuemax'));
+        if (Number.isFinite(mx) && mx > 0.5 && (!best || mx >= best.max)) best = { el, max: mx }; });
+      if (!best) return null;
+      const t = parseFloat(best.el.getAttribute('aria-valuenow')); if (!Number.isFinite(t)) return null;
+      const icon = d.querySelector('.tabler-icon-player-pause-filled') ? 'playing' : d.querySelector('.tabler-icon-player-play-filled') ? 'paused' : null;
+      const sel = d.querySelector('input.mantine-Select-input'); const rate = sel ? parseFloat(sel.value) : 1;
+      return { t, icon, rate: Number.isFinite(rate) ? rate : 1 };
+    } catch (e) { return null; }
+  }
+  function follow(now) {
+    const b = bar();
+    if (cam && b) {
+      seenBar = now;
+      if (ownControls) { cam.setControls(false); ownControls = false; document.getElementById('sync').textContent = "follows the 3D view's timeline"; }
+      if (lastT === null || Math.abs(b.t - lastT) > 1e-6) lastMove = now;
+      const playing = b.icon ? b.icon === 'playing' : (now - lastMove < 400 && lastT !== null && b.t > lastT);
+      lastT = b.t;
+      const t = Math.min(b.t, cam.realDuration - 1e-3);
+      if (playing) {
+        if (cam.video.playbackRate !== b.rate) cam.video.playbackRate = b.rate;
+        if (cam.video.paused) cam.play();
+        if (Math.abs(cam.realTime() - t) > 0.25) cam.seekReal(t);
+      } else {
+        if (!cam.video.paused) cam.pause();
+        const snap = Math.floor(b.t / 0.2 + 1e-6) * 0.2;        // the 3D frame on screen (5 a second)
+        if (Math.abs(cam.realTime() - Math.min(snap, cam.realDuration - 1e-3)) > 0.02) cam.seekReal(snap);
+      }
+    } else if (cam && !ownControls && now - seenBar > 8000) {    // no 3D bar (still loading, or a different viser): own controls
+      cam.setControls(true); ownControls = true; document.getElementById('sync').textContent = 'own controls (3D timeline not found)';
+    }
+    requestAnimationFrame(follow);
+  }
+  requestAnimationFrame(follow);
   document.querySelectorAll('.parts button').forEach((b) => (b.onclick = () => show(b.dataset.part)));
   show('part1');
 </script>
