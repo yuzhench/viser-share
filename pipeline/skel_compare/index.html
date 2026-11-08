@@ -1,0 +1,74 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1">
+<title>Hand comparison</title><style>
+:root{--bg:#f6f6f4;--fg:#1f2328;--dim:#646c75;--panel:#fff;--line:#d9dcdf}
+@media (prefers-color-scheme: dark){:root:not([data-theme=light]){--bg:#15171a;--fg:#e6e6e3;--dim:#9aa1a8;--panel:#1f2226;--line:#3a3f45}}
+:root[data-theme=dark]{--bg:#15171a;--fg:#e6e6e3;--dim:#9aa1a8;--panel:#1f2226;--line:#3a3f45}
+body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{display:flex;gap:14px;padding:12px 16px;align-items:flex-start}.left{flex:1;min-width:0}
+.stage{position:relative;width:100%;background:#000;border-radius:6px;overflow:hidden}.stage video{width:100%;display:block}
+.stage canvas{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none}
+.side{width:270px;flex:none;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px;position:sticky;top:12px}
+h1{font-size:17px;margin:0 0 2px}.dim{color:var(--dim);font-size:12px}h3{font-size:13px;margin:14px 0 6px}
+label.b{display:flex;align-items:center;gap:8px;padding:5px 4px;border-radius:5px;cursor:pointer}label.b:hover{background:rgba(127,127,127,.12)}
+.sw{width:22px;height:4px;border-radius:2px;flex:none}.b small{display:block;color:var(--dim);font-size:11px;line-height:1.3}
+.ctl{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:8px 0}.ctl button,.ctl select{font:inherit;padding:3px 8px;border:1px solid var(--line);border-radius:5px;background:var(--panel);color:var(--fg);cursor:pointer}
+.ctl .t{font-variant-numeric:tabular-nums;color:var(--dim);font-size:12.5px}input[type=range]{width:100%}
+@media (max-width:900px){.wrap{flex-direction:column}.side{width:auto;position:static}}
+</style></head><body><div class=wrap><div class=left>
+<h1 id=ttl></h1><div class=dim id=sub></div>
+<div class=ctl><select id=ep></select><button id=pp>play</button><button id=pv title="previous frame (←)">◀ 1 frame</button><button id=nx title="next frame (→)">1 frame ▶</button>
+<select id=rate><option value=0.25>0.25×</option><option value=0.5>0.5×</option><option value=1 selected>1×</option><option value=2>2×</option></select><span class=t id=tm></span></div>
+<div class=stage><video id=v playsinline muted preload=auto></video><canvas id=c></canvas></div>
+<input type=range id=seek min=0 value=0 step=1>
+<div class=dim>Space: play / pause; ← →: one frame. Top: head camera; bottom: left and right wrist cameras; both hands are drawn in every view.</div></div>
+<div class=side><h3 style=margin-top:0>Skeletons</h3><div id=bl></div>
+<div id=mbox style="display:none"><h3>Mesh (drawn into the video, one at a time)</h3><div id=ml></div></div>
+<h3>Style</h3><label class=b><input type=checkbox id=dots checked>joints</label>
+<div class=dim>line width</div><input type=range id=lw min=1 max=5 value=2></div></div>
+<script>
+const $=id=>document.getElementById(id), v=$("v"), cv=$("c"), cx=cv.getContext("2d");
+let M=null, E=0, data={}, on={}, raf=null;
+const FPS=30;
+function frameIdx(t){return Math.max(0,Math.min(M.episodes[E].n-1,Math.round(t*FPS)))}
+function draw(t){
+  const ep=M.episodes[E], r=v.getBoundingClientRect(); const dpr=window.devicePixelRatio||1;
+  if(cv.width!==Math.round(r.width*dpr)){cv.width=Math.round(r.width*dpr);cv.height=Math.round(r.height*dpr)}
+  const s=cv.width/M.W; cx.clearRect(0,0,cv.width,cv.height); const i=frameIdx(t), lw=+$("lw").value*dpr, dots=$("dots").checked;
+  for(const b of M.batches){ if(!on[b.key]) continue; const A=data[ep.label+"_"+b.key]; if(!A) continue;
+    cx.strokeStyle=b.color; cx.fillStyle=b.color; cx.lineWidth=lw; cx.lineCap="round";
+    for(let vi=0;vi<3;vi++){ const pn=M.panels[vi]; cx.save(); cx.beginPath(); cx.rect(pn[0]*s,pn[1]*s,pn[2]*s,pn[3]*s); cx.clip();
+     for(let h=0;h<2;h++){ const o=(((i*3+vi)*2+h)*21)*2;
+      const X=k=>A[o+2*k], Y=k=>A[o+2*k+1], ok=k=>A[o+2*k]!==-32768;
+      cx.beginPath(); for(const [a,c] of M.bones){ if(ok(a)&&ok(c)){cx.moveTo(X(a)*s,Y(a)*s);cx.lineTo(X(c)*s,Y(c)*s)} } cx.stroke();
+      if(dots){ for(let k=0;k<21;k++) if(ok(k)){cx.beginPath();cx.arc(X(k)*s,Y(k)*s,lw*1.1,0,6.3);cx.fill()} } } cx.restore(); } }
+  $("tm").textContent=`frame ${i+1}/${ep.n} · ${(t).toFixed(2)} s · take ${(ep.start_s+t).toFixed(2)} s`; $("seek").value=i;
+}
+function loop(now,meta){draw(meta.mediaTime);raf=v.requestVideoFrameCallback(loop)}
+const MESHES=["none", "sdk", "mano_limits"]; let MK=MESHES.length?(MESHES.includes("mano_limits")?"mano_limits":MESHES[0]):null;
+function vsrc(ep){return (MK?`${ep.label}_mesh_${MK}.mp4`:ep.video)+"?v="+BUST}
+function setMesh(k){ MK=k; const t=v.currentTime, play=!v.paused; v.src=vsrc(M.episodes[E]);
+  v.addEventListener("loadeddata",()=>{v.currentTime=t; if(play) v.play()},{once:true}); }
+async function loadEp(k){ E=k; const ep=M.episodes[E]; v.src=vsrc(ep); $("seek").max=ep.n-1;
+  await Promise.all(M.batches.map(async b=>{const key=ep.label+"_"+b.key; if(data[key]) return;
+    const r=await fetch(key+".bin?v="+BUST); data[key]=new Int16Array(await r.arrayBuffer())}));
+  v.onloadeddata=()=>draw(v.currentTime); if(v.readyState>=2) draw(v.currentTime);
+  if(v.requestVideoFrameCallback && raf===null) raf=v.requestVideoFrameCallback(loop); else if(!v.requestVideoFrameCallback) v.ontimeupdate=()=>draw(v.currentTime); }
+function step(d){v.pause(); v.currentTime=Math.max(0,(frameIdx(v.currentTime)+d+0.5)/FPS)}
+const BUST=Date.now(); fetch("meta.json?v="+BUST).then(r=>r.json()).then(m=>{M=m;
+  $("ttl").textContent=document.title="Opening a bottle: Wuji SDK vs our MANO hand"; $("sub").textContent=`take ${m.take} · 2026-10-25 one-minute excerpt, only the parts kept in the clip editor`;
+  m.episodes.forEach((e,k)=>{const o=document.createElement("option");o.value=k;o.textContent=`${e.label}  (${e.start_s.toFixed(1)}–${e.end_s.toFixed(1)} s)`;$("ep").appendChild(o)});
+  for(const b of m.batches){ on[b.key]=b.key!=="mano_nolimits"; const l=document.createElement("label"); l.className="b";
+    l.innerHTML=`<input type=checkbox ${on[b.key]?"checked":""}><span class=sw style="background:${b.color}"></span><span>${b.label}<small>${({"sdk": "skeleton from the glove software (fixed hand model)", "mano_limits": "fitted to the coil poses"})[b.key]||""}</small></span>`;
+    l.querySelector("input").onchange=e=>{on[b.key]=e.target.checked;draw(v.currentTime)}; $("bl").appendChild(l)}
+  if(MESHES.length){ $("mbox").style.display="block";
+    for(const k of MESHES){ const b=M.batches.find(x=>x.key===k); const l=document.createElement("label"); l.className="b";
+      l.innerHTML=`<input type=radio name=mesh ${k===MK?"checked":""}><span class=sw style="background:${b?b.color:"transparent"};border:1px solid var(--line)"></span><span>${b?b.label:"none (camera pictures only)"}</span>`;
+      l.querySelector("input").onchange=()=>setMesh(k); $("ml").appendChild(l)} }
+  loadEp(0)});
+$("ep").onchange=e=>loadEp(+e.target.value); $("pp").onclick=()=>v.paused?v.play():v.pause();
+v.onplay=()=>$("pp").textContent="pause"; v.onpause=()=>$("pp").textContent="play"; v.onseeked=()=>draw(v.currentTime);
+$("pv").onclick=()=>step(-1); $("nx").onclick=()=>step(1); $("rate").onchange=e=>v.playbackRate=+e.target.value;
+$("seek").oninput=e=>{v.pause();v.currentTime=(+e.target.value+0.5)/FPS}; $("lw").oninput=()=>draw(v.currentTime); $("dots").onchange=()=>draw(v.currentTime);
+window.onresize=()=>draw(v.currentTime);
+document.onkeydown=e=>{if(e.target.tagName==="SELECT")return; if(e.code==="Space"){e.preventDefault();v.paused?v.play():v.pause()} else if(e.key==="ArrowLeft")step(-1); else if(e.key==="ArrowRight")step(1)};
+</script></body></html>

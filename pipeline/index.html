@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HiLoTaH pipeline</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1>HiLoTaH pipeline: from a recording to a calibrated point cloud</h1>
+
+  <div class="card" id="diagram">
+    <div class="legend">
+      <span><span class="sw" style="background:var(--raw)"></span>recorded data</span>
+      <span><span class="sw" style="background:var(--cam)"></span>camera calibration</span>
+      <span><span class="sw" style="background:var(--hand)"></span>hand calibration</span>
+      <span><span class="sw" style="background:var(--out)"></span>result</span>
+      <span>🔍 click a block to open its page</span>
+    </div>
+<svg viewBox="0 0 1180 460" width="100%" role="img" aria-label="pipeline overview" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="m" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker>
+    <marker id="md" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#777"/></marker>
+  </defs>
+  <style>
+    .blk rect, .blk circle { stroke: #1a3a7a; stroke-width: 3; }
+    .blk:hover rect, .blk:hover circle { stroke-width: 5; }
+    .blk { cursor: pointer; }
+    .t { font: 600 20px system-ui, sans-serif; fill: #1d2125; text-anchor: middle; }
+    .s { font: 13.5px system-ui, sans-serif; fill: #3b4450; text-anchor: middle; }
+    .a { stroke: #333; stroke-width: 2.2; }
+    .ad { stroke: #777; stroke-width: 2; stroke-dasharray: 7 6; }
+    .lab { font: 14px system-ui, sans-serif; fill: var(--dim, #5d6670); }
+    .lab2 { font: 12.5px system-ui, sans-serif; fill: var(--dim, #5d6670); }
+  </style>
+  <line x1="230" y1="230.0" x2="316" y2="90.0" class="a" marker-end="url(#m)"/><line x1="230" y1="230.0" x2="316" y2="370.0" class="a" marker-end="url(#m)"/><line x1="540" y1="90.0" x2="616" y2="90.0" class="a" marker-end="url(#m)"/><line x1="540" y1="370.0" x2="616" y2="370.0" class="a" marker-end="url(#m)"/><line x1="840" y1="90.0" x2="946.4567130385166" y2="166.43046064303755" class="a" marker-end="url(#m)"/><line x1="840" y1="370.0" x2="946.4567130385166" y2="293.5695393569625" class="a" marker-end="url(#m)"/>
+  <a href="raw-recording.html"><g class="blk"><rect x="20" y="175" width="210" height="110" rx="16" fill="#ffc9c9"/><text x="125.0" y="218.0" class="t">🔍 raw recording</text><text x="125.0" y="244.0" class="s">3 RGB-D cameras · 2 gloves</text><text x="125.0" y="263.0" class="s">3 trackers · microphone</text><title>open the raw recording page</title></g></a><a href="head-camera.html"><g class="blk"><rect x="320" y="40" width="220" height="100" rx="16" fill="#ffec99"/><text x="430.0" y="77.0" class="t">🔍 head camera</text><text x="430.0" y="101.0" class="t">auto cali</text><text x="430.0" y="127.0" class="s">auto · 4.1 → 1.6 mm</text><title>open the head camera page</title></g></a><a href="wrist-camera.html"><g class="blk"><rect x="620" y="40" width="220" height="100" rx="16" fill="#ffec99"/><text x="730.0" y="77.0" class="t">🔍 wrist camera</text><text x="730.0" y="101.0" class="t">auto cali</text><text x="730.0" y="127.0" class="s">auto · 14.3 → 5.5 mm</text><title>open the wrist camera page</title></g></a><a href="hand-mount.html"><g class="blk"><rect x="320" y="320" width="220" height="100" rx="16" fill="#a5d8ff"/><text x="430.0" y="357.0" class="t">🔍 tracker → hand</text><text x="430.0" y="381.0" class="t">mount cali</text><text x="430.0" y="407.0" class="s">keyed mount: θ known</text><title>open the tracker → hand page</title></g></a><a href="hand-pose.html"><g class="blk"><rect x="620" y="320" width="220" height="100" rx="16" fill="#a5d8ff"/><text x="730.0" y="357.0" class="t">🔍 hand pose</text><text x="730.0" y="381.0" class="t">auto cali</text><text x="730.0" y="407.0" class="s">auto · 1 take so far</text><title>open the hand pose page</title></g></a>
+  <a href="point-cloud.html"><g class="blk"><circle cx="1035" cy="230" r="105" fill="#b2f2bb"/><text x="1035" y="214" class="t">🔍 calibrated</text><text x="1035" y="238" class="t">point cloud</text><text x="1035" y="262" class="s">49 takes refined</text><title>open the calibrated point cloud page</title></g></a>
+</svg>
+    <p class="viewer-link"><a href="https://yuzhench.github.io/viser-share/2026-10-25_1min.html">▶ See the result in the viewer: opening a bottle (2026-10-25), the calibrated point cloud from the three cameras with the fitted MANO hand, and the camera views below it →</a></p>
+  </div>
+
+  <div class="card">
+    <h2>The blocks</h2>
+    <table>
+      <tr><th>Block</th><th>What it solves</th><th>Writes</th><th>Status</th></tr>
+      <tr><td><a href="raw-recording.html">raw recording</a></td>
+          <td>Synchronised capture, with the calibration known at recording time</td>
+          <td>take folder → HF + NAS</td>
+          <td>58 takes to 11-06 (49 usable); 10 takes on 11-07 uploading</td></tr>
+      <tr><td><a href="head-camera.html">head camera auto cali</a></td>
+          <td>The head camera's mount on its tracker; the hand-eye calibration leaves it loose</td>
+          <td><code>T_tracker_cam.ego</code></td>
+          <td><span class="tag auto">auto</span> error 4.1 → 1.6 mm (54 takes)</td></tr>
+      <tr><td><a href="wrist-camera.html">wrist camera auto cali</a></td>
+          <td>Each wrist camera's mount, which shifts between hand-eye calibrations</td>
+          <td><code>T_tracker_cam.left_wrist / right_wrist</code></td>
+          <td><span class="tag auto">auto</span> error 14.3 → 5.5 mm (both wrist cameras, 49 takes)</td></tr>
+      <tr><td><a href="hand-mount.html">tracker → hand mount cali</a></td>
+          <td>Where each glove's wrist hangs from its tracker: bracket geometry + the tracker's angle on it</td>
+          <td><code>tracker_to_wrist</code>, <code>turn_deg</code></td>
+          <td><span class="tag partial">keyed mount next</span> θ fixed by design; earlier takes calibrated afterwards</td></tr>
+      <tr><td><a href="hand-pose.html">hand pose auto cali</a></td>
+          <td>Finger skeleton and hand mesh from the raw coil poses, replacing the glove software's</td>
+          <td><code>skeleton_mano.npz</code>, <code>mano_&lt;side&gt;.npz</code></td>
+          <td><span class="tag partial">auto, 1 take</span> 2026-10-25/17-42-45</td></tr>
+      <tr><td><a href="point-cloud.html">calibrated point cloud</a></td>
+          <td>Everything above combined: three depth clouds and both hands in one frame</td>
+          <td>viewer playback, viser export</td>
+          <td>49 takes with a refined calibration; MANO hands on 1 take</td></tr>
+    </table>
+  </div>
+</main>
+</body>
+</html>
