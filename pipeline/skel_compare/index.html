@@ -46,9 +46,9 @@ function draw(t){
 function loop(now,meta){draw(meta.mediaTime);raf=v.requestVideoFrameCallback(loop)}
 const MESHES=["none", "sdk", "mano_limits"]; let MK=MESHES.length?(MESHES.includes("mano_limits")?"mano_limits":MESHES[0]):null;
 function vsrc(ep){return (MK?`${ep.label}_mesh_${MK}.mp4`:ep.video)+"?v="+BUST}
-function setMesh(k){ MK=k; const t=v.currentTime, play=!v.paused; v.src=vsrc(M.episodes[E]);
+function setMesh(k){ MK=k; const t=v.currentTime, play=!v.paused; v.src=vsrc(M.episodes[E]); $("tm").textContent="loading video…";
   v.addEventListener("loadeddata",()=>{v.currentTime=t; if(play) v.play()},{once:true}); }
-async function loadEp(k){ E=k; const ep=M.episodes[E]; v.src=vsrc(ep); $("seek").max=ep.n-1;
+async function loadEp(k){ E=k; const ep=M.episodes[E]; v.src=vsrc(ep); $("seek").max=ep.n-1; $("tm").textContent="loading video…";
   await Promise.all(M.batches.map(async b=>{const key=ep.label+"_"+b.key; if(data[key]) return;
     const r=await fetch(key+".bin?v="+BUST); data[key]=new Int16Array(await r.arrayBuffer())}));
   v.onloadeddata=()=>draw(v.currentTime); if(v.readyState>=2) draw(v.currentTime);
@@ -66,7 +66,7 @@ const BUST=Date.now(); fetch("meta.json?v="+BUST).then(r=>r.json()).then(m=>{M=m
       l.querySelector("input").onchange=()=>setMesh(k); $("ml").appendChild(l)} }
   loadEp(0)});
 $("ep").onchange=e=>loadEp(+e.target.value); $("pp").onclick=()=>v.paused?v.play():v.pause();
-v.onplay=()=>$("pp").textContent="pause"; v.onpause=()=>$("pp").textContent="play"; v.onseeked=()=>draw(v.currentTime);
+v.onplay=()=>$("pp").textContent="pause"; v.onwaiting=()=>{$("tm").textContent="loading video…"}; v.oncanplay=()=>draw(v.currentTime); v.onpause=()=>$("pp").textContent="play"; v.onseeked=()=>draw(v.currentTime);
 $("pv").onclick=()=>step(-1); $("nx").onclick=()=>step(1); $("rate").onchange=e=>v.playbackRate=+e.target.value;
 $("seek").oninput=e=>{v.pause();v.currentTime=(+e.target.value+0.5)/FPS}; $("lw").oninput=()=>draw(v.currentTime); $("dots").onchange=()=>draw(v.currentTime);
 window.onresize=()=>draw(v.currentTime);
