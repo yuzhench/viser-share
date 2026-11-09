@@ -1,9 +1,10 @@
 // Keeps the two viser playback iframes (same origin) on one timeline: a shared play / pause / seek bar, and whichever viewer
 // was touched last leads (its own bar works too); the 2D video below follows the same time. Reads each viser client's Mantine
-// slider (aria-valuenow / aria-valuemax, seconds) and its play / pause icon; seeks by a mouse press on the slider track.
+// slider (aria-valuenow / aria-valuemax, seconds), its play / pause icon and its speed picker (0.5x ... 8x); seeks by a mouse press on
+// the slider track. Both 3D views keep the same speed, and the 2D video plays at that speed (so it is not pulled back every 0.3 s).
 (function () {
   const ids = ['viserA', 'viserB'];
-  let master = 0, dragging = false, lastSeek = [0, 0];
+  let master = 0, dragging = false, lastSeek = [0, 0], lastRate = 0;
   const $ = (id) => document.getElementById(id);
   function ctl(i) {
     const f = $(ids[i]); let d; try { d = f.contentDocument; } catch (e) { return null; }
@@ -13,7 +14,10 @@
     if (!(max > 0) || !Number.isFinite(t)) return null;
     const ic = d.querySelector('svg.tabler-icon-player-pause-filled, svg.tabler-icon-player-play-filled');
     if (!d.__syncHooked) { d.__syncHooked = true; d.addEventListener('pointerdown', () => { master = i; }, true); }
-    return { d, th, max, t, playing: ic ? ic.classList.contains('tabler-icon-player-pause-filled') : null,
+    let sel = null;                                              // the player's speed picker, next to the slider
+    for (let e = th.parentElement, k = 0; e && k < 8 && !sel; e = e.parentElement, k++) sel = e.querySelector('input.mantine-Select-input');
+    const rate = sel ? parseFloat(sel.value) : NaN;
+    return { d, th, max, t, rate: rate > 0 ? rate : 1, sel, playing: ic ? ic.classList.contains('tabler-icon-player-pause-filled') : null,
              btn: ic && ic.closest('button'), track: th.closest('.mantine-Slider-trackContainer') || th.parentElement };
   }
   function seek(c, t) {
@@ -24,6 +28,14 @@
     c.d.dispatchEvent(new w.MouseEvent('mouseup', Object.assign({}, o, { buttons: 0 })));
   }
   function setPlaying(c, want) { if (c.playing !== null && c.playing !== want && c.btn) c.btn.click(); }
+  function setRate(c, r) {                                       // pick speed r on c's picker: open its list, click the option
+    if (!c.sel) return;
+    const w = c.d.defaultView; c.sel.click();
+    setTimeout(() => {
+      const o = Array.from(c.d.querySelectorAll('[role="option"]')).find((e) => parseFloat(e.textContent) === r);
+      if (o) { o.dispatchEvent(new w.MouseEvent('mousedown', { bubbles: true })); o.click(); } else c.sel.click();
+    }, 120);
+  }
   const btn = $('syncPlay'), rng = $('syncRange'), lab = $('syncTime');
   btn.onclick = () => { const a = ctl(master) || ctl(1 - master); if (!a) return; const want = !a.playing;
     for (const i of [0, 1]) { const c = ctl(i); if (c) setPlaying(c, want); } };
@@ -38,18 +50,19 @@
       btn.textContent = m.playing ? '❚❚  pause both' : '▶  play both';
       if (s && !dragging) {
         if (m.playing !== null && s.playing !== m.playing) setPlaying(s, m.playing);
+        if (s.rate !== m.rate && now - lastRate > 1500) { setRate(s, m.rate); lastRate = now; }   // the same speed in both views
         const tol = m.playing ? 0.3 : 0.06, j = 1 - master;
         if (Math.abs(s.t - Math.min(m.t, s.max)) > tol && now - lastSeek[j] > 400) { seek(s, Math.min(m.t, s.max)); lastSeek[j] = now; }
       }
       const v = $('v2d');                                        // the 2D video follows the same time
       if (v && v.readyState >= 2 && Number.isFinite(v.duration)) {
         const tv = Math.min(m.t + (window.SYNC_OFFSET || 0), v.duration - 0.05);
-        if (m.playing) { if (v.paused) v.play().catch(() => {}); if (Math.abs(v.currentTime - tv) > 0.3) v.currentTime = tv; }
+        if (m.playing) { if (v.playbackRate !== m.rate) v.playbackRate = m.rate; if (v.paused) v.play().catch(() => {}); if (Math.abs(v.currentTime - tv) > 0.3) v.currentTime = tv; }
         else { if (!v.paused) v.pause(); if (Math.abs(v.currentTime - tv) > 0.05) v.currentTime = tv; }
       }
     }
     requestAnimationFrame(loop);
   }
   requestAnimationFrame(loop);
-  window.__viserSync = { ctl, seek, setPlaying, reset() { master = 0; lastSeek = [0, 0]; } };
+  window.__viserSync = { ctl, seek, setPlaying, setRate, reset() { master = 0; lastSeek = [0, 0]; } };
 })();

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CV baselines on TouchScale</title>
+<style>
+  :root { --bg:#f6f7f9; --card:#fff; --text:#1d2125; --dim:#616a74; --line:#e2e5e9; --link:#1f6feb; }
+  * { box-sizing:border-box; } body { margin:0; background:var(--bg); color:var(--text); font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif; }
+  main { max-width:1700px; margin:0 auto; padding:16px 16px 28px; }
+  .top { display:flex; align-items:center; gap:10px 16px; flex-wrap:wrap; margin-bottom:6px; } h1 { font-size:17px; margin:0; }
+  .back { color:var(--link); font-size:13px; text-decoration:none; }
+  .intro { color:var(--dim); font-size:13.5px; margin:0 0 12px; max-width:1200px; }
+  .row { display:flex; flex-wrap:wrap; gap:8px; margin:0 0 10px; align-items:center; } .row > span { color:var(--dim); font-size:12.5px; margin-right:4px; }
+  #clips button { font:inherit; font-size:13px; padding:5px 12px; border:1px solid var(--line); border-radius:6px; background:var(--card); color:var(--text); cursor:pointer; }
+  #clips button[aria-pressed="true"] { border-color:var(--link); color:var(--link); font-weight:600; } #clips button small { color:var(--dim); font-weight:400; margin-left:6px; }
+  .grid { display:grid; grid-template-columns:minmax(260px,360px) minmax(0,1fr); gap:12px; align-items:start; }
+  @media (max-width:1000px) { .grid { grid-template-columns:1fr; } }
+  .view { background:var(--card); border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+  .bar { display:flex; align-items:center; justify-content:space-between; gap:8px; padding:7px 12px; border-bottom:1px solid var(--line); }
+  .bar b { font-size:14px; } .bar span { color:var(--dim); font-size:12px; } .bar a { color:var(--link); font-size:13px; text-decoration:none; white-space:nowrap; }
+  iframe { display:block; width:100%; height:min(76vh,860px); border:0; background:#fff; }
+  #meths { display:flex; flex-direction:column; gap:8px; padding:10px; }
+  .meth { display:flex; gap:10px; align-items:flex-start; text-align:left; font:inherit; padding:8px 10px; border:1px solid var(--line); border-radius:8px; background:var(--card); color:var(--text); cursor:pointer; }
+  .meth[aria-pressed="true"] { border-color:var(--link); box-shadow:0 0 0 1px var(--link) inset; }
+  .meth[aria-pressed="false"] { opacity:.62; }
+  .sw { flex:none; width:16px; height:16px; border-radius:50%; border:3px solid; margin-top:3px; }
+  .mt { display:flex; flex-direction:column; gap:1px; } .mt b { font-size:13.5px; } .ms { font-size:12px; color:var(--dim); } .mn { font-size:12px; color:var(--text); margin-top:3px; }
+  .note { color:var(--dim); font-size:12.5px; padding:0 12px 12px; margin:0; }
+  .fig { margin-top:12px; }
+  .v2d { display:grid; grid-template-columns:repeat(auto-fill, minmax(270px, 1fr)); gap:12px; padding:10px 12px 12px; }
+  .fig .bar { flex-wrap:wrap; }
+  .vctl { display:flex; align-items:center; gap:10px; flex:1 1 380px; justify-content:flex-end; min-width:0; }
+  .vctl button { font:inherit; font-size:13px; padding:4px 12px; border:1px solid var(--link); border-radius:6px; background:var(--card); color:var(--link); cursor:pointer; min-width:116px; }
+  .vctl input[type=range] { flex:1 1 80px; min-width:60px; max-width:520px; } .vctl span { color:var(--dim); font-size:12px; font-variant-numeric:tabular-nums; min-width:92px; }
+  .v2d figure { margin:0; } .v2d video { display:block; width:100%; aspect-ratio:16/9; border-radius:6px; background:#111; }
+  .v2d figcaption { display:flex; gap:7px; align-items:center; font-size:12.5px; margin:0 0 5px; } .v2d figcaption .sw { margin-top:0; }
+</style></head><body><main>
+<div class="top"><a class="back" href="../baseline/">← Ours vs the CV baseline</a><h1>CV baselines on TouchScale</h1></div>
+<p class="intro">Four clips from the TouchScale dataset (Orbbec head camera; its depth is registered to the colour image, with the camera’s
+true intrinsics). The points are the measured depth; each baseline’s hand is drawn in it, placed in the true camera keeping the method’s own
+pixels and depth. A correctly placed hand lies on the hand’s points; turn the view to the side to see how far in front of or behind them each
+method puts the hand. 5 frames a second; the player is under the 3D view. Below, the head camera with every baseline’s keypoints, side by side, with its own play / pause.</p>
+<div class="row"><span>Clip</span><div id="clips" class="row" style="margin:0"></div></div>
+<div class="grid">
+  <div class="view"><div class="bar"><div><b>Baselines</b> <span>click to show or hide (several at once)</span></div></div>
+    <div id="meths"></div>
+    <p class="note">FACT-style moves each hand onto the depth camera’s own surface, so it sits close to the points by construction; it is not a
+    vision-only result. A method shows a hand only in frames where its own detector found one.</p></div>
+  <div class="view"><div class="bar"><div><b>Point cloud with the baseline hands</b> <span>camera at the origin (grey outline), table level</span></div>
+    <a id="tsFull" href="#" target="_blank" rel="noopener">full screen ↗</a></div>
+    <iframe id="ts3d" title="TouchScale 3D" allowfullscreen></iframe></div>
+</div>
+<div class="view fig"><div class="bar"><div><b>Head camera with every baseline’s keypoints</b> <span>all five settings side by side · 30 fps · plays on its own, not tied to the 3D view</span></div>
+    <div class="vctl"><button id="vPlay" type="button">❚❚  pause all</button><input id="vRange" type="range" min="0" max="1" step="0.01" value="0" aria-label="Time"><span id="vTime"></span></div></div>
+  <div id="v2d" class="v2d"></div></div>
+</main>
+<script src="ts.js"></script>
+</body></html>

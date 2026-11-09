@@ -1,0 +1,306 @@
+{
+ "e0de6ab8": {
+  "task": "pour water from a measuring cup",
+  "frames": 99,
+  "methods": {
+   "vitra_est": {
+    "behind_cm_median": 12.405861735343931,
+    "within_0_3cm": 0.002403846153846154,
+    "hand_frames": 416,
+    "fov_x_deg": 96.4019900399499,
+    "valid": {
+     "left": 0.13367174280879865,
+     "right": 0.5702199661590525
+    },
+    "shown_frames": {
+     "left": 17,
+     "right": 53
+    }
+   },
+   "vitra_true": {
+    "behind_cm_median": 3.6780229330062864,
+    "within_0_3cm": 0.25240384615384615,
+    "hand_frames": 416,
+    "fov_x_deg": 106.5046,
+    "valid": {
+     "left": 0.13367174280879865,
+     "right": 0.5702199661590525
+    },
+    "shown_frames": {
+     "left": 17,
+     "right": 53
+    }
+   },
+   "wilor": {
+    "behind_cm_median": 8.13610143661499,
+    "within_0_3cm": 0.07232704402515723,
+    "hand_frames": 318,
+    "fov_x_deg": 106.50458074929239,
+    "valid": {
+     "left": 0.15905245346869712,
+     "right": 0.3824027072758037
+    },
+    "shown_frames": {
+     "left": 22,
+     "right": 39
+    }
+   },
+   "hamer": {
+    "behind_cm_median": 20.419006252288817,
+    "within_0_3cm": 0.01692047377326565,
+    "hand_frames": 1182,
+    "fov_x_deg": 106.50458074929239,
+    "valid": {
+     "left": 1.0,
+     "right": 1.0
+    },
+    "shown_frames": {
+     "left": 99,
+     "right": 99
+    }
+   },
+   "fact": {
+    "behind_cm_median": 1.9082620143890394,
+    "within_0_3cm": 0.4712351945854484,
+    "hand_frames": 1182,
+    "fov_x_deg": 106.50458074929239,
+    "valid": {
+     "left": 1.0,
+     "right": 1.0
+    },
+    "shown_frames": {
+     "left": 99,
+     "right": 99
+    }
+   }
+  }
+ },
+ "8f839902": {
+  "task": "screw a bottle cap tight",
+  "frames": 116,
+  "methods": {
+   "vitra_est": {
+    "behind_cm_median": 8.254819834232329,
+    "within_0_3cm": 0.002325581395348837,
+    "hand_frames": 430,
+    "fov_x_deg": 98.77177881399918,
+    "valid": {
+     "left": 0.5895953757225434,
+     "right": 0.031791907514450865
+    },
+    "shown_frames": {
+     "left": 66,
+     "right": 4
+    }
+   },
+   "vitra_true": {
+    "behind_cm_median": 3.2800687313079835,
+    "within_0_3cm": 0.3581395348837209,
+    "hand_frames": 430,
+    "fov_x_deg": 106.5046,
+    "valid": {
+     "left": 0.5895953757225434,
+     "right": 0.031791907514450865
+    },
+    "shown_frames": {
+     "left": 66,
+     "right": 4
+    }
+   },
+   "wilor": {
+    "behind_cm_median": 4.758990049362183,
+    "within_0_3cm": 0.1258426966292135,
+    "hand_frames": 445,
+    "fov_x_deg": 106.50458074929239,
+    "valid": {
+     "left": 0.5476878612716763,
+     "right": 0.0953757225433526
+    },
+    "shown_frames": {
+     "left": 63,
+     "right": 10
+    }
+   },
+   "hamer": {
+    "behind_cm_median": 4.466626083850861,
+    "within_0_3cm": 0.24060693641618497,
+    "hand_frames": 1384,
+    "fov_x_deg": 106.50458074929239,
+    "valid": {
+     "left": 1.0,
+     "right": 1.0
+    },
+    "shown_frames": {
+     "left": 116,
+     "right": 116
+    }
+   },
+   "fact": {
+    "behind_cm_median": -0.46939080953598,
+    "within_0_3cm": 0.25072254335260113,
+    "hand_frames": 1384,
+    "fov_x_deg": 106.50458074929239,
+    "valid": {
+     "left": 1.0,
+     "right": 1.0
+    },
+    "shown_frames": {
+     "left": 116,
+     "right": 116
+    }
+   }
+  }
+ },
+ "806d9d6e": {
+  "task": "wet filter paper with a wash bottle",
+  "frames": 105,
+  "methods": {
+   "vitra_est": {
+    "behind_cm_median": 5.103351068496706,
+    "within_0_3cm": 0.0,
+    "hand_frames": 24,
+    "fov_x_deg": 101.6186938676143,
+    "valid": {
+     "left": 0.0,
+     "right": 0.06995230524642289
+    },
+    "shown_frames": {
+     "left": 0,
+     "right": 9
+    }
+   },
+   "vitra_true": {
+    "behind_cm_median": 2.5442560255527504,
+    "within_0_3cm": 0.7083333333333334,
+    "hand_frames": 24,
+    "fov_x_deg": 106.5046,
+    "valid": {
+     "left": 0.0,
+     "right": 0.06995230524642289
+    },
+    "shown_frames": {
+     "left": 0,
+     "right": 9
+    }
+   },
+   "wilor": {
+    "behind_cm_median": 1.4152470231056202,
+    "within_0_3cm": 0.425,
+    "hand_frames": 40,
+    "fov_x_deg": 106.50458074929239,
+    "valid": {
+     "left": 0.00794912559618442,
+     "right": 0.07631160572337042
+    },
+    "shown_frames": {
+     "left": 1,
+     "right": 11
+    }
+   },
+   "hamer": {
+    "behind_cm_median": 3.6898576498031606,
+    "within_0_3cm": 0.22861710631494805,
+    "hand_frames": 1251,
+    "fov_x_deg": 106.50458074929239,
+    "valid": {
+     "left": 1.0,
+     "right": 1.0
+    },
+    "shown_frames": {
+     "left": 105,
+     "right": 105
+    }
+   },
+   "fact": {
+    "behind_cm_median": 0.7943669319152802,
+    "within_0_3cm": 0.6818545163868905,
+    "hand_frames": 1251,
+    "fov_x_deg": 106.50458074929239,
+    "valid": {
+     "left": 1.0,
+     "right": 1.0
+    },
+    "shown_frames": {
+     "left": 105,
+     "right": 105
+    }
+   }
+  }
+ },
+ "cc6d9831": {
+  "task": "scoop rice with a spoon",
+  "frames": 123,
+  "methods": {
+   "vitra_est": {
+    "behind_cm_median": 13.899995589256287,
+    "within_0_3cm": 0.0,
+    "hand_frames": 748,
+    "fov_x_deg": 89.91159253586153,
+    "valid": {
+     "left": 0.40625,
+     "right": 0.6141304347826086
+    },
+    "shown_frames": {
+     "left": 51,
+     "right": 73
+    }
+   },
+   "vitra_true": {
+    "behind_cm_median": 2.215705370903015,
+    "within_0_3cm": 0.7185385656292287,
+    "hand_frames": 739,
+    "fov_x_deg": 106.5046,
+    "valid": {
+     "left": 0.40625,
+     "right": 0.6141304347826086
+    },
+    "shown_frames": {
+     "left": 51,
+     "right": 73
+    }
+   },
+   "wilor": {
+    "behind_cm_median": 1.7056829452514632,
+    "within_0_3cm": 0.5029103608847497,
+    "hand_frames": 859,
+    "fov_x_deg": 106.2956031343771,
+    "valid": {
+     "left": 0.5692934782608695,
+     "right": 0.654891304347826
+    },
+    "shown_frames": {
+     "left": 75,
+     "right": 77
+    }
+   },
+   "hamer": {
+    "behind_cm_median": 2.591171169281006,
+    "within_0_3cm": 0.453125,
+    "hand_frames": 1472,
+    "fov_x_deg": 106.2956031343771,
+    "valid": {
+     "left": 1.0,
+     "right": 1.0
+    },
+    "shown_frames": {
+     "left": 123,
+     "right": 123
+    }
+   },
+   "fact": {
+    "behind_cm_median": 1.1420073270797735,
+    "within_0_3cm": 0.3077445652173913,
+    "hand_frames": 1472,
+    "fov_x_deg": 106.2956031343771,
+    "valid": {
+     "left": 1.0,
+     "right": 1.0
+    },
+    "shown_frames": {
+     "left": 123,
+     "right": 123
+    }
+   }
+  }
+ }
+}

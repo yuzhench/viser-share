@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ours vs VITRA 3D</title>
+<style>
+  :root { --bg:#f6f7f9; --card:#fff; --text:#1d2125; --dim:#616a74; --line:#e2e5e9; --link:#1f6feb; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#0e1115; --card:#161a20; --text:#e6e9ed; --dim:#9aa4ae; --line:#262c34; --link:#6ea8ff; } }
+  :root[data-theme="dark"] { --bg:#0e1115; --card:#161a20; --text:#e6e9ed; --dim:#9aa4ae; --line:#262c34; --link:#6ea8ff; }
+  * { box-sizing:border-box; } body { margin:0; background:var(--bg); color:var(--text); font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif; }
+  main { max-width:1700px; margin:0 auto; padding:16px 16px 28px; }
+  .top { display:flex; align-items:center; gap:10px 16px; flex-wrap:wrap; margin-bottom:10px; } h1 { font-size:17px; margin:0; }
+  .back { color:var(--link); font-size:13px; text-decoration:none; } .back:hover { text-decoration:underline; }
+  .parts { display:flex; flex-wrap:wrap; gap:8px; }
+  .parts button { font:inherit; font-size:13px; padding:5px 12px; border:1px solid var(--line); border-radius:6px; background:var(--card); color:var(--text); cursor:pointer; }
+  .parts button[aria-pressed="true"] { border-color:var(--link); color:var(--link); font-weight:600; } .parts button small { color:var(--dim); font-weight:400; margin-left:4px; }
+  .syncbar { display:flex; align-items:center; gap:10px; margin:0 0 10px; flex-wrap:wrap; }
+  .syncbar button { font:inherit; font-size:13px; padding:5px 12px; border:1px solid var(--link); border-radius:6px; background:var(--card); color:var(--link); cursor:pointer; min-width:130px; }
+  .syncbar input[type=range] { flex:1; min-width:200px; } .syncbar span { color:var(--dim); font-size:12px; }
+  .legend { display:flex; flex-wrap:wrap; gap:6px 16px; color:var(--dim); font-size:13px; margin:0 0 10px; }
+  .legend i { display:inline-block; width:12px; height:12px; border-radius:50%; margin-right:6px; vertical-align:-1px; border:1px solid rgba(0,0,0,.25); }
+  .two { display:grid; grid-template-columns:1fr 1fr; gap:12px; align-items:start; } @media (max-width:1000px) { .two { grid-template-columns:1fr; } }
+  .col { display:flex; flex-direction:column; gap:12px; min-width:0; }
+  .view { background:var(--card); border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+  .bar { display:flex; align-items:center; justify-content:space-between; gap:8px; padding:7px 12px; border-bottom:1px solid var(--line); }
+  .bar b { font-size:14px; } .bar span { color:var(--dim); font-size:12px; } .bar a { color:var(--link); font-size:13px; text-decoration:none; white-space:nowrap; }
+  iframe { display:block; width:100%; height:min(72vh,800px); border:0; background:#fff; }
+  video { display:block; width:100%; height:auto; background:#000; } #m3v { padding:8px 10px 2px; }
+  .two.grid3 { grid-template-columns:minmax(230px,300px) minmax(0,1fr) minmax(0,1fr); }
+  .grid3 > .col { display:contents; }
+  .grid3 > .touch { grid-column:1; grid-row:1 / span 2; position:sticky; top:8px; }
+  .grid3 > .col:nth-child(2) > .view:nth-child(1) { grid-column:2; grid-row:1; } .grid3 > .col:nth-child(2) > .view:nth-child(2) { grid-column:2; grid-row:2; }
+  .grid3 > .col:nth-child(3) > .view:nth-child(1) { grid-column:3; grid-row:1; } .grid3 > .col:nth-child(3) > .view:nth-child(2) { grid-column:3; grid-row:2; }
+  @media (max-width:1100px) { .two.grid3 { grid-template-columns:1fr; } .grid3 > .touch, .grid3 > .col > .view { grid-column:auto !important; grid-row:auto !important; position:static; } }
+  .tmode { display:inline-flex; border:1px solid var(--line); border-radius:6px; overflow:hidden; flex:none; }
+  .tmode button { font:inherit; font-size:12px; line-height:1.4; padding:2px 9px; border:0; background:var(--card); color:var(--dim); cursor:pointer; }
+  .tmode button[aria-pressed="true"] { background:var(--link); color:#fff; }
+  .hbar { display:flex; align-items:center; gap:6px 8px; flex-wrap:wrap; padding:6px 12px; border-bottom:1px solid var(--line); font-size:12px; color:var(--dim); }
+  .hbtn { font:inherit; font-size:12px; line-height:1.4; padding:2px 9px; border:1px solid var(--line); border-radius:6px; background:var(--card); color:var(--text); cursor:pointer; white-space:nowrap; }
+  .hbtn i { display:inline-block; width:8px; height:8px; border-radius:50%; border:2px solid; margin-right:6px; vertical-align:-1px; box-sizing:content-box; }
+  .hbtn[aria-pressed="true"] { border-color:var(--link); color:var(--link); font-weight:600; }
+  #cvv { padding:8px 10px 2px; } .cvv-item + .cvv-item { margin-top:10px; }
+  .cvv-lab { display:flex; align-items:center; gap:6px; font-size:12.5px; font-weight:600; margin:0 2px 5px; }
+  .cvv-lab i { display:inline-block; width:8px; height:8px; border-radius:50%; border:2px solid; box-sizing:content-box; }
+  .takes { display:inline-flex; border:1px solid var(--line); border-radius:6px; overflow:hidden; }
+  .takes a { font-size:13px; padding:4px 11px; color:var(--text); text-decoration:none; background:var(--card); }
+  .takes a + a { border-left:1px solid var(--line); } .takes a small { color:var(--dim); margin-left:4px; }
+  .takes a[aria-current="page"] { background:var(--link); color:#fff; } .takes a[aria-current="page"] small { color:rgba(255,255,255,.8); }
+</style></head><body><main>
+<div class="top"><a class="back" href="../">← HiLoTaH pipeline</a> <a class="back" href="../touchscale/">CV baselines on TouchScale →</a><h1>Ours vs VITRA in 3D</h1><div class="takes" role="group" aria-label="Take"><a href="../baseline/">Oct 25<small>17:42 · older gloves</small></a><a href="../baseline_1105/">Nov 5<small>19:11 · clear cups</small></a><a href="../baseline_1105b/" aria-current="page">Nov 5<small>20:32 · cotton</small></a></div><div class="parts" role="group" aria-label="Part"><button type="button" data-part="part1" aria-pressed="true">Part 1<small>take 271.87 – 282.27 s</small></button><button type="button" data-part="part2" aria-pressed="false">Part 2<small>take 282.37 – 292.77 s</small></button><button type="button" data-part="part3" aria-pressed="false">Part 3<small>take 292.87 – 303.27 s</small></button><button type="button" data-part="part4" aria-pressed="false">Part 4<small>take 303.37 – 313.77 s</small></button><button type="button" data-part="part5" aria-pressed="false">Part 5<small>take 313.87 – 324.27 s</small></button></div></div>
+<div class="syncbar"><button id="syncPlay" type="button">▶  play both</button><input id="syncRange" type="range" min="0" max="10" step="0.01" value="0">
+<span id="syncTime"></span><span>· turn or zoom either 3D view, the other follows · the videos follow the same timeline</span></div>
+<div class="legend"><span><b>Ours:</b> <i style="background:#00c850"></i>glove hand, green mesh <i style="background:#ffe100;margin-left:6px"></i>yellow keypoints</span>
+<span><b>VITRA:</b> <i style="background:#eb2323"></i>its hand (HaWoR), red mesh <i style="background:#00e1ff;margin-left:6px"></i>cyan keypoints</span></div>
+<div class="two grid3"><div class="view touch"><div class="bar"><div><b>Touch</b> <span>both gloves</span></div><span class="tmode" role="group" aria-label="Taxels"><button type="button" data-tmode="filtered" aria-pressed="true">filtered</button><button type="button" data-tmode="filled" aria-pressed="false">filled</button><button type="button" data-tmode="raw" aria-pressed="false">raw</button></span></div><div id="touch"></div></div>
+<div class="col"><div class="view"><div class="bar"><div><b>Ours</b> <span>our point cloud and glove hand</span></div>
+<a id="fullA" href="#" target="_blank" rel="noopener">full screen ↗</a></div><div class="hbar"><span title="a button shows that method&#39;s hand in our point cloud; the last one picked is also shown on the right, in VITRA&#39;s world">baselines:</span><button type="button" class="hbtn" data-node="/vitra_hand" data-key="vitra" aria-pressed="false" title="VITRA's hand (HaWoR): its hand in our point cloud (true camera, our camera pose), and on the right"><i style="background:#eb2323;border-color:#00e1ff"></i>VITRA</button><button type="button" class="hbtn" data-node="/wilor_hand" data-key="wilor" aria-pressed="false" title="WiLoR (oracle boxes): its hand in our point cloud (true camera, our camera pose), and on the right"><i style="background:#2864ff;border-color:#ffa000"></i>WiLoR</button><button type="button" class="hbtn" data-node="/hamer_hand" data-key="hamer" aria-pressed="false" title="HaMeR (oracle boxes): its hand in our point cloud (true camera, our camera pose), and on the right"><i style="background:#aa3ce6;border-color:#ffffff"></i>HaMeR</button><button type="button" class="hbtn" data-node="/fact_hand" data-key="fact" aria-pressed="false" title="the FACT-style variant (ViTPose boxes, depth anchor): its hand in our point cloud (true camera, our camera pose), and on the right"><i style="background:#ff69b4;border-color:#141e78"></i>FACT-style</button></div><iframe id="viserA" title="Ours" allowfullscreen></iframe></div>
+<div class="view"><div class="bar"><div><b>Camera views with the fitted hand</b> <span>head camera (left) · left and right wrist cameras (right) · 30 fps</span></div></div>
+<div id="m3v"></div></div></div>
+<div class="col"><div class="view"><div class="bar"><div><b id="titleB">VITRA</b> <span id="subB">its own point cloud, camera and hand (HaWoR), in its own world</span></div>
+<a id="fullB" href="#" target="_blank" rel="noopener">full screen ↗</a></div><iframe id="viserB" title="VITRA" allowfullscreen></iframe></div>
+<div class="view"><div class="bar"><div><b id="cvvTitle">Head camera with the VITRA hand</b> <span>mesh, skeleton and keypoints of the baselines picked above (VITRA when none) · 30 fps</span></div></div>
+<div id="cvv"></div></div></div>
+</div>
+</main><script src="sync.js"></script><script src="tactile.js"></script><script src="camsync.js"></script><script src="cvtoggle.js"></script><script src="media/mano3view/mano3view.js"></script><script>
+const OFF = {"part1": 0.1983, "part2": 0.1059, "part3": 0.0801, "part4": 0.1878, "part5": 0.1288}, OFFC = {"part1": 0.1983, "part2": 0.1059, "part3": 0.0801, "part4": 0.1878, "part5": 0.1288};
+let cur = 'part1', cam = null, camGen = 0;
+async function mountCam(k) { const my = ++camGen; cam = null;
+  const p = await Mano3V.mount(document.getElementById('m3v'), 'media/mano3view/', k, { key: 'best', controls: false });
+  if (my === camGen) cam = p; }
+function show(k) { cur = k; for (const [w, f, l] of [['ours', 'viserA', 'fullA'], ['baseline', 'viserB', 'fullB']]) {
+    const src = '../../viser-client/index.html?playbackPath=' + encodeURIComponent('../pipeline/baseline_1105b/recordings/2026-11-05_2032_' + k + '_' + w + '.viser');
+    document.getElementById(f).src = src; document.getElementById(l).href = src; }
+  { const v2 = document.getElementById('v2d'); if (v2) v2.src = 'media/' + k + '_2d.mp4'; } window.SYNC_OFFSET = OFF[k] || 0; if (window.Touch) Touch.setPart(k);
+  if (window.__viserSync) window.__viserSync.reset(); if (window.__viserCamSync) window.__viserCamSync.reset();
+  document.querySelectorAll('.parts button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.part === k)));
+  mountCam(k); }
+// camera views follow the 3D timeline (seconds from the first 3D frame; the player counts from its segment start)
+function follow() {
+  const S = window.__viserSync, c = S && (S.ctl(0) || S.ctl(1));
+  if (cam && c) {
+    const o = OFFC[cur] || 0, end = cam.realDuration - 1e-3;
+    if (c.playing) { const t = Math.min(Math.max(0, c.t + o), end); if (cam.video.playbackRate !== (c.rate || 1)) cam.video.playbackRate = c.rate || 1;   // the 3D view's speed
+      if (cam.video.paused) cam.play(); if (Math.abs(cam.realTime() - t) > 0.25) cam.seekReal(t); cam.lastT = null; }
+    else { if (!cam.video.paused) cam.pause(); const t = Math.min(Math.max(0, Math.floor(c.t / 0.2 + 1e-6) * 0.2 + o), end);
+      if (t !== cam.lastT || Math.abs(cam.realTime() - t) > 0.1) { cam.seekReal(t); cam.lastT = t; } }
+  }
+  requestAnimationFrame(follow);
+}
+requestAnimationFrame(follow);
+if (window.Touch) Touch.mount(document.getElementById('touch'), 'tactile/');
+document.querySelectorAll('.parts button').forEach((b) => (b.onclick = () => show(b.dataset.part))); show('part1');
+</script></body></html>
