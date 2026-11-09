@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MuJoCo 4.0 触觉手仿真</title>
+<style>
+  :root { --bg: #f6f6f4; --fg: #1d1d1b; --mut: #66655f; --card: #ffffff; --line: #e2e1dc; --acc: #c2410c; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #161615; --fg: #ecebe6; --mut: #a3a29b; --card: #20201e; --line: #34332f; --acc: #fb923c; } }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.6 -apple-system, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; }
+  main { max-width: 1180px; margin: 0 auto; padding: 28px 16px 60px; }
+  h1 { font-size: 24px; margin: 0 0 6px; }
+  .lede { color: var(--mut); margin: 0 0 22px; max-width: 900px; }
+  section { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px; margin: 0 0 18px; }
+  h2 { font-size: 18px; margin: 0 0 10px; }
+  video { width: 100%; height: auto; display: block; border-radius: 6px; background: #000; }
+  ul { margin: 10px 0 0; padding-left: 20px; }
+  li { margin: 3px 0; }
+  .num { font-variant-numeric: tabular-nums; color: var(--acc); font-weight: 600; }
+  .note { color: var(--mut); font-size: 14px; }
+  code { font-size: 13px; background: color-mix(in srgb, var(--line) 60%, transparent); padding: 1px 5px; border-radius: 4px; }
+</style>
+</head>
+<body>
+<main>
+<h1>MuJoCo 4.0 触觉手仿真（第一版）</h1>
+<p class="lede">右手 MANO 手（16 节刚体），手套 24×31 网格上的 534 个点位按网页 hand view 同一套映射贴到手表面，每个点由 MuJoCo 4.0 自带的 tactile 传感器读出"压进物体的深度"，再经过一个占位的手套响应（软层扩散 + 饱和，还没用真实数据标定）变成 0–1 的读数。左边是仿真画面（点的颜色 = 读数），右边是同一时刻手套网格图（和网页上真实数据的网格同一个布局：掌心视角，左小指右拇指）。</p>
+
+<section>
+<h2>1. 抓瓶子、拿起、放下</h2>
+<video src="mj_power.mp4" controls muted loop playsinline preload="metadata"></video>
+<ul>
+<li>瓶子抬起 <span class="num">118 mm</span>（指令 120 mm，手里滑了 1.7 mm），空中握住时总接触力 <span class="num">28 N</span>。</li>
+<li>亮的是四指指尖和拇指指尖（拇指 14 N，食/中/无名各约 4.4 N）。这个脚本抓法下掌心几乎不受力：手指只绕到瓶子侧面，主要靠"指尖对拇指"夹住。</li>
+</ul>
+</section>
+
+<section>
+<h2>2. 三指拧瓶盖（拧 3 次）</h2>
+<video src="mj_twist.mp4" controls muted loop playsinline preload="metadata"></video>
+<ul>
+<li>手每次转 90°，瓶盖一共转了 <span class="num">303°</span>，按螺纹（2.7 mm/圈）升起 <span class="num">2.3 mm</span>；瓶身由"另一只手"（软约束）固定。</li>
+<li>拧的时候只有拇指、食指、中指指尖亮，每指 <span class="num">4–5 N</span>，掌心和无名指、小指为 0。</li>
+</ul>
+</section>
+
+<section>
+<h2>3. 桌面按压（就是要录的标定动作）</h2>
+<video src="mj_press.mp4" controls muted loop playsinline preload="metadata"></video>
+<ul>
+<li>手掌平按：先着桌的是大鱼际（拇指根部那块肉，MANO 里它比掌心低约 5 mm），一共 <span class="num">42</span> 个点亮（掌心区 15 个、拇指/大鱼际区 27 个）。</li>
+<li>指尖按：食指、中指指腹亮（各 3–4 个点），其他为 0。</li>
+<li>这一段就是之后用真实手套数据标定的对照：同样的动作录一遍，拿真实网格图去拟合"深度 → 读数"的参数。</li>
+</ul>
+</section>
+
+<section>
+<h2>说明</h2>
+<ul class="note">
+<li>手是"焊在目标位姿上的 16 个刚体"（MuJoCo mocap + 软 weld），由脚本给目标；抓握用简单的"按力闭合"控制（手指沿规划的包络弯曲，压到 4 N 停）。还没有接学到的 policy。</li>
+<li>读数模型是占位的：读数 = 1 − exp(−深度 / 1.5 mm)，加 2.5 mm 的软层扩散；没有偏置、噪声和坏点。等桌面按压数据录好后标定。</li>
+<li>MuJoCo 的 tactile 还能给每个点的滑动速度，但我们的手套只测压力，所以没用。</li>
+<li>代码：<code>../mj_tactile_hand.py</code>（手和触觉）、<code>../mj_bottle_scene.py</code>（瓶子、瓶盖、抓取规划）、<code>../mj_demo_bottle.py</code>（三个演示、视频、统计 <code>results/mujoco_tactile/summary.json</code>）。</li>
+</ul>
+</section>
+</main>
+</body>
+</html>
