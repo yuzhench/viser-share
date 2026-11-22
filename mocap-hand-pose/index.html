@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Optical-mocap hand pose</title>
+<style>
+  body { font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; margin:28px auto; max-width:1180px; padding:0 16px; background:#fafafa; color:#222; }
+  h1 { font-size:22px; } h2 { font-size:18px; margin-top:38px; border-bottom:2px solid #ddd; padding-bottom:4px; }
+  .meta { font-size:13.5px; color:#555; line-height:1.6; }
+  .tablewrap { overflow-x:auto; }
+  table { border-collapse:collapse; font-size:13.5px; margin:10px 0; }
+  td,th { border:1px solid #ccc; padding:5px 10px; vertical-align:top; text-align:left; }
+  th { background:#eef1f5; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:14px; margin-top:10px; }
+  .grid.wide { grid-template-columns:repeat(auto-fill,minmax(440px,1fr)); }
+  figure { margin:0; background:#fff; border:1px solid #e0e3e8; border-radius:8px; padding:8px; }
+  video { width:100%; display:block; border-radius:5px; background:#000; }
+  figcaption { font-size:12.5px; color:#444; margin-top:6px; line-height:1.5; }
+  .legend { font-size:13.5px; background:#f4f7fb; border-left:3px solid #7fa8e8; border-radius:0 6px 6px 0; padding:8px 12px; margin:8px 0; line-height:1.6; }
+  a { color:#1F6B58; } .nav { font-size:13.5px; margin-bottom:6px; }
+  @media (max-width:520px) { .grid, .grid.wide { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<div class="nav"><a href="#arctic">ARCTIC</a> · <a href="#oakink2">OakInk2</a> · <a href="#hot3d">HOT3D</a></div>
+<h1>Optical-mocap hand pose: ARCTIC / OakInk2 / HOT3D</h1>
+<p class="meta">Three datasets whose hand pose comes from <b>marker-based optical motion capture</b>. Each video is the dataset's first-person camera with the dataset's hand pose projected onto the image as a 21-joint skeleton, both hands.<br>
+The clips are taken from the source sequences. The skeleton shows joint positions only; wrist and finger rotations are not drawn. In all three datasets the hands carry mocap markers, so they are not bare hands.</p>
+
+<div class="tablewrap"><table>
+<tr><th>Dataset</th><th>Hand pose source</th><th>Source data</th><th>After cutting into episodes</th><th>On this page</th></tr>
+<tr><td><b>ARCTIC</b></td><td>Vicon optical mocap (60 Hz), markers on the hands</td><td>301 sequences · 9 subjects · 11 objects · 2.3 h · video at 30 fps</td><td>12,610 episodes</td><td>6 full sequences</td></tr>
+<tr><td><b>OakInk2</b></td><td>Multi-camera optical mocap, markers on the hands</td><td>2,504 converted sequences, 626 of them first-person (25.0%) · video at 30 fps</td><td>29,058 episodes</td><td>16 first-person sequences</td></tr>
+<tr><td><b>HOT3D</b></td><td>Optical mocap, 19 markers per hand</td><td>3.9 h · two devices: Aria glasses (colour) and Quest 3 headset (monochrome), about 57% / 43% of the clips</td><td>18,805 episodes</td><td>9 atomic-action clips</td></tr>
+</table></div>
+
+<h2 id="arctic">ARCTIC</h2>
+<div class="legend">Green = right hand · blue = left hand · red dots = the 21 joints. Real-time playback at 30 fps, full sequences. Projection chain: MANO forward kinematics → world to first-person camera → lens distortion → intrinsics.<br>
+Frames with the wrist outside the image are at the start and end of a sequence, before the hands enter or after they leave the view.</div>
+<div class="grid wide">
+<figure><video src="media/arctic/s09_ketchup_use_04.mp4" poster="media/arctic/s09_ketchup_use_04.jpg" preload="none" controls loop muted playsinline></video><figcaption><b>s09 / ketchup_use_04</b> · 601 frames (20.0 s)<br>squeezing a ketchup bottle · wrist inside the image: right 94%, left 95%</figcaption></figure>
+<figure><video src="media/arctic/s08_waffleiron_use_04.mp4" poster="media/arctic/s08_waffleiron_use_04.jpg" preload="none" controls loop muted playsinline></video><figcaption><b>s08 / waffleiron_use_04</b> · 1040 frames (34.7 s)<br>opening and closing a waffle iron · wrist inside the image: right 94%, left 93%</figcaption></figure>
+<figure><video src="media/arctic/s06_microwave_use_02.mp4" poster="media/arctic/s06_microwave_use_02.jpg" preload="none" controls loop muted playsinline></video><figcaption><b>s06 / microwave_use_02</b> · 965 frames (32.2 s)<br>opening and closing a microwave · wrist inside the image: right 94%, left 94%</figcaption></figure>
+<figure><video src="media/arctic/s02_scissors_use_02.mp4" poster="media/arctic/s02_scissors_use_02.jpg" preload="none" controls loop muted playsinline></video><figcaption><b>s02 / scissors_use_02</b> · 797 frames (26.6 s)<br>using scissors · wrist inside the image: right 91%, left 91%</figcaption></figure>
+<figure><video src="media/arctic/s01_mixer_use_02.mp4" poster="media/arctic/s01_mixer_use_02.jpg" preload="none" controls loop muted playsinline></video><figcaption><b>s01 / mixer_use_02</b> · 799 frames (26.6 s)<br>operating a mixer · wrist inside the image: right 90%, left 88%</figcaption></figure>
+<figure><video src="media/arctic/s04_laptop_use_01.mp4" poster="media/arctic/s04_laptop_use_01.jpg" preload="none" controls loop muted playsinline></video><figcaption><b>s04 / laptop_use_01</b> · 941 frames (31.4 s)<br>opening and closing a laptop · wrist inside the image: right 86%, left 93%</figcaption></figure>
+</div>
+
+<h2 id="oakink2">OakInk2</h2>
+<div class="legend">Each clip draws two projection chains: green = camera-space joints through the intrinsics; magenta = world-space joints through the extrinsics, then the intrinsics. The two differ by 0.00 px on all 16 clips, so the colours overlap.<br>
+Every 4th frame is shown at 20 fps, about 2.7× real time. The text at the top of each video is the renderer's own header (sequence name and frame counter).</div>
+<div class="grid">
+<figure><video src="media/oakink2/scene01_0b3a0a3d.mp4" poster="media/oakink2/scene01_0b3a0a3d.jpg" preload="none" controls loop muted playsinline></video><figcaption><b>Prepare a savory fruit salad.</b><br>scene 01 · source sequence 3,866 frames (128.9 s)<br>joints inside the image: 95%</figcaption></figure>
+<figure><video src="media/oakink2/scene01_75b94372.mp4" poster="media/oakink2/scene01_75b94372.jpg" preload="none" controls loop muted playsinline></video><figcaption><b>Prepare a cup of mixed flavor fruit juice.</b><br>scene 01 · source sequence 4,362 frames (145.4 s)<br>joints inside the image: 86%</figcaption></figure>
+<figure><video src="media/oakink2/scene01_4e9026b0.mp4" poster="media/oakink2/scene01_4e9026b0.jpg" preload="none" controls loop muted playsinline></video><figcaption><b>Pour something from the mug to the bowl.</b><br>scene 01 · source sequence 619 frames (20.6 s)<br>joints inside the image: 95%</figcaption></figure>
+<figure><video src="media/oakink2/scene01_22db0324.mp4" poster="media/oakink2/scene01_22db0324.jpg" preload="none" controls loop muted playsinline></video><figcaption><b>Wipe the plate.</b><br>scene 01 · source sequence 946 frames (31.5 s)<br>joints inside the image: 94%</figcaption></figure>
+<figure><video src="media/oakink2/scene02_3599b996.mp4" poster="media/oakink2/scene02_3599b996.jpg" preload="none" controls loop muted playsinline></video><figcaption><b>Remove usb.</b><br>scene 02 · source sequence 793 frames (26.4 s)<br>joints inside the image: 100%</figcaption></figure>
+<figure><video src="media/oakink2/scene02_49fa85b2.mp4" poster="media/oakink2/scene02_49fa85b2.jpg" preload="none" controls loop muted playsinline></video><figcaption><b>Sharpen pencil.</b><br>scene 02 · source sequence 1,647 frames (54.9 s)<br>joints inside the image: 89%</figcaption></figure>
+<figure><video src="media/oakink2/scene02_0326b050.mp4" poster="media/oakink2/scene02_0326b050.jpg" preload="none" controls loop muted playsinline></video><figcaption><b>Insert usb.</b><br>scene 02 · source sequence 663 frames (22.1 s)<br>joints inside the image: 98%</figcaption></figure>
+<figure><video src="media/oakink2/scene02_40952561.mp4" poster="media/oakink2/scene02_40952561.jpg" preload="none" controls loop muted playsinline></video><figcaption><b>Remove power plug.</b><br>scene 02 · source sequence 643 frames (21.4 s)<br>joints inside the image: 97%</figcaption></figure>
+<figure><video src="media/oakink2/scene03_6ece6fbe.mp4" poster="media/oakink2/scene03_6ece6fbe.jpg" preload="none" controls loop muted playsinline></video><figcaption><b>Pour experiment substances into one test tube, pour experiment substances betwee</b><br>scene 03 · source sequence 1,743 frames (58.1 s)<br>joints inside the image: 100%</figcaption></figure>
+<figure><video src="media/oakink2/scene03_122ba05c.mp4" poster="media/oakink2/scene03_122ba05c.jpg" preload="none" controls loop muted playsinline></video><figcaption><b>Pour experiment substances between the beaker and the test tube.</b><br>scene 03 · source sequence 854 frames (28.5 s)<br>joints inside the image: 87%</figcaption></figure>
+<figure><video src="media/oakink2/scene03_897d8d92.mp4" poster="media/oakink2/scene03_897d8d92.jpg" preload="none" controls loop muted playsinline></video><figcaption><b>Put off the alcohol burner.</b><br>scene 03 · source sequence 333 frames (11.1 s)<br>joints inside the image: 100%</figcaption></figure>
+<figure><video src="media/oakink2/scene03_20aed35d.mp4" poster="media/oakink2/scene03_20aed35d.jpg" preload="none" controls loop muted playsinline></video><figcaption><b>Put off the alcohol burner.</b><br>scene 03 · source sequence 573 frames (19.1 s)<br>joints inside the image: 99%</figcaption></figure>
+<figure><video src="media/oakink2/scene04_8371a637.mp4" poster="media/oakink2/scene04_8371a637.jpg" preload="none" controls loop muted playsinline></video><figcaption><b>Squeeze tooth paste.</b><br>scene 04 · source sequence 872 frames (29.1 s)<br>joints inside the image: 93%</figcaption></figure>
+<figure><video src="media/oakink2/scene04_d41bc193.mp4" poster="media/oakink2/scene04_d41bc193.jpg" preload="none" controls loop muted playsinline></video><figcaption><b>Squeeze tooth paste.</b><br>scene 04 · source sequence 779 frames (26.0 s)<br>joints inside the image: 87%</figcaption></figure>
+<figure><video src="media/oakink2/scene04_a669eecc.mp4" poster="media/oakink2/scene04_a669eecc.jpg" preload="none" controls loop muted playsinline></video><figcaption><b>Place tooth brush in place after brushing.</b><br>scene 04 · source sequence 279 frames (9.3 s)<br>joints inside the image: 60%</figcaption></figure>
+<figure><video src="media/oakink2/scene04_ff070467.mp4" poster="media/oakink2/scene04_ff070467.jpg" preload="none" controls loop muted playsinline></video><figcaption><b>Place tooth brush in place for brushing.</b><br>scene 04 · source sequence 236 frames (7.9 s)<br>joints inside the image: 75%</figcaption></figure>
+</div>
+
+<h2 id="hot3d">HOT3D</h2>
+<div class="legend">Green = camera-space joints through the intrinsics; magenta = world-space joints through the extrinsics, then the intrinsics; the largest difference between the two is 5.7e-04 px.<br>
+Every frame is shown at 20 fps, about 0.67× real time. Aria clips are colour (1408×1408); the Quest 3 tracking cameras are monochrome (1024×1280).<br>
+In P0003_5766eae8, 72% of joints inside the image means the hand is partly out of view.</div>
+<div class="grid">
+<figure><video src="media/hot3d/P0003_1fa0bb65_left_000053.mp4" poster="media/hot3d/P0003_1fa0bb65_left_000053.jpg" preload="none" controls loop muted playsinline></video><figcaption><b>P0003_1fa0bb65</b> · Aria (colour)<br>52 frames · joints inside the image: 97%</figcaption></figure>
+<figure><video src="media/hot3d/P0003_5766eae8_right_000012.mp4" poster="media/hot3d/P0003_5766eae8_right_000012.jpg" preload="none" controls loop muted playsinline></video><figcaption><b>P0003_5766eae8</b> · Aria (colour)<br>44 frames · joints inside the image: 72%</figcaption></figure>
+<figure><video src="media/hot3d/P0003_743d3087_right_000071.mp4" poster="media/hot3d/P0003_743d3087_right_000071.jpg" preload="none" controls loop muted playsinline></video><figcaption><b>P0003_743d3087</b> · Aria (colour)<br>24 frames · joints inside the image: 92%</figcaption></figure>
+<figure><video src="media/hot3d/P0002_210fc0da_right_000035.mp4" poster="media/hot3d/P0002_210fc0da_right_000035.jpg" preload="none" controls loop muted playsinline></video><figcaption><b>P0002_210fc0da</b> · Quest 3 (monochrome)<br>43 frames · joints inside the image: 100%</figcaption></figure>
+<figure><video src="media/hot3d/P0002_28bcd2d9_left_000011.mp4" poster="media/hot3d/P0002_28bcd2d9_left_000011.jpg" preload="none" controls loop muted playsinline></video><figcaption><b>P0002_28bcd2d9</b> · Quest 3 (monochrome)<br>46 frames · joints inside the image: 100%</figcaption></figure>
+<figure><video src="media/hot3d/P0002_39fbd23d_right_000077.mp4" poster="media/hot3d/P0002_39fbd23d_right_000077.jpg" preload="none" controls loop muted playsinline></video><figcaption><b>P0002_39fbd23d</b> · Quest 3 (monochrome)<br>53 frames · joints inside the image: 100%</figcaption></figure>
+<figure><video src="media/hot3d/P0003_20a97e64_left_000012.mp4" poster="media/hot3d/P0003_20a97e64_left_000012.jpg" preload="none" controls loop muted playsinline></video><figcaption><b>P0003_20a97e64</b> · Quest 3 (monochrome)<br>75 frames · joints inside the image: 99%</figcaption></figure>
+<figure><video src="media/hot3d/P0003_5e1a34f8_left_000008.mp4" poster="media/hot3d/P0003_5e1a34f8_left_000008.jpg" preload="none" controls loop muted playsinline></video><figcaption><b>P0003_5e1a34f8</b> · Quest 3 (monochrome)<br>60 frames · joints inside the image: 100%</figcaption></figure>
+<figure><video src="media/hot3d/P0003_63305f3a_right_000020.mp4" poster="media/hot3d/P0003_63305f3a_right_000020.jpg" preload="none" controls loop muted playsinline></video><figcaption><b>P0003_63305f3a</b> · Quest 3 (monochrome)<br>45 frames · joints inside the image: 93%</figcaption></figure>
+</div>
+</body>
+</html>
